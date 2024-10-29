@@ -1,0 +1,9 @@
+[
+  {
+    "_id": "64fd8dc150ea59d6d8236dc8",
+    "name": "Admin",
+    "email": "test-admin@tripluch.fr",
+    "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
+    "isAdmin": true
+  }
+]

@@ -1,26 +1,48 @@
 {
-  "name": "acess-collect",
+  "name": "access-collect",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "start:test": "cross-env NODE_ENV=test next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "db:up": "cd docker && docker compose up -d",
+    "db:down": "cd docker && docker compose down",
+    "db:generate": "npx drizzle-kit generate",
+    "db:migrate": "npx drizzle-kit migrate",
+    "db:seed": "node --import=tsx --env-file=.env.development src/lib/scripts/seed.ts",
+    "db:drop_all": "node --import=tsx --env-file=.env.development src/lib/database/seed/drop_all.ts",
+    "db:studio": "npx drizzle-kit studio",
+    "seed": "tsx --require dotenv/config src/lib/scripts/seed.ts"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "^1.7.1",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.35.3",
+    "next": "14.2.16",
+    "pg": "^8.13.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.16"
+    "tsx": "^4.19.1"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
+    "@types/pg": "^8.11.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "drizzle-dbml-generator": "^0.9.0",
+    "drizzle-kit": "^0.26.2",
     "eslint": "^8",
-    "eslint-config-next": "14.2.16"
+    "eslint-config-next": "14.2.16",
+    "postcss": "^8",
+    "prettier": "3.3.3",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5"
   }
 }
