@@ -8,11 +8,12 @@ import {
 import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { organisation } from "./organisation";
 import { collectedData } from "./collectedData";
+import { register } from "module";
 
 export const vehicle = pgTable("vehicles", {
   id: serial("id").primaryKey(),
   label: varchar("label").notNull(),
-  immatriculation: varchar("immatriculation").unique().notNull(),
+  registration: varchar("registration").unique().notNull(),
   organisationId: integer("organisationId"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow(),

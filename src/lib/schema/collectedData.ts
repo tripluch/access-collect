@@ -21,7 +21,7 @@ export const collectedData = pgTable("collectedData", {
   updatedAt: timestamp("updatedAt").defaultNow(),
 });
 
-export const collectedDatasRelations = relations(collectedData, ({ one }) => ({
+export const collectedDataRelations = relations(collectedData, ({ one }) => ({
   waste: one(waste, {
     fields: [collectedData.wasteId],
     references: [waste.id],
