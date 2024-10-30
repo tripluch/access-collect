@@ -1,7 +1,8 @@
 import { pgEnum, pgTable , serial , varchar , timestamp, integer } from "drizzle-orm/pg-core";
 import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
-import { user } from "./users";
+import { user } from "./user";
 import { organisation } from "./organisation"; 
+import { collectedData } from "./collectedData";
 
 
 
@@ -18,7 +19,7 @@ export const collectPoint = pgTable("collectPoint", {
     updatedAt: timestamp("updatedAt").defaultNow()
 })
 
-export const collectPointRelations = relations(collectPoint, ({ one }) => ({
+export const collectPointRelations = relations(collectPoint, ({ one, many }) => ({
     client: one(user, {
         fields: [collectPoint.clientId],
         references: [user.id],
@@ -26,7 +27,8 @@ export const collectPointRelations = relations(collectPoint, ({ one }) => ({
     organisation: one(organisation, {
         fields: [collectPoint.organisationId],
         references: [organisation.id]
-    })
+    }),
+    collectedData: many(collectedData)
   }));
 
 export type NewCollectPoint = InferInsertModel<typeof collectPoint>;

@@ -1,7 +1,7 @@
 import { pgTable , serial , varchar , timestamp } from "drizzle-orm/pg-core";
 import { InferInsertModel, InferSelectModel, relations} from "drizzle-orm";
 import { collectPoint } from "./collectPoint";
-import { user } from "./users";
+import { user } from "./user";
 import { vehicle } from "./vehicle";
 
 export const organisation = pgTable("organisation", {

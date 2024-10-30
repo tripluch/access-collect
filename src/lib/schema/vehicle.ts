@@ -1,6 +1,7 @@
 import { pgTable , serial , varchar , timestamp , integer } from "drizzle-orm/pg-core";
 import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { organisation } from "./organisation";
+import { collectedData } from "./collectedData";
 
 export const vehicle = pgTable("vehicles", {
     id: serial("id").primaryKey(),
@@ -11,11 +12,12 @@ export const vehicle = pgTable("vehicles", {
     updatedAt: timestamp("updatedAt").defaultNow()
   });
 
-export const vehiclesRelations = relations(vehicle, ({ one }) => ({
+export const vehiclesRelations = relations(vehicle, ({ one, many }) => ({
   organisation: one(organisation, {
     fields: [vehicle.organisationId],
     references: [organisation.id]
-  })
+  }),
+  collectedData: many(collectedData)
 }));
 
 export type NewVehicles = InferInsertModel<typeof vehicle>;
