@@ -1,7 +1,7 @@
 import {
   pgTable,
   text,
-  timestamp,
+  date,
   integer,
   decimal,
 } from "drizzle-orm/pg-core";
@@ -9,6 +9,7 @@ import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { waste } from "./waste";
 import { containing } from "./containing";
 import { collectPoint } from "./collectPoint";
+
 
 export const collectedData = pgTable("collectedData", {
   id: text("id")
@@ -19,8 +20,8 @@ export const collectedData = pgTable("collectedData", {
   quantity: integer("quantity"),
   weight: decimal("weight"),
   collectPointId: integer("collectPointId"),
-  createdAt: timestamp("createdAt").defaultNow().notNull(),
-  updatedAt: timestamp("updatedAt").defaultNow(),
+  createdAt: date("createdAt").notNull(),
+  updatedAt: date("updatedAt"),
 });
 
 export const collectedDataRelations = relations(collectedData, ({ one }) => ({
