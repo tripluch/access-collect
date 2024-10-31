@@ -15,7 +15,9 @@ export const vehicle = pgTable("vehicles", {
     .$defaultFn(() => crypto.randomUUID()),
   label: varchar("label").notNull(),
   registration: varchar("registration").unique().notNull(),
-  organisationId: integer("organisationId"),
+  organisationId: integer("organisationId")
+    .references(() => organisation.id, { onDelete: "cascade" })
+    .notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow(),
 });

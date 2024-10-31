@@ -26,8 +26,12 @@ export const collectPoint = pgTable("collectPoint", {
   name: varchar("name").notNull(),
   address: varchar("adress").notNull(),
   daysOfCollect: daysEnum().notNull(),
-  clientId: integer("user_id"),
-  organisationId: integer("organisationId"),
+  clientId: integer("user_id")
+    .references(() => user.id, { onDelete: "cascade" })
+    .notNull(),
+  organisationId: integer("organisationId")
+    .references(() => organisation.id, { onDelete: "cascade" })
+    .notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow(),
 });

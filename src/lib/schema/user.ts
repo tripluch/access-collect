@@ -26,7 +26,9 @@ export const user = pgTable("user", {
   password: varchar("password").notNull(),
   role: rolesEnum().notNull(),
   clientPhone: varchar("clientPhone"),
-  organisationId: integer("organisationId"),
+  organisationId: integer("organisationId")
+    .references(() => organisation.id, { onDelete: "cascade" })
+    .notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow(),
 });
