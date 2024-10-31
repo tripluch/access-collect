@@ -1,6 +1,6 @@
 import {
   pgTable,
-  serial,
+  text,
   varchar,
   timestamp,
   integer,
@@ -8,10 +8,11 @@ import {
 import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { organisation } from "./organisation";
 import { collectedData } from "./collectedData";
-import { register } from "module";
 
 export const vehicle = pgTable("vehicles", {
-  id: serial("id").primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   label: varchar("label").notNull(),
   registration: varchar("registration").unique().notNull(),
   organisationId: integer("organisationId"),

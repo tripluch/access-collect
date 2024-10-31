@@ -1,6 +1,6 @@
 import {
   pgTable,
-  serial,
+  text,
   timestamp,
   integer,
   decimal,
@@ -11,7 +11,9 @@ import { containing } from "./containing";
 import { collectPoint } from "./collectPoint";
 
 export const collectedData = pgTable("collectedData", {
-  id: serial("id").primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   wasteId: integer("wasteId"),
   containingId: integer("containingId"),
   quantity: integer("quantity"),

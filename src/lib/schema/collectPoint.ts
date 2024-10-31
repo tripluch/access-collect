@@ -1,7 +1,7 @@
 import {
   pgEnum,
   pgTable,
-  serial,
+  text,
   varchar,
   timestamp,
   integer,
@@ -20,7 +20,9 @@ export const daysEnum = pgEnum("daysOfCollect", [
 ]);
 
 export const collectPoint = pgTable("collectPoint", {
-  id: serial("id").primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   name: varchar("name").notNull(),
   address: varchar("adress").notNull(),
   daysOfCollect: daysEnum().notNull(),

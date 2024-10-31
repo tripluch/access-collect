@@ -14,10 +14,13 @@ const convert = (user: any): Promise<NewUser> => {
   return Promise.resolve({
     id: user.id,
     name: user.name,
-    password: user.password,
     email: user.email,
-    isAdmin: user.type === "Admin",
+    password: user.password,
+    role: user.role,
+    clientPhone: user.clientPhone,
+    organisationId: user.organisationId,
     createdAt: new Date(),
+    updatedAt: new Date(),
   });
 };
 

@@ -1,6 +1,6 @@
 import {
   pgTable,
-  serial,
+  text,
   varchar,
   timestamp,
   integer,
@@ -9,7 +9,9 @@ import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { collectedData } from "./collectedData";
 
 export const containing = pgTable("containing", {
-  id: serial("id").primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   type: varchar("type").notNull(),
   size: integer("size").notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),

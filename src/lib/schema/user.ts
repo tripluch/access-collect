@@ -1,7 +1,7 @@
 import {
   pgEnum,
   pgTable,
-  serial,
+  text,
   varchar,
   timestamp,
   integer,
@@ -18,7 +18,9 @@ export const rolesEnum = pgEnum("role", [
 ]);
 
 export const user = pgTable("user", {
-  id: serial("id").primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   name: varchar("name").notNull(),
   email: varchar("email").notNull().unique(),
   password: varchar("password").notNull(),
