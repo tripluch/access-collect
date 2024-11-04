@@ -1,7 +1,7 @@
 import {
   pgTable,
   text,
-  date,
+  timestamp,
   integer,
   decimal,
 } from "drizzle-orm/pg-core";
@@ -9,19 +9,22 @@ import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { waste } from "./waste";
 import { containing } from "./containing";
 import { collectPoint } from "./collectPoint";
+import { vehicle } from "./vehicle";
 
 
 export const collectedData = pgTable("collectedData", {
   id: text("id")
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
-  wasteId: integer("wasteId"),
-  containingId: integer("containingId"),
+  wasteId: text("wasteId"),
+  containingId: text("containingId"),
   quantity: integer("quantity"),
   weight: decimal("weight"),
-  collectPointId: integer("collectPointId"),
-  createdAt: date("createdAt").notNull(),
-  updatedAt: date("updatedAt"),
+  collectPointId: text("collectPointId"),
+  vehicleId: text("vehicleId")
+  .references(() => vehicle.id),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow(),
 });
 
 export const collectedDataRelations = relations(collectedData, ({ one }) => ({
@@ -37,6 +40,10 @@ export const collectedDataRelations = relations(collectedData, ({ one }) => ({
     fields: [collectedData.collectPointId],
     references: [collectPoint.id],
   }),
+  vehicle: one(vehicle, {
+    fields: [collectedData.vehicleId],
+    references: [vehicle.id],
+  })
 }));
 
 export type NewCollectedData = InferInsertModel<typeof collectedData>;

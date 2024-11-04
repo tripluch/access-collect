@@ -1,5 +1,9 @@
 [
   {
-    "name": "OrganisationTest"
+    "name": "OrganisationTest",
+    "address": "7 rue des Fleurs 75000 Paris",
+    "phoneNumber": "0123456789",
+    "contact": "John Doe",
+    "agrementNumber": "OT-345789567"
   }
 ]

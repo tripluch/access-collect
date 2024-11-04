@@ -13,7 +13,7 @@ export const containing = pgTable("containing", {
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
   type: varchar("type").notNull(),
-  size: integer("size").notNull(),
+  size: varchar("size").notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow(),
 });

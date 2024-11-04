@@ -15,7 +15,7 @@ export const vehicle = pgTable("vehicles", {
     .$defaultFn(() => crypto.randomUUID()),
   label: varchar("label").notNull(),
   registration: varchar("registration").unique().notNull(),
-  organisationId: integer("organisationId")
+  organisationId: text("organisationId")
     .references(() => organisation.id, { onDelete: "cascade" })
     .notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
@@ -30,5 +30,5 @@ export const vehiclesRelations = relations(vehicle, ({ one, many }) => ({
   collectedData: many(collectedData),
 }));
 
-export type NewVehicles = InferInsertModel<typeof vehicle>;
+export type NewVehicle = InferInsertModel<typeof vehicle>;
 export type Vehicles = InferSelectModel<typeof vehicle>;

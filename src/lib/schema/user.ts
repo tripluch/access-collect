@@ -4,7 +4,7 @@ import {
   text,
   varchar,
   timestamp,
-  integer,
+ 
 } from "drizzle-orm/pg-core";
 import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { collectPoint } from "./collectPoint";
@@ -25,8 +25,8 @@ export const user = pgTable("user", {
   email: varchar("email").notNull().unique(),
   password: varchar("password").notNull(),
   role: rolesEnum().notNull(),
-  clientPhone: varchar("clientPhone"),
-  organisationId: integer("organisationId")
+  phone: varchar("phone"),
+  organisationId: text("organisationId")
     .references(() => organisation.id, { onDelete: "cascade" })
     .notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),

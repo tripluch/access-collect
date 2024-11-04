@@ -5,7 +5,7 @@
     "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
     "role": "admin",
     "clientPhone": "NULL",
-    "organisationId": 1
+    "organisationId": ""
   },
 
   {
@@ -23,7 +23,7 @@
     "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
     "role": "collector",
     "clientPhone": "NULL",
-    "organisationId": 1
+    "organisationId": ""
   },
 
   {
@@ -32,6 +32,6 @@
     "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
     "role": "client",
     "clientPhone": "0701010101",
-    "organisationId": 1
+    "organisationId": ""
   }
 ]

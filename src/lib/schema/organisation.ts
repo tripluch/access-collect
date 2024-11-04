@@ -12,7 +12,7 @@ export const organisation = pgTable("organisation", {
   address: varchar("address").notNull(),
   phoneNumber: varchar("phoneNumber").notNull(),
   contact: varchar("contact").notNull(),
-  agrementNumber: varchar("agrementNumer").notNull(),
+  agrementNumber: varchar("agrementNumber").notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow(),
 });

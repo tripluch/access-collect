@@ -26,10 +26,10 @@ export const collectPoint = pgTable("collectPoint", {
   name: varchar("name").notNull(),
   address: varchar("adress").notNull(),
   daysOfCollect: daysEnum().notNull(),
-  clientId: integer("user_id")
+  clientId: text("user_id")
     .references(() => user.id, { onDelete: "cascade" })
     .notNull(),
-  organisationId: integer("organisationId")
+  organisationId: text("organisationId")
     .references(() => organisation.id, { onDelete: "cascade" })
     .notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
