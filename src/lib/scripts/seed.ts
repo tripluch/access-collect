@@ -23,7 +23,7 @@ import wastes from "../local_data/wastes.json";
 import collectedDatas from "../local_data/collectedDatas.json";
 import { db } from "../drizzle";
 import { sql, eq } from "drizzle-orm";
-import { PgTable } from "drizzle-orm/pg-core";
+import { pgTable, PgTable } from "drizzle-orm/pg-core";
 
 const clear = async () => {
   await db.execute(sql`truncate table "organisation" restart identity cascade`);
@@ -37,7 +37,7 @@ const clear = async () => {
   console.log("Cleared tables");
 };
 
-const convertOrganisation = (organisation: any): Promise<NewOrganisation> => {
+const convertOrganisation = async(organisation: any): Promise<NewOrganisation> => {
   return Promise.resolve({
     id: organisation.id,
     name: organisation.name,
@@ -48,9 +48,20 @@ const convertOrganisation = (organisation: any): Promise<NewOrganisation> => {
   });
 };
 
+//work but return a promise not a string
+// const getData = async() => {
+//   const idOrga = (await db.query.organisation.findFirst())?.id;
+//   return idOrga
+// }
+
+// const id = getData().then(idOrga => {
+//   console.log(idOrga)
+// })
+
+// console.log(id)
+
 const convertUser = async (user: any): Promise<NewUser | undefined> => {
   const idOrganisation = (await db.query.organisation.findFirst())?.id;
-
   if (!idOrganisation) {
     console.error(`Organisation not found`);
     return;
@@ -63,7 +74,7 @@ const convertUser = async (user: any): Promise<NewUser | undefined> => {
     password: user.password,
     role: user.role,
     phone: user.clientPhone,
-    organisationId: idOrganisation,
+    organisationId: idOrganisation,//change to id
   });
 };
 
