@@ -1,4 +1,19 @@
-import { collectPoint, NewCollectPoint, NewOrganisation, NewUser, NewVehicle, NewContaining, NewWaste, NewCollectedData, organisation, user, vehicle, containing, waste, collectedData } from "../schema/schema";
+import {
+  collectPoint,
+  NewCollectPoint,
+  NewOrganisation,
+  NewUser,
+  NewVehicle,
+  NewContaining,
+  NewWaste,
+  NewCollectedData,
+  organisation,
+  user,
+  vehicle,
+  containing,
+  waste,
+  collectedData,
+} from "../schema/schema";
 import organisations from "../local_data/organisations.json";
 import users from "../local_data/users.json";
 import vehicles from "../local_data/vehicles.json";
@@ -10,12 +25,17 @@ import { db } from "../drizzle";
 import { sql, eq } from "drizzle-orm";
 import { PgTable } from "drizzle-orm/pg-core";
 
-
 const clear = async () => {
+  await db.execute(sql`truncate table "organisation" restart identity cascade`);
   await db.execute(sql`truncate table "user" restart identity cascade`);
-  console.log("Cleared users");
+  await db.execute(sql`truncate table "waste" restart identity cascade`);
+  await db.execute(sql`truncate table "containing" restart identity cascade`);
+  await db.execute(sql`truncate table "collectPoint" restart identity cascade`);
+  await db.execute(
+    sql`truncate table "collectedData" restart identity cascade`,
+  );
+  console.log("Cleared tables");
 };
-
 
 const convertOrganisation = (organisation: any): Promise<NewOrganisation> => {
   return Promise.resolve({
@@ -25,19 +45,16 @@ const convertOrganisation = (organisation: any): Promise<NewOrganisation> => {
     phoneNumber: organisation.phoneNumber,
     contact: organisation.contact,
     agrementNumber: organisation.agrementNumber,
-    createdAt: new Date(),
-    updatedAt: new Date(),
   });
 };
 
-const convertUser = async (user: any): Promise<NewUser | undefined>  => {
-  
+const convertUser = async (user: any): Promise<NewUser | undefined> => {
   const idOrganisation = (await db.query.organisation.findFirst())?.id;
-  
-  if(!idOrganisation){
+
+  if (!idOrganisation) {
     console.error(`Organisation not found`);
     return;
-  };
+  }
 
   return Promise.resolve({
     id: user.id,
@@ -47,38 +64,41 @@ const convertUser = async (user: any): Promise<NewUser | undefined>  => {
     role: user.role,
     phone: user.clientPhone,
     organisationId: idOrganisation,
-    createdAt: new Date(),
-    updatedAt: new Date(),
   });
 };
 
-const convertVehicle = async (vehicle: any): Promise<NewVehicle | undefined> => {
+const convertVehicle = async (
+  vehicle: any,
+): Promise<NewVehicle | undefined> => {
   const idOrganisation = (await db.query.organisation.findFirst())?.id;
 
-  if(!idOrganisation){
+  if (!idOrganisation) {
     console.error(`Organisation not found`);
     return;
-  };
+  }
 
   return Promise.resolve({
     id: vehicle.id,
     label: vehicle.label,
-    registration:vehicle.registration,
+    registration: vehicle.registration,
     organisationId: idOrganisation,
-    createdAt: new Date(),
-    updatedAt: new Date(),
   });
 };
 
-const convertCollectPoint = async (collectPoint: any): Promise<NewCollectPoint | undefined> => {
+const convertCollectPoint = async (
+  collectPoint: any,
+): Promise<NewCollectPoint | undefined> => {
   const idOrganisation = (await db.query.organisation.findFirst())?.id;
-  const idClient = (await db.select({id: user.id}).from(user).where(eq(user.role, "client")))
-  console.log(idClient)
+  const idClient = await db
+    .select({ id: user.id })
+    .from(user)
+    .where(eq(user.role, "client"));
+  console.log(idClient);
 
-  if(!idOrganisation || !idClient){
-    console.error(`Organisation or client not found`)
+  if (!idOrganisation || !idClient) {
+    console.error(`Organisation or client not found`);
     return;
-  };
+  }
 
   return Promise.resolve({
     id: collectPoint.id,
@@ -87,8 +107,6 @@ const convertCollectPoint = async (collectPoint: any): Promise<NewCollectPoint |
     daysOfCollect: collectPoint.daysOfCollect,
     clientId: idClient[0].id,
     organisationId: idOrganisation,
-    createdAt: new Date(),
-    updatedAt: new Date(),
   });
 };
 
@@ -97,77 +115,68 @@ const convertContaining = async (containing: any): Promise<NewContaining> => {
     id: containing.id,
     type: containing.type,
     size: containing.size,
-    createdAt: new Date(),
-    updatedAt: new Date()
   });
-
 };
 
-const convertWaste = async(waste: any): Promise<NewWaste> => {
+const convertWaste = async (waste: any): Promise<NewWaste> => {
   return Promise.resolve({
     id: waste.id,
     type: waste.type,
-    createdAt: new Date(),
-    updatedAt : new Date()
   });
 };
 
-const convertCollectedDate = async(collectedData: any): Promise<NewCollectedData | undefined> => {
-  const idWaste = (await db.select({id: waste.id}).from(waste));
-  const idContaining = (await db.select({id: containing.id}).from(containing));
-  const idCollectPoint = (await db.select({id: collectPoint.id}).from(collectPoint));
-  const idVehicle = (await db.select({id: vehicle.id}).from(vehicle));
+const convertCollectedData = async (
+  collectedData: any,
+): Promise<NewCollectedData | undefined> => {
+  const idWaste = await db.select({ id: waste.id }).from(waste);
+  const idContaining = await db.select({ id: containing.id }).from(containing);
+  console.log(idContaining);
+  const idCollectPoint = await db
+    .select({ id: collectPoint.id })
+    .from(collectPoint);
+  const idVehicle = await db.select({ id: vehicle.id }).from(vehicle);
 
-  if(!idWaste || !idContaining || !idCollectPoint || !idVehicle){
+  if (!idWaste || !idContaining || !idCollectPoint || !idVehicle) {
     console.error(`Data not found`);
     return;
-  };
+  }
 
-  if(collectedDatas[0]){
+  if (collectedDatas[0] === collectedData) {
     return Promise.resolve({
       id: collectedData.id,
       wasteId: idWaste[0].id,
-      containing: idContaining[0].id,
+      containingId: idContaining[0].id,
       quantity: collectedData.quantity,
       weight: collectedData.quantity,
       collectPointId: idCollectPoint[0].id,
       vehicleId: idVehicle[0].id,
-      createdAt: new Date(),
-      updatedAt: new Date()
     });
-  };
+  }
 
-  if(collectedDatas[1]){
+  if (collectedDatas[1] === collectedData) {
     return Promise.resolve({
       id: collectedData.id,
       wasteId: idWaste[1].id,
-      containing: idContaining[1].id,
+      containingId: idContaining[1].id,
       quantity: collectedData.quantity,
       weight: collectedData.quantity,
       collectPointId: idCollectPoint[1].id,
       vehicleId: idVehicle[1].id,
-      createdAt: new Date(),
-      updatedAt: new Date()
     });
-  };
+  }
 
-  if(collectedDatas[2]){
+  if (collectedDatas[2] === collectedData) {
     return Promise.resolve({
       id: collectedData.id,
       wasteId: idWaste[2].id,
-      containing: idContaining[2].id,
+      containingId: idContaining[2].id,
       quantity: collectedData.quantity,
       weight: collectedData.quantity,
       collectPointId: idCollectPoint[2].id,
       vehicleId: idVehicle[2].id,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    })
+    });
   }
-}
-
-
-
+};
 
 const insert = async <T extends Object, TTable extends PgTable>(
   table: TTable,
@@ -187,13 +196,28 @@ const insert = async <T extends Object, TTable extends PgTable>(
 
 const main = async () => {
   await clear();
-  await insert(organisation, organisations, convertOrganisation, "organisation")
+  await insert(
+    organisation,
+    organisations,
+    convertOrganisation,
+    "organisation",
+  );
   await insert(user, users, convertUser, "user");
   await insert(vehicle, vehicles, convertVehicle, "vehicle");
-  await insert(collectPoint, collectPoints, convertCollectPoint, "collectPoint");
+  await insert(
+    collectPoint,
+    collectPoints,
+    convertCollectPoint,
+    "collectPoint",
+  );
   await insert(containing, containings, convertContaining, "containing");
   await insert(waste, wastes, convertWaste, "waste");
-  await insert(collectedData, collectedDatas, convertCollectedDate, "collectedData");
+  await insert(
+    collectedData,
+    collectedDatas,
+    convertCollectedData,
+    "collectedData",
+  );
 };
 
 main().then(() => {

@@ -1,17 +1,17 @@
 [
-    {
-        "type": "carton"
-    },
+  {
+    "type": "carton"
+  },
 
-    {
-        "type": "papier"
-    },
+  {
+    "type": "papier"
+  },
 
-    {
-        "type": "cartouche encre"
-    },
+  {
+    "type": "cartouche encre"
+  },
 
-    {
-        "type": "plastique"
-    }
+  {
+    "type": "plastique"
+  }
 ]

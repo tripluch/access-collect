@@ -1,11 +1,4 @@
-import {
-  pgEnum,
-  pgTable,
-  text,
-  varchar,
-  timestamp,
- 
-} from "drizzle-orm/pg-core";
+import { pgEnum, pgTable, text, varchar, timestamp } from "drizzle-orm/pg-core";
 import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { collectPoint } from "./collectPoint";
 import { organisation } from "./organisation";

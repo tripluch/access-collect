@@ -1,22 +1,19 @@
 [
-    {
-        "label": "camion benne 1",
-        "registration": "AA-001-AA",
-        "organisationId": ""
+  {
+    "label": "camion benne 1",
+    "registration": "AA-001-AA",
+    "organisationId": ""
+  },
 
-    },
+  {
+    "label": "camion benne 2",
+    "registration": "BB-002-BB",
+    "organisationId": ""
+  },
 
-    {
-        "label": "camion benne 2",
-        "registration": "BB-002-BB",
-        "organisationId": ""
-
-    },
-
-    {
-        "label": "camion benne 3",
-        "registration": "CC-003-CC",
-        "organisationId": ""
-
-    }
+  {
+    "label": "camion benne 3",
+    "registration": "CC-003-CC",
+    "organisationId": ""
+  }
 ]

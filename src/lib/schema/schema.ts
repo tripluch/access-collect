@@ -6,7 +6,3 @@ export * from "./collectPoint";
 export * from "./containing";
 export * from "./waste";
 export * from "./collectedData";
-
-
-
-

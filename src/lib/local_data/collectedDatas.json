@@ -1,28 +1,25 @@
 [
-    {
-        "wasteId": "",
-        "containingId": "",
-        "quantity": 2,
-        "weight": 100.450,
-        "collectPointId": ""
-    },
+  {
+    "wasteId": "",
+    "containingId": "",
+    "quantity": 2,
+    "weight": 100.45,
+    "collectPointId": ""
+  },
 
-    {
-        "wasteId": "",
-        "containingId": "",
-        "quantity": 1,
-        "weight": 50.780,
-        "collectPointId": ""
-    },
+  {
+    "wasteId": "",
+    "containingId": "",
+    "quantity": 1,
+    "weight": 50.78,
+    "collectPointId": ""
+  },
 
-    {
-        "wasteId": "",
-        "containingId": "",
-        "quantity": 3,
-        "weight": 150.380,
-        "collectPointId": ""
-    }
-
-    
-    
+  {
+    "wasteId": "",
+    "containingId": "",
+    "quantity": 3,
+    "weight": 150.38,
+    "collectPointId": ""
+  }
 ]

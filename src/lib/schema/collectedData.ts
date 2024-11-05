@@ -11,7 +11,6 @@ import { containing } from "./containing";
 import { collectPoint } from "./collectPoint";
 import { vehicle } from "./vehicle";
 
-
 export const collectedData = pgTable("collectedData", {
   id: text("id")
     .primaryKey()
@@ -21,8 +20,7 @@ export const collectedData = pgTable("collectedData", {
   quantity: integer("quantity"),
   weight: decimal("weight"),
   collectPointId: text("collectPointId"),
-  vehicleId: text("vehicleId")
-  .references(() => vehicle.id),
+  vehicleId: text("vehicleId").references(() => vehicle.id),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow(),
 });
@@ -43,7 +41,7 @@ export const collectedDataRelations = relations(collectedData, ({ one }) => ({
   vehicle: one(vehicle, {
     fields: [collectedData.vehicleId],
     references: [vehicle.id],
-  })
+  }),
 }));
 
 export type NewCollectedData = InferInsertModel<typeof collectedData>;
