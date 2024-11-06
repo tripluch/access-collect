@@ -31,4 +31,4 @@ export const vehiclesRelations = relations(vehicle, ({ one, many }) => ({
 }));
 
 export type NewVehicle = InferInsertModel<typeof vehicle>;
-export type Vehicles = InferSelectModel<typeof vehicle>;
+export type Vehicle = InferSelectModel<typeof vehicle>;

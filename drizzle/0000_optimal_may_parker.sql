@@ -1,5 +1,5 @@
--- CREATE TYPE "public"."role" AS ENUM('superAdmin', 'admin', 'client', 'collector');--> statement-breakpoint
--- CREATE TYPE "public"."daysOfCollect" AS ENUM('monday', 'tuesday', 'wednesday', 'thursday', 'friday');--> statement-breakpoint
+CREATE TYPE "public"."role" AS ENUM('superAdmin', 'admin', 'client', 'collector');--> statement-breakpoint
+CREATE TYPE "public"."daysOfCollect" AS ENUM('monday', 'tuesday', 'wednesday', 'thursday', 'friday');--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "organisation" (
 	"id" text PRIMARY KEY NOT NULL,
 	"name" varchar NOT NULL,
