@@ -1,0 +1,16 @@
+[
+  {
+    "type": "conteneur XL",
+    "size": "770L"
+  },
+
+  {
+    "type": "conteneur L",
+    "size": "660L"
+  },
+
+  {
+    "type": "conteneur M",
+    "size": "240L"
+  }
+]

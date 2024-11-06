@@ -1,11 +1,4 @@
-import {
-  pgEnum,
-  pgTable,
-  serial,
-  varchar,
-  timestamp,
-  integer,
-} from "drizzle-orm/pg-core";
+import { pgEnum, pgTable, text, varchar, timestamp } from "drizzle-orm/pg-core";
 import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { collectPoint } from "./collectPoint";
 import { organisation } from "./organisation";
@@ -18,13 +11,17 @@ export const rolesEnum = pgEnum("role", [
 ]);
 
 export const user = pgTable("user", {
-  id: serial("id").primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   name: varchar("name").notNull(),
   email: varchar("email").notNull().unique(),
   password: varchar("password").notNull(),
   role: rolesEnum().notNull(),
-  clientPhone: varchar("clientPhone"),
-  organisationId: integer("organisationId"),
+  phone: varchar("phone"),
+  organisationId: text("organisationId")
+    .references(() => organisation.id, { onDelete: "cascade" })
+    .notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow(),
 });

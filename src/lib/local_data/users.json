@@ -1,9 +1,37 @@
 [
   {
-    "_id": "64fd8dc150ea59d6d8236dc8",
     "name": "Admin",
     "email": "test-admin@tripluch.fr",
     "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
-    "isAdmin": true
+    "role": "admin",
+    "clientPhone": "NULL",
+    "organisationId": ""
+  },
+
+  {
+    "name": "Super Admin",
+    "email": "test-superadmin@tripluch.fr",
+    "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
+    "role": "superAdmin",
+    "clientPhone": "NULL",
+    "organisationId": "NULL"
+  },
+
+  {
+    "name": "Collector",
+    "email": "test-collector@tripluch.fr",
+    "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
+    "role": "collector",
+    "clientPhone": "NULL",
+    "organisationId": ""
+  },
+
+  {
+    "name": "Client",
+    "email": "test-client@tripluch.fr",
+    "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
+    "role": "client",
+    "clientPhone": "0701010101",
+    "organisationId": ""
   }
 ]

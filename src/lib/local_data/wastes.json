@@ -1,0 +1,17 @@
+[
+  {
+    "type": "carton"
+  },
+
+  {
+    "type": "papier"
+  },
+
+  {
+    "type": "cartouche encre"
+  },
+
+  {
+    "type": "plastique"
+  }
+]

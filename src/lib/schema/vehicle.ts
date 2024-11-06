@@ -1,6 +1,6 @@
 import {
   pgTable,
-  serial,
+  text,
   varchar,
   timestamp,
   integer,
@@ -8,13 +8,16 @@ import {
 import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { organisation } from "./organisation";
 import { collectedData } from "./collectedData";
-import { register } from "module";
 
 export const vehicle = pgTable("vehicles", {
-  id: serial("id").primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   label: varchar("label").notNull(),
   registration: varchar("registration").unique().notNull(),
-  organisationId: integer("organisationId"),
+  organisationId: text("organisationId")
+    .references(() => organisation.id, { onDelete: "cascade" })
+    .notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow(),
 });
@@ -27,5 +30,5 @@ export const vehiclesRelations = relations(vehicle, ({ one, many }) => ({
   collectedData: many(collectedData),
 }));
 
-export type NewVehicles = InferInsertModel<typeof vehicle>;
-export type Vehicles = InferSelectModel<typeof vehicle>;
+export type NewVehicle = InferInsertModel<typeof vehicle>;
+export type Vehicle = InferSelectModel<typeof vehicle>;

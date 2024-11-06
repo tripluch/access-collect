@@ -1,7 +1,7 @@
 import {
   pgEnum,
   pgTable,
-  serial,
+  text,
   varchar,
   timestamp,
   integer,
@@ -20,12 +20,18 @@ export const daysEnum = pgEnum("daysOfCollect", [
 ]);
 
 export const collectPoint = pgTable("collectPoint", {
-  id: serial("id").primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   name: varchar("name").notNull(),
   address: varchar("adress").notNull(),
   daysOfCollect: daysEnum().notNull(),
-  clientId: integer("user_id"),
-  organisationId: integer("organisationId"),
+  clientId: text("user_id")
+    .references(() => user.id, { onDelete: "cascade" })
+    .notNull(),
+  organisationId: text("organisationId")
+    .references(() => organisation.id, { onDelete: "cascade" })
+    .notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow(),
 });
