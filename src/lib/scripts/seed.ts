@@ -37,7 +37,9 @@ const clear = async () => {
   console.log("Cleared tables");
 };
 
-const convertOrganisation = async(organisation: any): Promise<NewOrganisation> => {
+const convertOrganisation = async (
+  organisation: any,
+): Promise<NewOrganisation> => {
   return Promise.resolve({
     id: organisation.id,
     name: organisation.name,
@@ -47,7 +49,6 @@ const convertOrganisation = async(organisation: any): Promise<NewOrganisation> =
     agrementNumber: organisation.agrementNumber,
   });
 };
-
 
 const convertUser = async (user: any): Promise<NewUser | undefined> => {
   if (!idOrganisation) {
@@ -62,7 +63,7 @@ const convertUser = async (user: any): Promise<NewUser | undefined> => {
     password: user.password,
     role: user.role,
     phone: user.clientPhone,
-    organisationId: idOrganisation,//change to id
+    organisationId: idOrganisation, //change to id
   });
 };
 
@@ -190,7 +191,7 @@ const insert = async <T extends Object, TTable extends PgTable>(
   return inserted;
 };
 
-let idOrganisation : string | undefined;
+let idOrganisation: string | undefined;
 
 const main = async () => {
   await clear();
