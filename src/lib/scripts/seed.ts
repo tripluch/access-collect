@@ -48,20 +48,8 @@ const convertOrganisation = async(organisation: any): Promise<NewOrganisation> =
   });
 };
 
-//work but return a promise not a string
-// const getData = async() => {
-//   const idOrga = (await db.query.organisation.findFirst())?.id;
-//   return idOrga
-// }
-
-// const id = getData().then(idOrga => {
-//   console.log(idOrga)
-// })
-
-// console.log(id)
 
 const convertUser = async (user: any): Promise<NewUser | undefined> => {
-  const idOrganisation = (await db.query.organisation.findFirst())?.id;
   if (!idOrganisation) {
     console.error(`Organisation not found`);
     return;
@@ -81,8 +69,6 @@ const convertUser = async (user: any): Promise<NewUser | undefined> => {
 const convertVehicle = async (
   vehicle: any,
 ): Promise<NewVehicle | undefined> => {
-  const idOrganisation = (await db.query.organisation.findFirst())?.id;
-
   if (!idOrganisation) {
     console.error(`Organisation not found`);
     return;
@@ -99,7 +85,6 @@ const convertVehicle = async (
 const convertCollectPoint = async (
   collectPoint: any,
 ): Promise<NewCollectPoint | undefined> => {
-  const idOrganisation = (await db.query.organisation.findFirst())?.id;
   const idClient = await db
     .select({ id: user.id })
     .from(user)
@@ -205,6 +190,8 @@ const insert = async <T extends Object, TTable extends PgTable>(
   return inserted;
 };
 
+let idOrganisation : string | undefined;
+
 const main = async () => {
   await clear();
   await insert(
@@ -213,6 +200,8 @@ const main = async () => {
     convertOrganisation,
     "organisation",
   );
+  //take id of organisation to use it in other tables
+  idOrganisation = (await db.query.organisation.findFirst())?.id;
   await insert(user, users, convertUser, "user");
   await insert(vehicle, vehicles, convertVehicle, "vehicle");
   await insert(
