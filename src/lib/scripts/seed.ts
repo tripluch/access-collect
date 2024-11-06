@@ -23,7 +23,7 @@ import wastes from "../local_data/wastes.json";
 import collectedDatas from "../local_data/collectedDatas.json";
 import { db } from "../drizzle";
 import { sql, eq } from "drizzle-orm";
-import { pgTable, PgTable } from "drizzle-orm/pg-core";
+import { PgTable } from "drizzle-orm/pg-core";
 
 const clear = async () => {
   await db.execute(sql`truncate table "organisation" restart identity cascade`);
@@ -63,7 +63,7 @@ const convertUser = async (user: any): Promise<NewUser | undefined> => {
     password: user.password,
     role: user.role,
     phone: user.clientPhone,
-    organisationId: idOrganisation, //change to id
+    organisationId: idOrganisation, 
   });
 };
 
@@ -90,7 +90,6 @@ const convertCollectPoint = async (
     .select({ id: user.id })
     .from(user)
     .where(eq(user.role, "client"));
-  console.log(idClient);
 
   if (!idOrganisation || !idClient) {
     console.error(`Organisation or client not found`);
@@ -127,7 +126,6 @@ const convertCollectedData = async (
 ): Promise<NewCollectedData | undefined> => {
   const idWaste = await db.select({ id: waste.id }).from(waste);
   const idContaining = await db.select({ id: containing.id }).from(containing);
-  console.log(idContaining);
   const idCollectPoint = await db
     .select({ id: collectPoint.id })
     .from(collectPoint);
