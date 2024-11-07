@@ -4,7 +4,7 @@
     "email": "test-admin@tripluch.fr",
     "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
     "role": "admin",
-    "clientPhone": "NULL",
+    "phone": "NULL",
     "organisationId": ""
   },
 
@@ -13,7 +13,7 @@
     "email": "test-superadmin@tripluch.fr",
     "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
     "role": "superAdmin",
-    "clientPhone": "NULL",
+    "phone": "NULL",
     "organisationId": "NULL"
   },
 
@@ -22,7 +22,7 @@
     "email": "test-collector@tripluch.fr",
     "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
     "role": "collector",
-    "clientPhone": "NULL",
+    "phone": "NULL",
     "organisationId": ""
   },
 
@@ -31,7 +31,7 @@
     "email": "test-client@tripluch.fr",
     "password": "$2a$10$DekrXKhwdMCq4An.Qf7xQeLXDuPjG/EEcaxAYoqT/9jIIXKZxvdzK",
     "role": "client",
-    "clientPhone": "0701010101",
+    "phone": "0701010101",
     "organisationId": ""
   }
 ]

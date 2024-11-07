@@ -13,6 +13,13 @@ import {
   containing,
   waste,
   collectedData,
+  Organisation,
+  User,
+  Vehicle,
+  CollectPoint,
+  Containing,
+  Waste,
+  CollectedData,
 } from "../schema/schema";
 import organisations from "../local_data/organisations.json";
 import users from "../local_data/users.json";
@@ -38,7 +45,7 @@ const clear = async () => {
 };
 
 const convertOrganisation = async (
-  organisation: any,
+  organisation: Organisation,
 ): Promise<NewOrganisation> => {
   return Promise.resolve({
     id: organisation.id,
@@ -50,7 +57,7 @@ const convertOrganisation = async (
   });
 };
 
-const convertUser = async (user: any): Promise<NewUser | undefined> => {
+const convertUser = async (user: User): Promise<NewUser | undefined> => {
   if (!idOrganisation) {
     console.error(`Organisation not found`);
     return;
@@ -62,13 +69,13 @@ const convertUser = async (user: any): Promise<NewUser | undefined> => {
     email: user.email,
     password: user.password,
     role: user.role,
-    phone: user.clientPhone,
-    organisationId: idOrganisation, 
+    phone: user.phone,
+    organisationId: idOrganisation,
   });
 };
 
 const convertVehicle = async (
-  vehicle: any,
+  vehicle: Vehicle,
 ): Promise<NewVehicle | undefined> => {
   if (!idOrganisation) {
     console.error(`Organisation not found`);
@@ -84,7 +91,7 @@ const convertVehicle = async (
 };
 
 const convertCollectPoint = async (
-  collectPoint: any,
+  collectPoint: CollectPoint,
 ): Promise<NewCollectPoint | undefined> => {
   const idClient = await db
     .select({ id: user.id })
@@ -106,7 +113,9 @@ const convertCollectPoint = async (
   });
 };
 
-const convertContaining = async (containing: any): Promise<NewContaining> => {
+const convertContaining = async (
+  containing: Containing,
+): Promise<NewContaining> => {
   return Promise.resolve({
     id: containing.id,
     type: containing.type,
@@ -114,7 +123,7 @@ const convertContaining = async (containing: any): Promise<NewContaining> => {
   });
 };
 
-const convertWaste = async (waste: any): Promise<NewWaste> => {
+const convertWaste = async (waste: Waste): Promise<NewWaste> => {
   return Promise.resolve({
     id: waste.id,
     type: waste.type,
@@ -122,7 +131,7 @@ const convertWaste = async (waste: any): Promise<NewWaste> => {
 };
 
 const convertCollectedData = async (
-  collectedData: any,
+  collectedData: CollectedData,
 ): Promise<NewCollectedData | undefined> => {
   const idWaste = await db.select({ id: waste.id }).from(waste);
   const idContaining = await db.select({ id: containing.id }).from(containing);
@@ -136,54 +145,27 @@ const convertCollectedData = async (
     return;
   }
 
-  if (collectedDatas[0] === collectedData) {
-    return Promise.resolve({
-      id: collectedData.id,
-      wasteId: idWaste[0].id,
-      containingId: idContaining[0].id,
-      quantity: collectedData.quantity,
-      weight: collectedData.quantity,
-      collectPointId: idCollectPoint[0].id,
-      vehicleId: idVehicle[0].id,
-    });
-  }
+  const indexOfElementInDatas: number = Number(collectedData.id);
 
-  if (collectedDatas[1] === collectedData) {
-    return Promise.resolve({
-      id: collectedData.id,
-      wasteId: idWaste[1].id,
-      containingId: idContaining[1].id,
-      quantity: collectedData.quantity,
-      weight: collectedData.quantity,
-      collectPointId: idCollectPoint[1].id,
-      vehicleId: idVehicle[1].id,
-    });
-  }
-
-  if (collectedDatas[2] === collectedData) {
-    return Promise.resolve({
-      id: collectedData.id,
-      wasteId: idWaste[2].id,
-      containingId: idContaining[2].id,
-      quantity: collectedData.quantity,
-      weight: collectedData.quantity,
-      collectPointId: idCollectPoint[2].id,
-      vehicleId: idVehicle[2].id,
-    });
-  }
+  return Promise.resolve({
+    wasteId: idWaste[indexOfElementInDatas].id,
+    containingId: idContaining[indexOfElementInDatas].id,
+    quantity: collectedData.quantity,
+    weight: collectedData.weight,
+    collectPointId: idCollectPoint[indexOfElementInDatas].id,
+    vehicleId: idVehicle[indexOfElementInDatas].id,
+  });
 };
 
-const insert = async <T extends Object, TTable extends PgTable>(
+const insert = async <T extends object, TTable extends PgTable>(
   table: TTable,
-  data: any[],
+  data: object[],
   converter: (item: any) => Promise<T | undefined>,
   tableName: string,
 ) => {
   const items = (await Promise.all(data.map(converter))).filter(
     (item) => item !== undefined,
   ) as T[];
-  console.log(items);
-
   const inserted = await db.insert(table).values(items).returning();
   console.log(`Inserted ${inserted.length} items into table ${tableName}`);
   return inserted;

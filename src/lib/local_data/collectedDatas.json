@@ -1,25 +1,32 @@
 [
   {
+    "id": 0,
     "wasteId": "",
     "containingId": "",
     "quantity": 2,
     "weight": 100.45,
-    "collectPointId": ""
+    "collectPointId": "",
+    "createdAt": "",
+    "updatedAd": ""
   },
-
   {
+    "id": 1,
     "wasteId": "",
     "containingId": "",
     "quantity": 1,
     "weight": 50.78,
-    "collectPointId": ""
+    "collectPointId": "",
+    "createdAt": "",
+    "updatedAd": ""
   },
-
   {
+    "id": 2,
     "wasteId": "",
     "containingId": "",
     "quantity": 3,
     "weight": 150.38,
-    "collectPointId": ""
+    "collectPointId": "",
+    "createdAt": "",
+    "updatedAd": ""
   }
 ]

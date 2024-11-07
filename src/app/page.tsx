@@ -1,5 +1,5 @@
-import { getUsers, getUsers2 } from "../lib/database";
-require("dotenv").config();
+//import { getUsers, getUsers2 } from "../lib/database";
+//require("dotenv").config();
 
 export default async function Home() {
   // const data = await getUsers();
