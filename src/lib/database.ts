@@ -1,5 +1,5 @@
 import "@/lib/config";
-import { NewUser, user } from "./schema/schema";
+import { NewUser, user, NewOrganisation, organisation } from "./schema/schema";
 import { db } from "./drizzle";
 
 export const getUsers = async () => {
@@ -15,4 +15,10 @@ export const insertUser = async (newUser: NewUser) => {
 export const getUsers2 = async () => {
   const result = await db.query.user.findMany();
   return result;
+};
+
+export const getOrganisation = async () => {
+  const selectResult = await db.select().from(organisation);
+  console.log("Result", selectResult);
+  return selectResult;
 };
