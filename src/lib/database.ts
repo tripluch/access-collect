@@ -5,7 +5,7 @@ import { eq } from "drizzle-orm";
 
 export const getUsers = async () => {
   const selectResult = await db.select().from(user);
-  console.log("Results", selectResult);
+
   return selectResult;
 };
 
@@ -20,15 +20,15 @@ export const getUsers2 = async () => {
 
 export const getOrganisation = async () => {
   const selectResult = await db.select().from(organisation);
-  console.log("Result", selectResult);
+
   return selectResult;
 };
 
-export const getOrganisationName = async () => {
+export const getUsersWithOrganisationName = async () => {
   const selectResult = await db
-    .select({ name: organisation.name })
-    .from(organisation)
-    .innerJoin(user, eq(organisation.id, user.organisationId));
+    .select()
+    .from(user)
+    .leftJoin(organisation, eq(user.organisationId, organisation.id));
   console.log("Result", selectResult);
   return selectResult;
 };
