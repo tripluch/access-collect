@@ -1,7 +1,8 @@
 import "@/lib/config";
-import { NewUser, user, NewOrganisation, organisation } from "./schema/schema";
+import { NewUser, user, organisation } from "./schema/schema";
 import { db } from "./drizzle";
 import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 
 export const getUsers = async () => {
   const selectResult = await db.select().from(user);
@@ -29,6 +30,32 @@ export const getUsersWithOrganisationName = async () => {
     .select()
     .from(user)
     .leftJoin(organisation, eq(user.organisationId, organisation.id));
-  console.log("Result", selectResult);
+
   return selectResult;
+};
+
+export const addOrganisation = async (formData: any) => {
+  "use server";
+  const { name, address, phone, contact, agrement } =
+    Object.fromEntries(formData);
+  // console.log({ name, address, phone, contact, agrement })
+
+  const insertResult = await db
+    .insert(organisation)
+    .values({
+      name: name,
+      address: address,
+      phoneNumber: phone,
+      contact: contact,
+      agrementNumber: agrement,
+    })
+    .returning();
+  console.log("Insert Result", insertResult);
+  // return insertResult.
+
+  if (!insertResult[0].id) {
+    console.log("error");
+  } else {
+    revalidatePath("/dashboard/userOrganisation");
+  }
 };
