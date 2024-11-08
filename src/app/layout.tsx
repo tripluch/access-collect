@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -11,6 +12,16 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const openDyslexicRegular = localFont({
+  src: "./fonts/OpenDyslexicAlta-Regular.otf",
+  variable: "--font-openDyslexic-Reg",
+});
+
+const verdana = localFont({
+  src: "./fonts/Verdana.ttf",
+  variable: "--verdana-Reg",
 });
 
 export const metadata: Metadata = {
@@ -26,8 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${openDyslexicRegular.variable} ${verdana.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>

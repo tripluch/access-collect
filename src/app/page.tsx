@@ -9,7 +9,7 @@ export default async function Home() {
     <div>
       {/* <div>sql-like: {JSON.stringify(data)}</div>
       <div>relational: {JSON.stringify(data2)}</div> */}
-      Hello
+      Homepage
     </div>
   );
 }
