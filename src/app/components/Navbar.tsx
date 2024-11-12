@@ -36,15 +36,15 @@ const Navbar = () => {
     </>
 
     return (
-        <nav className='bg-midnightBlue flex justify-between items-center h-16'>
+        <nav className='bg-midnightBlue flex justify-between items-center h-24'>
             {/* Logo à gauche  */}
             <div>
-                <Image src="/logo.png" alt="logo accessCollect" width={100} height={20} className='ml-3' />
+                <Image src="/logo.svg" alt="logo accessCollect" width={200} height={120} className='ml-3' />
             </div>
 
             {/* Navigation à droite */}
-            <div className='lg:flex md:flex lg:flex-1 justify-end mr-3 lg:items-center hidden space-x-10  '>
-                <Link href="/" className='text-white font-title hover:text-darkGrey'>Accueil</Link>
+            <div className='lg:flex md:flex md:flex-1 lg:flex-1 justify-end mr-3 md:items-center lg:items-center hidden space-x-10 font-title '>
+                <Link href="/" className='text-white hover:text-darkGrey'>Accueil</Link>
                 <Link href="/faq" className='text-white hover:text-darkGrey '>FAQ</Link>
                 <Link href="/contact" className='text-white hover:text-darkGrey '>Contact</Link>
                 <Link href="/login"><LogButton label="SE CONNECTER" /></Link>
@@ -52,7 +52,7 @@ const Navbar = () => {
             <div>
                 {click && content}
             </div>
-            <button className='block lg:hidden md:hidden transition text-2xl' type="button" name="menu de la navbar" onClick={handleClick}>
+            <button className='block md:hidden transition text-2xl' type="button" name="menu de la navbar" onClick={handleClick}>
                 {click ? <FaTimes className='mr-3 text-imperialYellow' /> : <RxHamburgerMenu className='text-2xl text-imperialYellow mr-3' />}
             </button>
         </nav>

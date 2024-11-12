@@ -23,8 +23,7 @@ const config: Config = {
         'lightGrey': '#E3E5E8'
       },
       fontFamily: {
-        content: ["OpenDyslexicAlta", "sans-serif"],
-        title: ["Verdana", "sans-serif"]
+        title: ["verdana", "sans-serif"]
       }
     },
   },
