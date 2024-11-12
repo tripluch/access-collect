@@ -4,18 +4,18 @@ import { db } from "./drizzle";
 import { revalidatePath } from "next/cache";
 
 export const getOrganisation = async () => {
-    const selectResult = await db.select().from(organisation);
-  
-    return selectResult;
-  };
+  const selectResult = await db.select().from(organisation);
+
+  return selectResult;
+};
 
 export const addOrganisation = async (formData: any) => {
-    "use server";
-    const { name, address, phone, contact, agrement } =
-      Object.fromEntries(formData);
-  
-    try{
-      await db
+  "use server";
+  const { name, address, phone, contact, agrement } =
+    Object.fromEntries(formData);
+
+  try {
+    await db
       .insert(organisation)
       .values({
         name: name,
@@ -23,11 +23,11 @@ export const addOrganisation = async (formData: any) => {
         phoneNumber: phone,
         contact: contact,
         agrementNumber: agrement,
-      }).returning();
-  
-      revalidatePath("/dashboard/organisation");
-    } catch {
-      console.error("the organisation has not been added to the database");
-    }
-};
+      })
+      .returning();
 
+    revalidatePath("/dashboard/organisation");
+  } catch {
+    console.error("the organisation has not been added to the database");
+  }
+};

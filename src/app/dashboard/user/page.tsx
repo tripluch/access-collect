@@ -1,16 +1,16 @@
 import { getUsersWithOrganisationName } from "@/lib/userQuery";
-import Form from "@/app/dashboard/components/UserForm";
+import UserForm from "../components/UserForm";
 
-export default async function UsersPage(){
-    const dataUsers = await getUsersWithOrganisationName();
+export default async function UsersPage() {
+  const dataUsers = await getUsersWithOrganisationName();
 
-    return(
-        <div className="flex justify-around">
-        <div className="my-10">
-            <Form />
-        </div>
-        
-        <div className="my-10">
+  return (
+    <div className="flex justify-around">
+      <div className="my-10">
+        <UserForm />
+      </div>
+
+      <div className="my-10">
         <h1 className="text-center text-2xl py-4">Liste des utilisateurs :</h1>
 
         <table className="table-auto text-center">
@@ -37,10 +37,6 @@ export default async function UsersPage(){
           </tbody>
         </table>
       </div>
-      </div>
-
-    )
+    </div>
+  );
 }
-
-
-

@@ -12,9 +12,3 @@ export const getUsers2 = async () => {
   const result = await db.query.user.findMany();
   return result;
 };
-
-
-
-
-
-

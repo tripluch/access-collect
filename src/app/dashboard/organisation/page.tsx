@@ -1,17 +1,15 @@
 import { getOrganisation } from "@/lib/organisationQuery";
 
-import Form from "@/app/dashboard/components/OrgaForm";
+import OrgaForm from "@/app/dashboard/components/OrgaForm";
 
 export default async function OrganisationsPage() {
-  
   const dataOrganisations = await getOrganisation();
 
   return (
     <div className="flex justify-around">
       <div>
-        <Form />
+        <OrgaForm />
       </div>
-      
 
       <div className="my-10">
         <h1 className="text-center text-2xl py-4">

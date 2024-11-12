@@ -1,6 +1,6 @@
 import { addOrganisation } from "@/lib/organisationQuery";
 
-const Form = () => {
+const OrgaForm = () => {
   return (
     <form action={addOrganisation} className="flex flex-col align-center gap-4">
       <div className="flex flex-row">
@@ -50,4 +50,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default OrgaForm;
