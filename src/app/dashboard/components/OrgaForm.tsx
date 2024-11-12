@@ -1,4 +1,4 @@
-import { addOrganisation } from "@/lib/database";
+import { addOrganisation } from "@/lib/organisationQuery";
 
 const Form = () => {
   return (
