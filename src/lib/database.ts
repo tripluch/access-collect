@@ -38,9 +38,9 @@ export const addOrganisation = async (formData: any) => {
   "use server";
   const { name, address, phone, contact, agrement } =
     Object.fromEntries(formData);
-  // console.log({ name, address, phone, contact, agrement })
 
-  const insertResult = await db
+  try{
+    await db
     .insert(organisation)
     .values({
       name: name,
@@ -48,14 +48,10 @@ export const addOrganisation = async (formData: any) => {
       phoneNumber: phone,
       contact: contact,
       agrementNumber: agrement,
-    })
-    .returning();
-  console.log("Insert Result", insertResult);
-  // return insertResult.
+    }).returning();
 
-  if (!insertResult[0].id) {
-    console.log("error");
-  } else {
     revalidatePath("/dashboard/userOrganisation");
+  } catch {
+    console.error("the organisation has not been added to the database");
   }
 };
