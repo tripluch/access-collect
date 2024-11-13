@@ -40,7 +40,7 @@ export const getUsersWithOrganisationName = async () => {
 export const addUser = async (formData: any) => {
   const { name, email, password, phone, role, organisationId } =
     Object.fromEntries(formData);
-  console.log(organisationId);
+ 
   const newPassword = await hashPassword(password);
 
   try {

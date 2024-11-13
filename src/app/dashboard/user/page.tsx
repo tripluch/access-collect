@@ -4,13 +4,13 @@ import { getOrganisations } from "@/lib/organisationQuery";
 
 export default async function UsersPage() {
   const dataUsers = await getUsersWithOrganisationName();
-  const infos = await getOrganisations();
+  const dataOrganisations = await getOrganisations();
 
   return (
     <div className="flex justify-around">
       <div className="my-10">
         <h1 className="text-center text-2xl py-4">Ajouter un utilisateur :</h1>
-        <UserForm organisationInfos={infos} />
+        <UserForm organisationInfos={dataOrganisations} />
       </div>
 
       <div className="my-10">
