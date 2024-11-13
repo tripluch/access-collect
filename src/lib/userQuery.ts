@@ -24,8 +24,8 @@ export const getUsers = async () => {
 };
 
 interface UserWithOrganisation {
-  organisation : Organisation | null, 
-  user : User 
+  organisation: Organisation | null;
+  user: User;
 }
 
 export const getUsersWithOrganisationName = async () => {
@@ -33,17 +33,15 @@ export const getUsersWithOrganisationName = async () => {
     .select()
     .from(user)
     .leftJoin(organisation, eq(user.organisationId, organisation.id));
-  
+
   return selectResult as UserWithOrganisation[];
 };
 
 export const addUser = async (formData: any) => {
   const { name, email, password, phone, role, organisationId } =
     Object.fromEntries(formData);
-  console.log(organisationId)
+  console.log(organisationId);
   const newPassword = await hashPassword(password);
-  
- 
 
   try {
     await db
@@ -54,7 +52,7 @@ export const addUser = async (formData: any) => {
         password: newPassword,
         phone: phone,
         role: role,
-        organisationId: organisationId
+        organisationId: organisationId,
       })
       .returning();
 

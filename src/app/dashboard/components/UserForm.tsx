@@ -3,8 +3,11 @@ import { Organisation } from "@/lib/schema/organisation";
 import { addUser } from "@/lib/userQuery";
 import { useState } from "react";
 
-
-const UserForm = ({ organisationInfos } : {organisationInfos : Organisation[]}) => {
+const UserForm = ({
+  organisationInfos,
+}: {
+  organisationInfos: Organisation[];
+}) => {
   const [selectedUser, setSelectedUser] = useState("");
   const [selectedOrga, setSelectedOrga] = useState("");
 
@@ -69,12 +72,13 @@ const UserForm = ({ organisationInfos } : {organisationInfos : Organisation[]}) 
           id="grid-state"
           name="organisationId"
         >
-            <option value="">--Choisir une option--</option>
-            {organisationInfos.map((orga: Organisation) => (
+          <option value="">--Choisir une option--</option>
+          {organisationInfos.map((orga: Organisation) => (
             <option value={orga.id}>{orga.name}</option>
-            ))};
+          ))}
+          ;
         </select>
-    </div>
+      </div>
       <button className="border border-black rounded-md hover:bg-slate-300">
         Confirmer
       </button>
