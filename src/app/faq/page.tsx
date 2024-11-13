@@ -1,6 +1,4 @@
 const FaqPage = () => {
-    return (
-        <div>FAQ Page</div>
-    )
-}
-export default FaqPage
+  return <div>FAQ Page</div>;
+};
+export default FaqPage;
