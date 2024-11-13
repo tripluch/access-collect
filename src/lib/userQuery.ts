@@ -1,6 +1,6 @@
 "use server";
 import "@/lib/config";
-import { user, organisation } from "./schema/schema";
+import { user, organisation, User, Organisation } from "./schema/schema";
 import { db } from "./drizzle";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
@@ -20,24 +20,30 @@ export const hashPassword = async (text: String) => {
 export const getUsers = async () => {
   const selectResult = await db.select().from(user);
 
-  return selectResult;
+  return selectResult as User[];
 };
+
+interface UserWithOrganisation {
+  organisation : Organisation | null, 
+  user : User 
+}
 
 export const getUsersWithOrganisationName = async () => {
   const selectResult = await db
     .select()
     .from(user)
     .leftJoin(organisation, eq(user.organisationId, organisation.id));
-
-  return selectResult;
+  
+  return selectResult as UserWithOrganisation[];
 };
 
 export const addUser = async (formData: any) => {
   const { name, email, password, phone, role, organisationId } =
     Object.fromEntries(formData);
-
+  console.log(organisationId)
   const newPassword = await hashPassword(password);
-  console.log(newPassword);
+  
+ 
 
   try {
     await db
@@ -48,7 +54,7 @@ export const addUser = async (formData: any) => {
         password: newPassword,
         phone: phone,
         role: role,
-        organisationId: organisationId,
+        organisationId: organisationId
       })
       .returning();
 

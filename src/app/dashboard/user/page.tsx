@@ -1,13 +1,19 @@
 import { getUsersWithOrganisationName } from "@/lib/userQuery";
 import UserForm from "../components/UserForm";
+import { getOrganisations } from "@/lib/organisationQuery";
+
 
 export default async function UsersPage() {
   const dataUsers = await getUsersWithOrganisationName();
+  const infos = await getOrganisations();
+
+
 
   return (
     <div className="flex justify-around">
       <div className="my-10">
-        <UserForm />
+      <h1 className="text-center text-2xl py-4">Ajouter un utilisateur :</h1>
+        <UserForm organisationInfos = {infos} />
       </div>
 
       <div className="my-10">

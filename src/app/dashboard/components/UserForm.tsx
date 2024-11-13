@@ -1,13 +1,17 @@
 "use client";
+import { Organisation } from "@/lib/schema/organisation";
 import { addUser } from "@/lib/userQuery";
 import { useState } from "react";
 
-const UserForm = () => {
+
+const UserForm = ({ organisationInfos } : {organisationInfos : Organisation[]}) => {
   const [selectedUser, setSelectedUser] = useState("");
+  const [selectedOrga, setSelectedOrga] = useState("");
+
   return (
     <form action={addUser} className="flex flex-col align-center gap-4">
       <div className="flex flex-row">
-        <label htmlFor="name">Nom : </label>
+        <label htmlFor="name">Nom: </label>
         <input
           className="p-2 border border-black rounded-md"
           type="text"
@@ -57,13 +61,20 @@ const UserForm = () => {
         </select>
       </div>
       <div className="flex flex-row">
-        <label htmlFor="organisation">Id de l'organisation: </label>
-        <input
-          className="p-2 border border-black rounded-md"
-          type="text"
+        <label htmlFor="organisation">Organisation: </label>
+        <select
+          value={selectedOrga}
+          onChange={(e) => setSelectedOrga(e.target.value)}
+          className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          id="grid-state"
           name="organisationId"
-        />
-      </div>
+        >
+            <option value="">--Choisir une option--</option>
+            {organisationInfos.map((orga: Organisation) => (
+            <option value={orga.id}>{orga.name}</option>
+            ))};
+        </select>
+    </div>
       <button className="border border-black rounded-md hover:bg-slate-300">
         Confirmer
       </button>

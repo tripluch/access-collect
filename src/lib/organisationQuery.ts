@@ -1,16 +1,17 @@
+"use server";
 import "@/lib/config";
-import { organisation } from "./schema/schema";
+import { Organisation, organisation } from "./schema/schema";
 import { db } from "./drizzle";
 import { revalidatePath } from "next/cache";
 
-export const getOrganisation = async () => {
+export const getOrganisations = async () => {
   const selectResult = await db.select().from(organisation);
 
-  return selectResult;
+  return selectResult as Organisation[];
 };
 
 export const addOrganisation = async (formData: any) => {
-  "use server";
+  
   const { name, address, phone, contact, agrement } =
     Object.fromEntries(formData);
 
