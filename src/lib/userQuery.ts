@@ -4,12 +4,12 @@ import { user, organisation, User, Organisation } from "./schema/schema";
 import { db } from "./drizzle";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
+import Bcrypt from "bcryptjs";
 
-export const hashPassword = async (text: String) => {
-  const bcrypt = require("bcrypt");
+export const hashPassword = async (text: string) => {
   try {
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(text, salt);
+    const salt = await Bcrypt.genSalt(10);
+    const hash = await Bcrypt.hash(text, salt);
 
     return hash;
   } catch (error: any) {
@@ -40,7 +40,7 @@ export const getUsersWithOrganisationName = async () => {
 export const addUser = async (formData: any) => {
   const { name, email, password, phone, role, organisationId } =
     Object.fromEntries(formData);
- 
+
   const newPassword = await hashPassword(password);
 
   try {
@@ -49,7 +49,7 @@ export const addUser = async (formData: any) => {
       .values({
         name: name,
         email: email,
-        password: newPassword,
+        password: newPassword as string,
         phone: phone,
         role: role,
         organisationId: organisationId,
