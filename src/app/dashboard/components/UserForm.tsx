@@ -73,8 +73,10 @@ const UserForm = ({
           name="organisationId"
         >
           <option value="">--Choisir une option--</option>
-          {organisationInfos.map((orga: Organisation) => (
-            <option value={orga.id}>{orga.name}</option>
+          {organisationInfos.map((orga: Organisation, index) => (
+            <option key={index} value={orga.id}>
+              {orga.name}
+            </option>
           ))}
           ;
         </select>

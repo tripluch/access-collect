@@ -1,7 +1,6 @@
 import { getCollectedPoints } from "@/lib/collectedPointQuery";
 import Image from "next/image";
 import Link from "next/link";
-require("dotenv").config();
 
 export default async function CollectedPointList() {
   const data = await getCollectedPoints();
@@ -48,8 +47,11 @@ export default async function CollectedPointList() {
         </table>
       </div>
       <div className="md:hidden ">
-        {data.map((collectedPoint) => (
-          <div className="shadow-md shadow-lightOliveGreen mx-6 rounded-b-lg my-6">
+        {data.map((collectedPoint, index) => (
+          <div
+            key={index}
+            className="shadow-md shadow-lightOliveGreen mx-6 rounded-b-lg my-6"
+          >
             <div className="bg-transparentImperialYellow p-2 text-oliveGreen text-center uppercase font-title">
               {collectedPoint.name}
             </div>
