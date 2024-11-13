@@ -1,5 +1,6 @@
 import { getCollectedPoint } from "@/lib/collectedPointQuery";
 import Image from 'next/image';
+import Link from 'next/link';
 require("dotenv").config();
 
 export default async function CollectedPointList() {
@@ -24,7 +25,7 @@ export default async function CollectedPointList() {
                                 <td className="px-8">{collectedPoint.name}</td>
                                 <td className="px-8">{collectedPoint.address}</td>
                                 <td className="px-8">{collectedPoint.daysOfCollect}</td>
-                                <td className=" flex justify-center"><Image src="/consulter.svg" alt="voir point de collecte en détail" width={40} height={80} className="" /></td>
+                                <td className=" flex justify-center"><Link href={`/dashboard/collected-point/${collectedPoint.id}`}><Image src="/consulter.svg" alt="voir point de collecte en détail" width={40} height={80} className="" /></Link></td>
                             </tr>
                         ))}
                     </tbody>
@@ -37,14 +38,14 @@ export default async function CollectedPointList() {
                         <div className="flex items-center p-2">
                             <div className="text-midnightBlue w-72">{collectedPoint.address}</div>
                             <div>
-                                <Image src="/consulter.svg" alt="voir point de collecte en détail" width={80} height={120} />
+                                <Link href={`/dashboard/collected-point/${collectedPoint.id}`}><Image src="/consulter.svg" alt="voir point de collecte en détail" width={80} height={120} /></Link>
                             </div>
 
                         </div>
                     </div>
                 ))}
 
-            </div>
+            </div >
         </>
 
     );
