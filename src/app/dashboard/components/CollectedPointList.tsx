@@ -1,10 +1,10 @@
-import { getCollectedPoint } from "@/lib/collectedPointQuery";
+import { getCollectedPoints } from "@/lib/collectedPointQuery";
 import Image from "next/image";
 import Link from "next/link";
 require("dotenv").config();
 
 export default async function CollectedPointList() {
-  const data = await getCollectedPoint();
+  const data = await getCollectedPoints();
 
   return (
     <>

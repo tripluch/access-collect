@@ -5,7 +5,7 @@ const CreateButton = () => {
     <>
       <div className="w-[150px] h-[150px] mx-6 shadow-md shadow-lightOliveGreen mx-6 rounded-lg my-6 flex flex-col justify-center items-center md:w-[360px] md:h-[68px] md:flex-row-reverse md:justify-end">
         <Image
-          src="/creer.svg"
+          src="/create.svg"
           alt="voir point de collecte en détail"
           width={66}
           height={63}
