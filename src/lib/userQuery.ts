@@ -57,7 +57,7 @@ export const addUser = async (formData: any) => {
       .returning();
 
     revalidatePath("/dashboard/user");
-  } catch {
-    console.error("the user has not been added to the database");
+  } catch (error) {
+    console.error(error);
   }
 };
