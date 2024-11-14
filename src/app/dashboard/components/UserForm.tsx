@@ -57,7 +57,7 @@ const UserForm = ({
           name="role"
         >
           <option value="">--Choisir une option--</option>
-          <option value="superadmin">superadmin</option>
+          <option value="superAdmin">superadmin</option>
           <option value="admin">admin</option>
           <option value="client">client</option>
           <option value="collector">collector</option>
