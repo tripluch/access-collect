@@ -1,4 +1,4 @@
-import OrgaForm from "../components/OrgaForm";
+import OrgaForm from "../_components/OrgaForm";
 
 export default async function addOrganisationPage() {
   return (

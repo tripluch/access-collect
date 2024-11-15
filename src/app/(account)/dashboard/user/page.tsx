@@ -8,7 +8,7 @@ export default async function UsersPage() {
   return (
     <div className="flex justify-around flex-col  w-full">
       <div className="text-midnightBlue font-title font-bold  text-2xl text-center my-6">
-        {"UTILISATEUR"}
+        {"UTILISATEURS"}
       </div>
       <Link href="/dashboard/add-user">
         <CreateButton name={"Créer un utilisateur"} />
@@ -22,10 +22,10 @@ export default async function UsersPage() {
           <table className="border border-oliveGreen">
             <thead>
               <tr className="border border-oliveGreen text-center">
-                <th className="px-8">{"Noms"}</th>
-                <th className="px-8">{"Emails"}</th>
-                <th className="px-8">{"Rôles"}</th>
-                <th className="px-8">{"Entreprises"}</th>
+                <th className="px-8">{"Nom"}</th>
+                <th className="px-8">{"Email"}</th>
+                <th className="px-8">{"Rôle"}</th>
+                <th className="px-8">{"Entreprise"}</th>
               </tr>
             </thead>
             <tbody>

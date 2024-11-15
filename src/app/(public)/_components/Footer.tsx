@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <>
       <footer className="bg-midnightBlue text-center text-white text-xs p-3 mb-0 font-title ">
-        <div>accescollect ® 2024</div>
+        <div>accesscollect ® 2024</div>
         <div className="flex justify-center">
           <Link href="/cgu">
             <p>CGU - </p>

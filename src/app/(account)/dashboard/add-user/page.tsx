@@ -1,5 +1,5 @@
 import { getOrganisations } from "@/lib/organisationQuery";
-import UserForm from "../components/UserForm";
+import UserForm from "../_components/UserForm";
 
 export default async function addUserPage() {
   const dataOrganisations = await getOrganisations();

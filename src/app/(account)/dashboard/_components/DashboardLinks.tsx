@@ -36,7 +36,7 @@ const DashboardLinks = () => {
                     lg:w-[300px] lg:h-[71px] md:flex-row md:hover:bg-lightOrange"
           >
             <Image src={link.picto} alt={link.alt} width={70} height={100} />
-            <div className="text-center text-midnightBlue text-2xl md:text-xl lg:text-2xl font-sans">
+            <div className="text-center text-midnightBlue text-xl font-subTitle">
               {link.title}
             </div>
           </div>

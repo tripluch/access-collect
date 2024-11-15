@@ -8,8 +8,8 @@ export default async function OrganisationsPage() {
 
   return (
     <div className="flex justify-around flex-col w-full">
-      <div className="text-midnightBlue font-title font-bold  text-2xl text-center my-6 w-full">
-        {"ORGANISATION"}
+      <div className="text-midnightBlue font-title font-bold  text-2xl text-center my-6">
+        {"ORGANISATIONS"}
       </div>
       <Link href="/dashboard/add-organisation">
         <CreateButton name={"Créer une organisation"} />
@@ -23,9 +23,9 @@ export default async function OrganisationsPage() {
           <table className="border border-oliveGreen">
             <thead>
               <tr className="border border-oliveGreen text-center">
-                <th className="px-8">{"Noms"}</th>
-                <th className="px-8">{"Contacts"}</th>
-                <th className="px-8">{"Numéros de téléphone"}</th>
+                <th className="px-8">{"Nom"}</th>
+                <th className="px-8">{"Contact"}</th>
+                <th className="px-8">{"Numéro de téléphone"}</th>
               </tr>
             </thead>
             <tbody>

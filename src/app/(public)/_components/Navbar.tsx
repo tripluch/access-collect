@@ -8,7 +8,7 @@ import { FaTimes } from "react-icons/fa";
 import { FiHome } from "react-icons/fi";
 import { BsTelephone } from "react-icons/bs";
 import { GoQuestion } from "react-icons/go";
-import LogButton from "./button/logButton";
+import LogButton from "@/app/components/button/logButton";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
