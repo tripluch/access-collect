@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "CGU - Access Collect",
+  description: "Access Collect - Conditions générales d'utilisation",
+};
+
 const Cgu = () => {
   return (
     <div className="flex flex-col py-6 gap-6 px-6 md:px-48">

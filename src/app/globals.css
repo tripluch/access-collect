@@ -29,14 +29,18 @@ body {
   font-family: "openDyslexic";
   font-weight: normal;
   font-style: normal;
-  src:  local(""), url("./fonts/OpenDyslexicAlta-Regular.ttf") format("truetype");
+  src:
+    local(""),
+    url("./fonts/OpenDyslexicAlta-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "verdana";
   font-weight: normal;
   font-style: normal;
-  src:  local(""), url("./fonts/Verdana.ttf") format("truetype");
+  src:
+    local(""),
+    url("./fonts/Verdana.ttf") format("truetype");
 }
 
 @layer base {

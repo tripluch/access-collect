@@ -11,7 +11,10 @@ const CreateButton = (props: { name: string }) => {
           height={63}
           className="md:w-[46px] md:h-[43px]"
         />
-        <button name={props.name} className="text-midnightBlue font-title text-2xl mx-24">
+        <button
+          name={props.name}
+          className="text-midnightBlue font-title text-2xl mx-24"
+        >
           {"Créer"}
         </button>
       </div>

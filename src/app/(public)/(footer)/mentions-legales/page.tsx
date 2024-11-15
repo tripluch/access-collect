@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mentions Légales - Access Collect",
+  description: "Access Collect - Mentions Légales",
+};
+
 const MentionsLegales = () => {
   return (
     <div className="flex flex-col py-6 gap-6 px-6 md:px-48 text-sm md:text-sm">
