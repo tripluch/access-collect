@@ -1,5 +1,3 @@
-import DashboardLinks from "./components/DashboardLinks";
-
 export default async function Dashboard() {
   return (
     <div className="hidden md:block">

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const CreateButton = () => {
+const CreateButton = (props: any) => {
   return (
     <>
       <div className="w-[150px] h-[150px] mx-6 shadow-md shadow-lightOliveGreen mx-6 rounded-lg my-6 flex flex-col justify-center items-center md:w-[360px] md:h-[68px] md:flex-row-reverse md:justify-end">
@@ -11,7 +11,9 @@ const CreateButton = () => {
           height={63}
           className="md:w-[46px] md:h-[43px]"
         />
-        <button className="text-midnightBlue text-2xl mx-24">Créer</button>
+        <button name={props.name} className="text-midnightBlue text-2xl mx-24">
+          Créer
+        </button>
       </div>
     </>
   );

@@ -24,7 +24,7 @@ const DashboardLinks = () => {
   ];
   return (
     <div
-      className="w-full md:w-1/3 h-full md:h-screen flex flex-wrap justify-center md:justify-start md:flex-col md:items-center 
+      className="w-full md:w-1/3 h-screen md:h-screen flex flex-wrap justify-center md:justify-start md:flex-col md:items-center 
         md:bg-transparentLightOrange"
     >
       {links.map((link) => (
