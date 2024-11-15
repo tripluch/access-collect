@@ -1,11 +1,12 @@
 import { useRouter } from "next/navigation";
 
-const ValidateButton = ({ label }: { label: string }) => {
+const OrangeButton = ({ label, route }: { label: string, route : string }) => {
   const router = useRouter();
   return (
     <>
       <button
-        onClick={() => router.push("/dashboard/collected-point-list")}
+        onClick={() => route}
+        // onClick={() => router.push("/dashboard/collected-point-list")}
         className="bg-lightOrange  text-midnightBlue rounded-full p-2 font-title uppercase mb-4"
       >
         {label}
@@ -13,4 +14,4 @@ const ValidateButton = ({ label }: { label: string }) => {
     </>
   );
 };
-export default ValidateButton;
+export default OrangeButton;

@@ -1,11 +1,11 @@
 "use client";
 import { addCollectedPoint } from "@/lib/collectedPointQuery";
 import { CheckboxDaysOfCollect } from "./CheckboxDaysOfCollect";
-import ValidateButton from "@/app/components/button/validateButton";
 import CancelButton from "@/app/components/button/cancelButton";
+import { InputForm } from "@/app/components/InputForm";
 import { Organisation } from "@/lib/schema/organisation";
 import { useState } from "react";
-import { InputForm } from "@/app/components/InputForm";
+import OrangeButton from "@/app/components/button/orangeButton";
 
 export const CollectedPointForm = ({
   organisationInfos,
@@ -57,7 +57,7 @@ export const CollectedPointForm = ({
       <InputForm name={"clientId"} label={"Nom du client: "} />
       <div className="flex justify-around">
         <CancelButton />
-        <ValidateButton label={"Confirmer"} />
+        <OrangeButton label={"Confirmer"} />
       </div>
     </form>
   );
