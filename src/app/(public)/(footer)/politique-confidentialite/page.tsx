@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Confidentialité - Access Collect",
+  description: "Access Collect - Politique de confidentialité",
+};
 
 const PolitiqueConfidentialite = () => {
   return (

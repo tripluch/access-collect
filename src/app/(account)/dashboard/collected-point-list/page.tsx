@@ -1,5 +1,5 @@
 import CreateButton from "@/app/components/button/createButton";
-import CollectedPointList from "../components/CollectedPointList";
+import CollectedPointList from "../_components/CollectedPointList";
 
 const collectedPointList = () => {
   return (
