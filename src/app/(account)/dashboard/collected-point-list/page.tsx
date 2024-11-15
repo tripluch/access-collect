@@ -9,7 +9,7 @@ const collectedPointList = async () => {
         POINT DE COLLECTE
       </div>
       <Link href="/dashboard/add-collected-point">
-        <CreateButton name={"Créer un utilisateur"} />
+        <CreateButton name={"Créer un point de collecte"} />
       </Link>
       <div className="text-2xl font-title text-oliveGreen text-center my-6">
         Liste de mes points de collectes
