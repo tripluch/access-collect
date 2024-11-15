@@ -1,44 +1,70 @@
+import CreateButton from "@/app/components/button/createButton";
 import { getUsersWithOrganisationName } from "@/lib/userQuery";
-import UserForm from "../components/UserForm";
-import { getOrganisations } from "@/lib/organisationQuery";
+import Link from "next/link";
 
 export default async function UsersPage() {
   const dataUsers = await getUsersWithOrganisationName();
-  const dataOrganisations = await getOrganisations();
 
   return (
-    <div className="flex justify-around">
-      <div className="my-10">
-        <h1 className="text-center text-2xl py-4">Ajouter un utilisateur :</h1>
-        <UserForm organisationInfos={dataOrganisations} />
+    <div className="flex justify-around flex-col  w-full">
+      <div className="text-midnightBlue font-title font-bold  text-2xl text-center my-6">
+        {"UTILISATEUR"}
       </div>
+      <Link href="/dashboard/add-user">
+        <CreateButton name={"Créer un utilisateur"} />
+      </Link>
 
-      <div className="my-10">
-        <h1 className="text-center text-2xl py-4">Liste des utilisateurs :</h1>
-
-        <table className="table-auto text-center">
-          <thead className="bg-slate-100">
-            <tr>
-              <th className="p-2 border border-black">Noms</th>
-              <th className="p-2 border border-black">Emails</th>
-              <th className="p-2 border border-black">Rôles</th>
-              <th className="p-2 border border-black">Entreprises</th>
-            </tr>
-          </thead>
-          <tbody>
-            {dataUsers.map((data) => (
-              <tr key={data.user.id}>
-                <td className="p-2 border border-black">{data.user.name}</td>
-
-                <td className="p-2 border border-black">{data.user.email}</td>
-                <td className="p-2 border border-black">{data.user.role}</td>
-                <td className="p-2 border border-black">
-                  {data.organisation?.name}
-                </td>
+      <div className="my-10  mx-4 flex justify-center flex-col">
+        <h1 className="text-2xl font-title text-oliveGreen text-center my-6">
+          {"Liste des utilisateurs :"}
+        </h1>
+        <div className="max-sm:hidden mt-6 text-midnightBlue flex justify-center mb-6">
+          <table className="border border-oliveGreen">
+            <thead>
+              <tr className="border border-oliveGreen text-center">
+                <th className="px-8">{"Noms"}</th>
+                <th className="px-8">{"Emails"}</th>
+                <th className="px-8">{"Rôles"}</th>
+                <th className="px-8">{"Entreprises"}</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {dataUsers.map((data, index) => (
+                <tr
+                  className={`border border-oliveGreen ${
+                    index % 2 === 0 ? "bg-transparentOliveGreen" : "bg-white"
+                  }`}
+                  key={data.user.id}
+                >
+                  <td className="px-8">{data.user.name}</td>
+
+                  <td className="px-8">{data.user.email}</td>
+                  <td className="px-8">{data.user.role}</td>
+                  <td className="px-8">{data.organisation?.name}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="md:hidden ">
+          {dataUsers.map((data) => (
+            <div
+              key={data.user.id}
+              className="shadow-md shadow-lightOliveGreen mx-6 rounded-b-lg my-6 w-72"
+            >
+              <div className="bg-transparentImperialYellow p-2 text-oliveGreen text-center uppercase font-title">
+                {data.user.name}
+              </div>
+              <div className="flex flex-col items-center p-2">
+                <div className="text-midnightBlue">{data.user.email}</div>
+                <div className="text-midnightBlue">{data.user.role}</div>
+                <div className="text-midnightBlue">
+                  {data.organisation?.name}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

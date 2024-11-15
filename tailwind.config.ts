@@ -24,6 +24,7 @@ const config: Config = {
       },
       fontFamily: {
         title: ["verdana", "sans-serif"],
+        sans: ["openDyslexic", "sans-serif"],
       },
     },
   },
