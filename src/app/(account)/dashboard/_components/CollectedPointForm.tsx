@@ -6,6 +6,8 @@ import { InputForm } from "@/app/components/InputForm";
 import { Organisation } from "@/lib/schema/organisation";
 import { useState } from "react";
 import OrangeButton from "@/app/components/button/orangeButton";
+import { getClientsFromOrganisation } from "@/lib/collectedPointQuery";
+import { User } from "@/lib/schema/user";
 
 export const CollectedPointForm = ({
   organisationInfos,
@@ -13,6 +15,10 @@ export const CollectedPointForm = ({
   organisationInfos: Organisation[];
 }) => {
   const [selectedOrga, setSelectedOrga] = useState("");
+  const [selectedClient, setSelectedClient] = useState("");
+
+  const dataClient = getClientsFromOrganisation(selectedOrga)
+
   return (
     <form
       action={addCollectedPoint}
