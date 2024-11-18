@@ -1,4 +1,4 @@
-export const InputForm = ({name, label}: {name : string, label: string}) => {
+export const InputForm = ({ name, label }: { name: string; label: string }) => {
   return (
     <>
       <div className="flex flex-col">

@@ -17,7 +17,7 @@ export const CollectedPointForm = ({
   const [selectedOrga, setSelectedOrga] = useState("");
   const [selectedClient, setSelectedClient] = useState("");
 
-  const dataClient = getClientsFromOrganisation(selectedOrga)
+  const dataClient = getClientsFromOrganisation(selectedOrga);
 
   return (
     <form
@@ -63,7 +63,7 @@ export const CollectedPointForm = ({
       <InputForm name={"clientId"} label={"Nom du client: "} />
       <div className="flex justify-around">
         <CancelButton />
-        <OrangeButton label={"Confirmer"} />
+        <OrangeButton label={"Confirmer"} route={""} />
       </div>
     </form>
   );
