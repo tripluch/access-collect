@@ -20,7 +20,8 @@ export const hashPassword = async (text: string) => {
 export const comparePassword = async (password: string, passwordDB: string) => {
   try {
     const compare = await Bcrypt.compare(password, passwordDB);
-    console.log(compare);
+    // console.log(compare)
+    return compare as boolean;
   } catch (error: any) {
     console.log(error.message);
   }
@@ -76,6 +77,11 @@ export const logIn = async (formData: any) => {
 
   const getUser = await db.select().from(user).where(eq(email, user.email));
   const passwordDB = getUser[0].password;
+  const check = await comparePassword(password, passwordDB);
 
-  console.log(comparePassword(password, passwordDB));
+  if (check === true) {
+    //SESSION
+  } else {
+    //ERREUR
+  }
 };
