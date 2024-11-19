@@ -1,4 +1,8 @@
 "use client";
+import CancelButton from "@/app/components/button/cancelButton";
+import OrangeButton from "@/app/components/button/orangeButton";
+import { InputForm } from "@/app/components/InputForm";
+import { InputPassword } from "@/app/components/InputPassword";
 import { Organisation } from "@/lib/schema/organisation";
 import { addUser } from "@/lib/userQuery";
 import { useState } from "react";
@@ -12,67 +16,55 @@ const UserForm = ({
   const [selectedOrga, setSelectedOrga] = useState("");
 
   return (
-    <form action={addUser} className="flex flex-col align-center gap-4">
-      <div className="flex flex-row">
-        <label htmlFor="name">Nom: </label>
-        <input
-          className="p-2 border border-black rounded-md"
-          type="text"
-          name="name"
-        />
-      </div>
-      <div className="flex flex-row">
-        <label htmlFor="email">Email: </label>
-        <input
-          className="p-2 border border-black rounded-md"
-          type="text"
-          name="email"
-        />
-      </div>
-      <div className="flex flex-row">
-        <label htmlFor="password">Mot de passe: </label>
-        <input
-          className="p-2 border border-black rounded-md"
-          type="password"
-          name="password"
-          minLength={8}
-          required
-        />
-      </div>
-      <div className="flex flex-row">
-        <label htmlFor="phone">N° de téléphone: </label>
-        <input
-          className="p-2 border border-black rounded-md"
-          type="text"
-          name="phone"
-        />
-      </div>
-      <div className="flex flex-row">
-        <label htmlFor="role">Rôle: </label>
+    <form
+      action={addUser}
+      className="flex flex-col align-center gap-4 px-3 my-4"
+    >
+      <InputForm name={"name"} label={"Nom: "} />
+      <InputForm name={"email"} label={"Email: "} />
+      <InputPassword name={"password"} label={"Mot de passe: "} />
+      <InputForm name={"phone"} label={"N° de téléphone: "} />
+
+      <div className="flex flex-col">
+        <label
+          className="text-oliveGreen uppercase font-title text-sm"
+          htmlFor="role"
+        >
+          {"Rôle: "}
+        </label>
         <select
           value={selectedUser}
           onChange={(e) => setSelectedUser(e.target.value)}
-          className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          className="block appearance-none bg-transparentLightOrange leading-tight focus:outline-none focus:bg-transparentBrightOrange  text-midnightBlue rounded-md text-sm w-72 h-8 md:w-96"
           id="grid-state"
           name="role"
         >
-          <option value="">--Choisir une option--</option>
-          <option value="superAdmin">superadmin</option>
-          <option value="admin">admin</option>
-          <option value="client">client</option>
-          <option value="collector">collector</option>
+          <option value="" className="hover:bg-brightOrange">
+            {"--Choisir une option--"}
+          </option>
+          <option value="superAdmin">{"superadmin"}</option>
+          <option value="admin">{"admin"}</option>
+          <option value="client">{"client"}</option>
+          <option value="collector">{"collector"}</option>
         </select>
       </div>
-      <div className="flex flex-row">
-        <label htmlFor="organisation">Organisation: </label>
+      <div className="flex flex-col">
+        <label
+          className="text-oliveGreen uppercase font-title text-sm"
+          htmlFor="organisation"
+        >
+          {"Organisation: "}
+        </label>
         <select
           value={selectedOrga}
           onChange={(e) => setSelectedOrga(e.target.value)}
-          className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          className="block appearance-none bg-transparentLightOrange leading-tight focus:outline-none focus:bg-transparentBrightOrange  text-midnightBlue rounded-md text-sm w-72 h-8 md:w-96"
           id="grid-state"
           name="organisationId"
         >
-          <option value="">--Choisir une option--</option>
+          <option value="" className="hover:bg-brightOrange">
+            {"--Choisir une option--"}
+          </option>
           {organisationInfos.map((orga: Organisation, index) => (
             <option key={index} value={orga.id}>
               {orga.name}
@@ -81,9 +73,10 @@ const UserForm = ({
           ;
         </select>
       </div>
-      <button className="border border-black rounded-md hover:bg-slate-300">
-        Confirmer
-      </button>
+      <div className="flex justify-around">
+        <CancelButton />
+        <OrangeButton label={"Confirmer"} route={""} />
+      </div>
     </form>
   );
 };
