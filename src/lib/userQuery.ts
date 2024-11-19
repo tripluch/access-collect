@@ -62,8 +62,6 @@ export const addUser = async (formData: any) => {
   }
 };
 
-export const logIn = async(formData:any)=>{
-  const {email, password} = Object.fromEntries(formData);
-
-  
-}
+export const logIn = async (formData: any) => {
+  const { email, password } = Object.fromEntries(formData);
+};
