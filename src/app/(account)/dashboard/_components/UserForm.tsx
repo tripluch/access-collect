@@ -16,14 +16,22 @@ const UserForm = ({
   const [selectedOrga, setSelectedOrga] = useState("");
 
   return (
-    <form action={addUser} className="flex flex-col align-center gap-4 px-3 my-4">
+    <form
+      action={addUser}
+      className="flex flex-col align-center gap-4 px-3 my-4"
+    >
       <InputForm name={"name"} label={"Nom: "} />
       <InputForm name={"email"} label={"Email: "} />
-      <InputPassword name={"password"} label={"Mot de passe: "}/>
-      <InputForm name={"phone"} label={"N° de téléphone: "}/>
+      <InputPassword name={"password"} label={"Mot de passe: "} />
+      <InputForm name={"phone"} label={"N° de téléphone: "} />
 
       <div className="flex flex-col">
-        <label className="text-oliveGreen uppercase font-title text-sm" htmlFor="role">{"Rôle: "}</label>
+        <label
+          className="text-oliveGreen uppercase font-title text-sm"
+          htmlFor="role"
+        >
+          {"Rôle: "}
+        </label>
         <select
           value={selectedUser}
           onChange={(e) => setSelectedUser(e.target.value)}
@@ -31,7 +39,9 @@ const UserForm = ({
           id="grid-state"
           name="role"
         >
-          <option value="" className="hover:bg-brightOrange">{"--Choisir une option--"}</option>
+          <option value="" className="hover:bg-brightOrange">
+            {"--Choisir une option--"}
+          </option>
           <option value="superAdmin">{"superadmin"}</option>
           <option value="admin">{"admin"}</option>
           <option value="client">{"client"}</option>
@@ -39,7 +49,12 @@ const UserForm = ({
         </select>
       </div>
       <div className="flex flex-col">
-        <label className="text-oliveGreen uppercase font-title text-sm" htmlFor="organisation">{"Organisation: "}</label>
+        <label
+          className="text-oliveGreen uppercase font-title text-sm"
+          htmlFor="organisation"
+        >
+          {"Organisation: "}
+        </label>
         <select
           value={selectedOrga}
           onChange={(e) => setSelectedOrga(e.target.value)}
@@ -47,7 +62,9 @@ const UserForm = ({
           id="grid-state"
           name="organisationId"
         >
-          <option value=""className="hover:bg-brightOrange">{"--Choisir une option--"}</option>
+          <option value="" className="hover:bg-brightOrange">
+            {"--Choisir une option--"}
+          </option>
           {organisationInfos.map((orga: Organisation, index) => (
             <option key={index} value={orga.id}>
               {orga.name}

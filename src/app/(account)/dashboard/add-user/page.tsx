@@ -18,6 +18,5 @@ export default async function addUserPage() {
         </div>
       </div>
     </>
-
   );
 }

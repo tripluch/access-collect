@@ -58,7 +58,7 @@ export const CollectedPointForm = ({
           ))}
           ;
         </select>
-      </div> 
+      </div>
       <InputForm name={"clientId"} label={"Nom du client: "} />
       <div className="flex justify-around">
         <CancelButton />

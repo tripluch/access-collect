@@ -15,7 +15,5 @@ export default async function addOrganisationPage() {
         </div>
       </div>
     </>
-
-
   );
 }
