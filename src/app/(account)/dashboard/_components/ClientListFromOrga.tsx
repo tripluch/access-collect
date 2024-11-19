@@ -1,9 +1,11 @@
-import { getClientsFromOrganisation } from "@/lib/collectedPointQuery";
+//import { getClientsFromOrganisation } from "@/lib/collectedPointQuery";
 import { useState } from "react";
 import { User } from "@/lib/schema/user";
 
-export const ClientListFromOrga = async (props: any) => {
-  const dataClient = await getClientsFromOrganisation(props.Client);
+export const ClientListFromOrga = (props: any) => {
+  //const dataClient = await getClientsFromOrganisation(props.Client);
+  console.log(props);
+  const dataClient: User[] = []; // Need to choose between server and client component as you use usestate.
   const [selectedClient, setSelectedClient] = useState("");
 
   return (

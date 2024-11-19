@@ -1,7 +1,4 @@
-import { useRouter } from "next/navigation";
-
 const OrangeButton = ({ label, route }: { label: string; route: string }) => {
-  const router = useRouter();
   return (
     <>
       <button
