@@ -1,4 +1,11 @@
-import { pgEnum, pgTable, text, varchar, timestamp } from "drizzle-orm/pg-core";
+import {
+  pgEnum,
+  pgTable,
+  text,
+  varchar,
+  timestamp,
+  integer,
+} from "drizzle-orm/pg-core";
 import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { collectPoint } from "./collectPoint";
 import { organisation } from "./organisation";
@@ -34,6 +41,42 @@ export const usersRelations = relations(user, ({ many, one }) => ({
     references: [organisation.id],
   }),
 }));
+
+// export const account = pgTable("account", {
+//   userId: text("userId")
+//     .notNull()
+//     .references(() => user.id, { onDelete: "cascade" }),
+//   type: text("type").$type<AdapterAccountType>().notNull(),
+//   refresh_token: text("refresh_token"),
+//   access_token: text("access_token"),
+//   expires_at: integer("expires_at"),
+//   token_type: text("token_type"),
+//   scope: text("scope"),
+//   id_token: text("id_token"),
+//   session_state: text("session_state"),
+// })
+
+// export const accountRelations = relations(account, ({ one }) => ({
+//   user: one(user, {
+//     fields : [account.userId],
+//     references: [user.id],
+//   }),
+// }));
+
+// export const session = pgTable("session", {
+//   sessionToken: text("sessionToken").primaryKey(),
+//   userId: text("userId")
+//     .notNull()
+//     .references(() => user.id, { onDelete: "cascade" }),
+//   expires: timestamp("expires", { mode: "date" }).notNull(),
+// })
+
+// export const sessionRelations = relations(session, ({ one }) => ({
+//   user: one(user, {
+//     fields : [session.userId],
+//     references: [user.id],
+//   }),
+// }));
 
 export type NewUser = InferInsertModel<typeof user>;
 export type User = InferSelectModel<typeof user>;
