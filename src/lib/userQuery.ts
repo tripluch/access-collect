@@ -6,6 +6,8 @@ import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import Bcrypt from "bcryptjs";
 
+import { signIn } from "next-auth/react";
+
 export const hashPassword = async (text: string) => {
   try {
     const salt = await Bcrypt.genSalt(10);

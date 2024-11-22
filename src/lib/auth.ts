@@ -1,36 +1,37 @@
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import NextAuth from "next-auth";
 import { db } from "./drizzle";
-import Credentials from "next-auth/providers/credentials";
 import Bcrypt from "bcryptjs";
+import CredentialsProvider from "@auth/core/providers/credentials";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: DrizzleAdapter(db),
-  pages: {
-    signIn: "/login",
-  },
+  // pages: {
+  //   signIn: "/login",
+  // },
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
-    Credentials({
-      credentials: {
-        email: { label: "email", type: "text" },
-        password: { label: "password", type: "password" },
-      },
+    CredentialsProvider({
+      type: "credentials",
+
       async authorize(credentials) {
-        if (!credentials?.email || !credentials.password) {
+        const { email, password } = credentials as {
+          email: string;
+          password: string;
+        };
+        if (!email || !password) {
           return null;
         }
+        console.log("coucou");
+        console.log(credentials);
 
         const userData = await db.query.user.findFirst({
-          where: (user, { eq }) => eq(user.email, String(credentials.email)),
+          where: (user, { eq }) => eq(user.email, email),
         });
 
         if (
           !userData ||
-          !(await Bcrypt.compare(
-            String(credentials.password),
-            userData.password!,
-          ))
+          !(await Bcrypt.compare(password, userData.password!))
         ) {
           return null;
         }
@@ -44,10 +45,4 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {},
-
-  events: {
-    signIn: async (message) => {
-      console.log("signIn", message);
-    },
-  },
 });

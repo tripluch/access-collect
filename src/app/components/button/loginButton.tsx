@@ -1,10 +1,10 @@
 "use client";
-import { signIn } from "@/lib/auth";
+import { signIn } from "next-auth/react";
 
-export default function loginButton() {
+export default function loginButton({ credentials }: any) {
   return (
     <>
-      <button onClick={() => signIn()}>{"CONNEXION"}</button>
+      <button onClick={() => signIn(credentials)}>{"CONNEXION"}</button>
     </>
   );
 }
