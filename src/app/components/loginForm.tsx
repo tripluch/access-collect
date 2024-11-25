@@ -1,12 +1,12 @@
 "use client";
 import { InputForm } from "@/app/components/InputForm";
 import { InputPassword } from "@/app/components/InputPassword";
+import { redirectToHomepage } from "@/lib/actions";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 
 export const getLogData = async (formData: any) => {
   const { email, password } = Object.fromEntries(formData);
-  console.log(email, password);
 
   const dataLog = await signIn("credentials", {
     redirect: false,
@@ -14,12 +14,17 @@ export const getLogData = async (formData: any) => {
     password: password,
   });
 
-  if (dataLog === null) {
-    //create div ou pop up
-    console.log("ERRRRREEEEEUR");
+  console.log(dataLog);
+
+  if (dataLog?.error) {
+    const warningDiv: HTMLElement | null = document.getElementById("warning");
+    const warningMessage: string = "Email ou mot de passe incorrect.";
+
+    if (warningDiv != null) {
+      warningDiv.innerHTML += `${warningMessage}`;
+    }
   } else {
-    //redirect user
-    console.log("yoooooooupiiiiii", dataLog);
+    redirectToHomepage();
   }
 };
 
@@ -30,10 +35,14 @@ const LoginForm = () => {
         action={getLogData}
         className="flex flex-col align-center gap-4 px-3 my-4"
       >
+        <div id="warning" className="text-red-500"></div>
         <InputForm name={"email"} label={"Email: "} />
         <InputPassword name={"password"} label={"Mot de passe: "} />
         <div className="flex justify-center">
-          <button> {"CONNEXION"}</button>
+          <button className="bg-lightOrange  text-midnightBlue rounded-full p-2 font-title uppercase mb-4">
+            {" "}
+            {"CONNEXION"}
+          </button>
         </div>
       </form>
 

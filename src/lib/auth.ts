@@ -6,9 +6,6 @@ import CredentialsProvider from "@auth/core/providers/credentials";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: DrizzleAdapter(db),
-  // pages: {
-  //   signIn: "/login",
-  // },
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
@@ -19,19 +16,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           email: string;
           password: string;
         };
+
         if (!email || !password) {
           return null;
         }
-        console.log("coucou");
-        console.log(credentials);
 
         const userData = await db.query.user.findFirst({
           where: (user, { eq }) => eq(user.email, email),
         });
+        console.log(userData);
 
         if (
           !userData ||
-          !(await Bcrypt.compare(password, userData.password!))
+          (await Bcrypt.compare(password, userData.password)) === false
         ) {
           return null;
         }

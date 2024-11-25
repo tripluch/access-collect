@@ -4,10 +4,10 @@ import LoginForm from "../../../components/loginForm";
 const LoginPage = () => {
   return (
     <div>
-      <h1 className="text-center text-2xl mt-14 text-midnightBlue font-bold">
+      <h1 className="text-center text-2xl mt-10 text-midnightBlue font-bold">
         {"Bienvenue sur AccessCollect"}
       </h1>
-      <div className="flex justify-around mt-4">
+      <div className="flex justify-around mt-8">
         <div>
           <Image
             src="/tri2.png"
