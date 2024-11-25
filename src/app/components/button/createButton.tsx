@@ -3,7 +3,7 @@ import Image from "next/image";
 const CreateButton = ({ name }: { name: string }) => {
   return (
     <>
-      <div className="w-[150px] h-[150px] shadow-md shadow-lightOliveGreen mx-6 rounded-lg my-6 flex flex-col justify-center items-center md:w-[360px] md:h-[68px] md:flex-row-reverse md:justify-end">
+      <div className="w-[150px] h-[150px] shadow-md shadow-lightOliveGreen mx-6 rounded-lg  my-1 lg:my-6 flex flex-col justify-center items-center md:w-[360px] md:h-[68px] md:flex-row-reverse md:justify-end">
         <Image
           src="/create.svg"
           alt={"pictogramme ajouter"}
