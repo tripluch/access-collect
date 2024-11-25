@@ -6,14 +6,16 @@ export default async function AddCollectedPoint() {
 
   return (
     <>
-      <div className="text-midnightBlue font-title font-bold  text-2xl text-center my-6">
-        POINT DE COLLECTE
-      </div>
-      <div className="shadow-md shadow-lightOliveGreen mx-6 rounded-b-lg my-6 w-54 md:w-[500px]">
-        <div className="bg-transparentImperialYellow p-2 text-oliveGreen text-center uppercase font-title">
-          AJOUTER UN POINT DE COLLECTE
+      <div className="flex flex-col items-center w-full gap-y-10">
+        <div className="text-midnightBlue font-title font-bold  text-2xl text-center mt-4">
+          {"POINT DE COLLECTE"}
         </div>
-        <CollectedPointForm organisationInfos={dataOrganisations} />
+        <div className="shadow-md shadow-lightOliveGreen rounded-b-lg  w-54 md:w-[500px] flex flex-col justify-center">
+          <div className="bg-transparentImperialYellow p-2 text-oliveGreen text-center uppercase font-title">
+            {"AJOUTER UN POINT DE COLLECTE"}
+          </div>
+          <CollectedPointForm organisationInfos={dataOrganisations} />
+        </div>
       </div>
     </>
   );
