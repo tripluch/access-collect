@@ -1,5 +1,8 @@
 "use client";
-import { addCollectedPoint, getClientsFromOrganisation } from "@/lib/collectedPointQuery";
+import {
+  addCollectedPoint,
+  getClientsFromOrganisation,
+} from "@/lib/collectedPointQuery";
 import { CheckboxDaysOfCollect } from "./CheckboxDaysOfCollect";
 import CancelButton from "@/app/components/button/cancelButton";
 import { InputForm } from "@/app/components/InputForm";
@@ -9,7 +12,7 @@ import OrangeButton from "@/app/components/button/orangeButton";
 import { User } from "@/lib/schema/user";
 
 export const CollectedPointForm = ({
-  organisationInfos
+  organisationInfos,
 }: {
   organisationInfos: Organisation[];
 }) => {
@@ -19,7 +22,7 @@ export const CollectedPointForm = ({
 
   useEffect(() => {
     const fetchClients = async () => {
-      setSelectedClient(""); 
+      setSelectedClient("");
       if (selectedOrga) {
         try {
           const result = await getClientsFromOrganisation(selectedOrga);
@@ -29,55 +32,55 @@ export const CollectedPointForm = ({
           setClients([]);
         }
       } else {
-        setClients([]); 
+        setClients([]);
       }
     };
 
     fetchClients();
-  }, [selectedOrga]); 
+  }, [selectedOrga]);
 
-return (
-  <form
-    action={addCollectedPoint}
-    className="flex flex-col align-center gap-4 px-3 my-4"
-  >
-    <InputForm name={"name"} label={"Nom du point de collecte :"} />
-    <InputForm name={"address"} label={"Adresse: "} />
-    <div className="text-oliveGreen uppercase font-title text-sm">
-      {"Jour de collecte: "}
-    </div>
-    <div className="flex flex-row flex-wrap">
-      <CheckboxDaysOfCollect label={"Monday"} value={"monday"} />
-      <CheckboxDaysOfCollect label={"Tuesday"} value={"tuesday"} />
-      <CheckboxDaysOfCollect label={"Wednesday"} value={"wednesday"} />
-      <CheckboxDaysOfCollect label={"Thursday"} value={"thursday"} />
-      <CheckboxDaysOfCollect label={"Friday"} value={"friday"} />
-    </div>
-    <div className="flex flex-col">
-      <label
-        className="text-oliveGreen uppercase font-title text-sm"
-        htmlFor={"organisationId"}
-      >
-        {"Nom de l'organisation:"}
-      </label>
-      <select
-        value={selectedOrga}
-        onChange={(e) => setSelectedOrga(e.target.value)}
-        className=" block appearance-none bg-transparentLightOrange leading-tight focus:outline-none focus:bg-transparentBrightOrange  text-midnightBlue rounded-md text-sm w-72 h-8 md:w-96"
-        name="organisationId"
-      >
-        <option value="" className="hover:bg-brightOrange">
-          --Choisir une option--
-        </option>
-        {organisationInfos.map((orga: Organisation, index) => (
-          <option key={index} value={orga.id}>
-            {orga.name}
+  return (
+    <form
+      action={addCollectedPoint}
+      className="flex flex-col align-center gap-4 px-3 my-4"
+    >
+      <InputForm name={"name"} label={"Nom du point de collecte :"} />
+      <InputForm name={"address"} label={"Adresse: "} />
+      <div className="text-oliveGreen uppercase font-title text-sm">
+        {"Jour de collecte: "}
+      </div>
+      <div className="flex flex-row flex-wrap">
+        <CheckboxDaysOfCollect label={"Monday"} value={"monday"} />
+        <CheckboxDaysOfCollect label={"Tuesday"} value={"tuesday"} />
+        <CheckboxDaysOfCollect label={"Wednesday"} value={"wednesday"} />
+        <CheckboxDaysOfCollect label={"Thursday"} value={"thursday"} />
+        <CheckboxDaysOfCollect label={"Friday"} value={"friday"} />
+      </div>
+      <div className="flex flex-col">
+        <label
+          className="text-oliveGreen uppercase font-title text-sm"
+          htmlFor={"organisationId"}
+        >
+          {"Nom de l'organisation:"}
+        </label>
+        <select
+          value={selectedOrga}
+          onChange={(e) => setSelectedOrga(e.target.value)}
+          className=" block appearance-none bg-transparentLightOrange leading-tight focus:outline-none focus:bg-transparentBrightOrange  text-midnightBlue rounded-md text-sm w-72 h-8 md:w-96"
+          name="organisationId"
+        >
+          <option value="" className="hover:bg-brightOrange">
+            --Choisir une option--
           </option>
-        ))}
-        ;
-      </select>
-    </div>
-    <div className="flex flex-col">
+          {organisationInfos.map((orga: Organisation, index) => (
+            <option key={index} value={orga.id}>
+              {orga.name}
+            </option>
+          ))}
+          ;
+        </select>
+      </div>
+      <div className="flex flex-col">
         <label
           className="text-oliveGreen uppercase font-title text-sm"
           htmlFor={"clientId"}
@@ -99,12 +102,12 @@ return (
           ))}
         </select>
       </div>
-    <div className="flex justify-around">
-      <CancelButton />
-      <OrangeButton label={"Confirmer"} route={""} />
-    </div>
-  </form>
-);
+      <div className="flex justify-around">
+        <CancelButton />
+        <OrangeButton label={"Confirmer"} route={""} />
+      </div>
+    </form>
+  );
 };
 
 export default CollectedPointForm;

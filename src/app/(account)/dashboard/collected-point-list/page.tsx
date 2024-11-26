@@ -7,7 +7,7 @@ const collectedPointList = async () => {
     <>
       <div className="flex flex-col gap-y-4 w-full">
         <div className="text-midnightBlue font-title font-bold text-2xl text-center mt-4">
-        {"POINT DE COLLECTE"}
+          {"POINT DE COLLECTE"}
         </div>
         <Link href="/dashboard/add-collected-point">
           <CreateButton name={"Créer un point de collecte"} />
@@ -17,7 +17,7 @@ const collectedPointList = async () => {
             {"Liste de mes points de collectes : "}
           </h1>
         </div>
-      <CollectedPointList />
+        <CollectedPointList />
       </div>
     </>
   );

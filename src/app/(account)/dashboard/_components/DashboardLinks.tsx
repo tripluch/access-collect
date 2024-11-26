@@ -2,12 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { headers } from "next/headers";
 
-const DashboardLinks = async() => {
+const DashboardLinks = async () => {
   const headersList = headers();
-  const activePath:string|null = headersList.get("x-invoke-path")
+  const activePath: string | null = headersList.get("x-invoke-path");
 
-
-    const links = [
+  const links = [
     {
       title: "Utilisateurs",
       path: "/dashboard/user",
@@ -37,7 +36,7 @@ const DashboardLinks = async() => {
           <div
             className={`w-[160px] h-[160px] mx-6 shadow-md shadow-lightOliveGreen 
                     rounded-lg my-6 md:my-4 flex flex-col justify-center items-center 
-                    ${activePath && (link.path).includes(activePath)?"bg-lightOrange":"bg-white"}
+                    ${activePath && link.path.includes(activePath) ? "bg-lightOrange" : "bg-white"}
                     md:w-[200px] md:h-[60px] 
                     lg:w-[300px] lg:h-[71px] md:flex-row md:hover:bg-lightOrange`}
           >
