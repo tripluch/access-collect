@@ -1,8 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import { headers } from "next/headers";
 
-const DashboardLinks = () => {
-  const links = [
+const DashboardLinks = async() => {
+  const headersList = headers();
+  const activePath:string|null = headersList.get("x-invoke-path")
+
+
+    const links = [
     {
       title: "Utilisateurs",
       path: "/dashboard/user",
@@ -30,10 +35,11 @@ const DashboardLinks = () => {
       {links.map((link) => (
         <Link href={link.path} key={link.title}>
           <div
-            className="w-[160px] h-[160px] mx-6 shadow-md shadow-lightOliveGreen bg-white 
+            className={`w-[160px] h-[160px] mx-6 shadow-md shadow-lightOliveGreen 
                     rounded-lg my-6 md:my-4 flex flex-col justify-center items-center 
+                    ${activePath && (link.path).includes(activePath)?"bg-lightOrange":"bg-white"}
                     md:w-[200px] md:h-[60px] 
-                    lg:w-[300px] lg:h-[71px] md:flex-row md:hover:bg-lightOrange"
+                    lg:w-[300px] lg:h-[71px] md:flex-row md:hover:bg-lightOrange`}
           >
             <Image src={link.picto} alt={link.alt} width={70} height={100} />
             <div className="text-center text-midnightBlue text-xl font-subTitle">

@@ -1,9 +1,10 @@
 import CollectedPointForm from "@/app/(account)/dashboard/_components/CollectedPointForm";
 import { getOrganisations } from "@/lib/organisationQuery";
 
+
 export default async function AddCollectedPoint() {
   const dataOrganisations = await getOrganisations();
-
+ 
   return (
     <>
       <div className="flex flex-col items-center w-full gap-y-10">

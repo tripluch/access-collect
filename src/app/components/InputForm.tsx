@@ -9,7 +9,7 @@ export const InputForm = ({ name, label }: { name: string; label: string }) => {
           {label}
         </label>
         <input
-          className="p-2 bg-transparentLightOrange rounded-md  w-72 h-8 md:w-96"
+          className="p-2 bg-transparentLightOrange text-midnightBlue text-sm rounded-md  w-72 h-8 md:w-96"
           type="text"
           name={name}
         />

@@ -1,9 +1,9 @@
 "use server";
 
 import "@/lib/config";
-import { CollectPoint, collectPoint, user, User } from "./schema/schema";
+import { CollectPoint, collectPoint, Organisation, user, User } from "./schema/schema";
 import { db } from "./drizzle";
-import { eq } from "drizzle-orm";
+import { eq, inArray } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 export const getCollectedPoints = async () => {
@@ -31,14 +31,17 @@ export const addCollectedPoint = async (formData: any) => {
   }
 };
 
-export const getClientsFromOrganisation = async (data: string) => {
-  try {
-    const selectResult = await db
-      .select()
-      .from(user)
-      .where(eq(user.organisationId, data));
-    return selectResult as User[];
+export const getClientsFromOrganisation = async (props:string) => {
+
+try {
+  const selectResult = await db
+    .select()
+    .from(user)
+    .where(eq(user.organisationId, props));
+  console.log(selectResult)
+ 
+  return selectResult as User[];
   } catch {
-    console.error("this organisation haven't got a client");
+    console.error("this organisation hasn't got a client");
   }
 };
