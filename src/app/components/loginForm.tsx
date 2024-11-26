@@ -8,15 +8,15 @@ import Link from "next/link";
 export const getLogData = async (formData: any) => {
   const { email, password } = Object.fromEntries(formData);
 
-  const dataLog = await signIn("credentials", {
+  const logIn = await signIn("credentials", {
     redirect: false,
     email: email,
     password: password,
   });
 
-  console.log(dataLog);
+  console.log(logIn)
 
-  if (dataLog?.error) {
+  if (logIn?.error) {
     const warningDiv: HTMLElement | null = document.getElementById("warning");
     const warningMessage: string = "Email ou mot de passe incorrect.";
 

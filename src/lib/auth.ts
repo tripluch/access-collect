@@ -24,8 +24,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const userData = await db.query.user.findFirst({
           where: (user, { eq }) => eq(user.email, email),
         });
-        console.log(userData);
-
+    
         if (
           !userData ||
           (await Bcrypt.compare(password, userData.password)) === false
