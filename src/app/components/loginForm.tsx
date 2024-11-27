@@ -14,8 +14,6 @@ export const getLogData = async (formData: any) => {
     password: password,
   });
 
-  console.log(logIn)
-
   if (logIn?.error) {
     const warningDiv: HTMLElement | null = document.getElementById("warning");
     const warningMessage: string = "Email ou mot de passe incorrect.";

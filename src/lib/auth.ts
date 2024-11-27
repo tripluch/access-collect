@@ -3,6 +3,7 @@ import NextAuth from "next-auth";
 import { db } from "./drizzle";
 import Bcrypt from "bcryptjs";
 import CredentialsProvider from "@auth/core/providers/credentials";
+import { getUserDataWithEmail } from "./userQuery";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: DrizzleAdapter(db),
@@ -21,10 +22,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return null;
         }
 
-        const userData = await db.query.user.findFirst({
-          where: (user, { eq }) => eq(user.email, email),
-        });
-    
+        const userData = await getUserDataWithEmail(email);
+        console.log(userData);
+
         if (
           !userData ||
           (await Bcrypt.compare(password, userData.password)) === false
