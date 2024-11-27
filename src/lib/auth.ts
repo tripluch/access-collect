@@ -19,17 +19,16 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         };
 
         if (!email || !password) {
-          return null;
+          throw new Error("Wrongs credentials");
         }
 
         const userData = await getUserDataWithEmail(email);
-        console.log(userData);
 
         if (
           !userData ||
           (await Bcrypt.compare(password, userData.password)) === false
         ) {
-          return null;
+          throw new Error("Wrong password");
         }
         return {
           id: userData.id,
