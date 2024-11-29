@@ -7,16 +7,16 @@ export default async function OrganisationsPage() {
   const dataOrganisations = await getOrganisations();
 
   return (
-    <div className="flex justify-around flex-col w-full">
-      <div className="text-midnightBlue font-title font-bold  text-2xl text-center my-6">
+    <div className="flex gap-y-4 flex-col w-full">
+      <div className="text-midnightBlue font-title font-bold  text-2xl text-center mt-4">
         {"ORGANISATIONS"}
       </div>
       <Link href="/dashboard/add-organisation">
         <CreateButton name={"Créer une organisation"} />
       </Link>
 
-      <div className="my-10 mx-4 flex justify-center flex-col">
-        <h1 className="text-2xl font-title text-oliveGreen text-center my-6">
+      <div className="mx-4 flex justify-center flex-col">
+        <h1 className="text-2xl font-title text-oliveGreen text-center">
           {"Liste des organisations : "}
         </h1>
         <div className="max-sm:hidden mt-6 text-midnightBlue flex justify-center mb-6">

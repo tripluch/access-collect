@@ -1,22 +1,41 @@
 "use client";
-import { addCollectedPoint } from "@/lib/collectedPointQuery";
+import {
+  addCollectedPoint,
+  getClientsFromOrganisation,
+} from "@/lib/collectedPointQuery";
 import { CheckboxDaysOfCollect } from "./CheckboxDaysOfCollect";
 import CancelButton from "@/app/components/button/cancelButton";
 import { InputForm } from "@/app/components/InputForm";
 import { Organisation } from "@/lib/schema/organisation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import OrangeButton from "@/app/components/button/orangeButton";
-//import { getClientsFromOrganisation } from "@/lib/collectedPointQuery";
+import { User } from "@/lib/schema/user";
 
 export const CollectedPointForm = ({
   organisationInfos,
 }: {
   organisationInfos: Organisation[];
 }) => {
-  const [selectedOrga, setSelectedOrga] = useState("");
-  //const [selectedClient, setSelectedClient] = useState("");
+  const [selectedOrga, setSelectedOrga] = useState<string>("");
+  const [clients, setClients] = useState<User[]>([]);
+  const [selectedClient, setSelectedClient] = useState<string>("");
 
-  //const dataClient = getClientsFromOrganisation(selectedOrga);
+  useEffect(() => {
+    const fetchClients = async () => {
+      if (selectedOrga) {
+        try {
+          const result = await getClientsFromOrganisation(selectedOrga);
+          if (result) {
+            setClients(result);
+          }
+        } catch (error) {
+          console.error("Error retrieving clients :", error);
+        }
+      } 
+    };
+
+    fetchClients();
+  }, [selectedOrga]);
 
   return (
     <form
@@ -59,7 +78,28 @@ export const CollectedPointForm = ({
           ;
         </select>
       </div>
-      <InputForm name={"clientId"} label={"Nom du client: "} />
+      <div className="flex flex-col">
+        <label
+          className="text-oliveGreen uppercase font-title text-sm"
+          htmlFor={"clientId"}
+        >
+          {"Nom du client:"}
+        </label>
+        <select
+          value={selectedClient}
+          onChange={(e) => setSelectedClient(e.target.value)}
+          className="block appearance-none bg-transparentLightOrange leading-tight focus:outline-none focus:bg-transparentBrightOrange text-midnightBlue rounded-md text-sm w-72 h-8 md:w-96"
+          name="clientId"
+          disabled={clients.length === 0}
+        >
+          <option value="">--Choisir une option--</option>
+          {clients.map((user) => (
+            <option key={user.id} value={user.id}>
+              {user.name}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="flex justify-around">
         <CancelButton />
         <OrangeButton label={"Confirmer"} route={""} />
