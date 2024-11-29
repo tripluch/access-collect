@@ -4,12 +4,11 @@ import "@/lib/config";
 import {
   CollectPoint,
   collectPoint,
-  Organisation,
   user,
   User,
 } from "./schema/schema";
 import { db } from "./drizzle";
-import { eq, inArray } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 export const getCollectedPoints = async () => {
