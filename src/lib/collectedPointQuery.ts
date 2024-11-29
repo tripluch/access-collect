@@ -36,14 +36,13 @@ export const addCollectedPoint = async (formData: any) => {
   }
 };
 
-export const getClientsFromOrganisation = async (props: string) => {
+export const getClientsFromOrganisation = async (organisationId: string) => {
   try {
     const selectResult = await db
       .select()
       .from(user)
-      .where(eq(user.organisationId, props));
-    console.log(selectResult);
-
+      .where(eq(user.organisationId, organisationId));
+  
     return selectResult as User[];
   } catch {
     console.error("this organisation hasn't got a client");

@@ -22,7 +22,6 @@ export const CollectedPointForm = ({
 
   useEffect(() => {
     const fetchClients = async () => {
-      setSelectedClient("");
       if (selectedOrga) {
         try {
           const result = await getClientsFromOrganisation(selectedOrga);
@@ -31,11 +30,8 @@ export const CollectedPointForm = ({
           }
         } catch (error) {
           console.error("Error retrieving clients :", error);
-          setClients([]);
         }
-      } else {
-        setClients([]);
-      }
+      } 
     };
 
     fetchClients();
