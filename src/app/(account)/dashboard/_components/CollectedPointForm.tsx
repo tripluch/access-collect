@@ -26,7 +26,9 @@ export const CollectedPointForm = ({
       if (selectedOrga) {
         try {
           const result = await getClientsFromOrganisation(selectedOrga);
-          setClients(result);
+          if (result) {
+            setClients(result);
+          }
         } catch (error) {
           console.error("Error retrieving clients :", error);
           setClients([]);
