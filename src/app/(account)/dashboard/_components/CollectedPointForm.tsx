@@ -42,8 +42,16 @@ export const CollectedPointForm = ({
       action={addCollectedPoint}
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
-      <InputForm name={"name"} label={"Nom du point de collecte :"} />
-      <InputForm name={"address"} label={"Adresse: "} />
+      <InputForm
+        name={"name"}
+        label={"Nom du point de collecte :"}
+        placeholder={"Point Exemple"}
+      />
+      <InputForm
+        name={"address"}
+        label={"Adresse: "}
+        placeholder={"3 rue de l'exemple 01234 Exemple-Ville"}
+      />
       <div className="text-oliveGreen uppercase font-title text-sm">
         {"Jour de collecte: "}
       </div>
