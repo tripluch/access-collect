@@ -10,11 +10,31 @@ const OrgaForm = () => {
       action={addOrganisation}
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
-      <InputForm name={"name"} label={"Nom: "} />
-      <InputForm name={"address"} label={"Adresse: "} />
-      <InputForm name={"phone"} label={"N° de téléphone: "} />
-      <InputForm name={"contact"} label={"Nom du contact: "} />
-      <InputForm name={"agrement"} label={"N° d'agrément: "} />
+      <InputForm
+        name={"name"}
+        label={"Nom: "}
+        placeholder={"OrganisationExemple"}
+      />
+      <InputForm
+        name={"address"}
+        label={"Adresse: "}
+        placeholder={"1 rue de l'exemple 01234 ExempleVille"}
+      />
+      <InputForm
+        name={"phone"}
+        label={"N° de téléphone: "}
+        placeholder={"0123456789"}
+      />
+      <InputForm
+        name={"contact"}
+        label={"Nom du contact: "}
+        placeholder={"Luc Exemple"}
+      />
+      <InputForm
+        name={"agrement"}
+        label={"N° d'agrément: "}
+        placeholder={"AGR-2023-0567"}
+      />
       <div className="flex justify-around">
         <CancelButton />
         <OrangeButton label={"Confirmer"} route={"/dashboard/organisation"} />
