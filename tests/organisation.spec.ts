@@ -65,10 +65,14 @@ test.describe("Organisation Page", () => {
     await expect(page).toHaveURL(/.*\/collected-point-list/);
   });
 
-  test("Button named 'Créer' should redirect to add-organisation page", async ({
+  test("Link named 'Créer' should redirect to add-organisation page", async ({
     page,
   }) => {
-    await page.getByRole("link", { name: "pictogramme ajouter Créer" }).click();
-    await page.goto("http://localhost:3000/dashboard/add-organisation");
+    await page
+      .getByRole("link", {
+        name: "pictogramme ajouter Créer",
+      })
+      .click();
+    await expect(page).toHaveURL(/.*\/add-organisation/);
   });
 });
