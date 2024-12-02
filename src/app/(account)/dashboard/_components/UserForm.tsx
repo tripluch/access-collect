@@ -24,7 +24,7 @@ const UserForm = ({
       <InputForm
         name={"email"}
         label={"Email: "}
-        placeholder={"jean@exemple.fr"}
+        placeholder={"mail@exemple.fr"}
       />
       <InputPassword name={"password"} label={"Mot de passe: "} />
       <InputForm
