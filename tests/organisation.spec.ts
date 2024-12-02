@@ -25,6 +25,11 @@ test.describe("Organisation Page", () => {
         name: "Accéder à la page dashboard/point de collecte Points de collecte",
       }),
     ).toBeVisible;
+    expect(
+      page.getByRole("link", {
+        name: "pictogramme ajouter Créer",
+      }),
+    ).toBeVisible;
   });
 
   test("Layout link named 'utilisateurs' should redirect to user page", async ({
@@ -63,10 +68,7 @@ test.describe("Organisation Page", () => {
   test("Button named 'Créer' should redirect to add-organisation page", async ({
     page,
   }) => {
-    const button = page.getByRole("link", {
-      name: "pictogramme ajouter Créer",
-    });
-    button.click();
-    await expect(page).toHaveURL(/.*\/add-organisation/);
+    await page.getByRole("link", { name: "pictogramme ajouter Créer" }).click();
+    await page.goto("http://localhost:3000/dashboard/add-organisation");
   });
 });

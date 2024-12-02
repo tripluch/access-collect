@@ -1,4 +1,12 @@
-export const InputForm = ({ name, label }: { name: string; label: string }) => {
+export const InputForm = ({
+  name,
+  label,
+  placeholder,
+}: {
+  name: string;
+  label: string;
+  placeholder: string;
+}) => {
   return (
     <>
       <div className="flex flex-col">
@@ -12,6 +20,7 @@ export const InputForm = ({ name, label }: { name: string; label: string }) => {
           className="p-2 bg-transparentLightOrange text-midnightBlue text-sm rounded-md  w-72 h-8 md:w-96"
           type="text"
           name={name}
+          placeholder={placeholder}
         />
       </div>
     </>
