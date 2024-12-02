@@ -7,20 +7,20 @@ test.beforeEach(async ({ page }) => {
 test.describe("Organisation Page", () => {
   test("What page should contain", async ({ page }) => {
     await expect(page).toHaveTitle(/Access Collect/);
-    await expect(page.getByText("ORGANISATION")).toBeVisible;
-    await expect(page.getByText("Liste des organisations :")).toBeVisible;
-    await expect(page.getByRole("button", { name: "Créer" })).toBeVisible;
-    await expect(
+    expect(page.getByText("ORGANISATION")).toBeVisible;
+    expect(page.getByText("Liste des organisations :")).toBeVisible;
+    expect(page.getByRole("button", { name: "Créer" })).toBeVisible;
+    expect(
       page.getByRole("link", {
         name: "Accéder à la page dashboard/utilisateur Utilisateurs",
       }),
     ).toBeVisible;
-    await expect(
+    expect(
       page.getByRole("link", {
         name: "Accéder à la page dashboard/organisation Organisations",
       }),
     ).toBeVisible;
-    await expect(
+    expect(
       page.getByRole("link", {
         name: "Accéder à la page dashboard/point de collecte Points de collecte",
       }),
@@ -60,14 +60,13 @@ test.describe("Organisation Page", () => {
     await expect(page).toHaveURL(/.*\/collected-point-list/);
   });
 
-  //have to correct this one 
   test("Button named 'Créer' should redirect to add-organisation page", async ({
     page,
   }) => {
-    const button = await page.getByRole("link", {
+    const button = page.getByRole("link", {
       name: "pictogramme ajouter Créer",
     });
-    button.click;
+    button.click();
     await expect(page).toHaveURL(/.*\/add-organisation/);
   });
 });
