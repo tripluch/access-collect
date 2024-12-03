@@ -4,13 +4,13 @@ import { user } from "./user";
 import { organisation } from "./organisation";
 import { collectedData } from "./collectedData";
 
-export const daysEnum = pgEnum("daysOfCollect", [
-  "monday",
-  "tuesday",
-  "wednesday",
-  "thursday",
-  "friday",
-]);
+// export const daysEnum = pgEnum("daysOfCollect", [
+//   "monday",
+//   "tuesday",
+//   "wednesday",
+//   "thursday",
+//   "friday",
+// ]);
 
 export const collectPoint = pgTable("collectPoint", {
   id: text("id")
@@ -18,7 +18,7 @@ export const collectPoint = pgTable("collectPoint", {
     .$defaultFn(() => crypto.randomUUID()),
   name: varchar("name").notNull(),
   address: varchar("adress").notNull(),
-  daysOfCollect: daysEnum().notNull(),
+  daysOfCollect: text().array().notNull(),
   clientId: text("user_id")
     .references(() => user.id, { onDelete: "cascade" })
     .notNull(),

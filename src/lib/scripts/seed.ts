@@ -167,7 +167,7 @@ const insert = async <T extends object, TTable extends PgTable>(
 let idOrganisation: string | undefined;
 
 const main = async () => {
-  await clear();
+  //await clear();
   await insert(
     organisation,
     organisations,

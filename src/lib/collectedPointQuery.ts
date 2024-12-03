@@ -14,6 +14,10 @@ export const getCollectedPoints = async () => {
 export const addCollectedPoint = async (formData: any) => {
   const { name, address, daysOfCollect, clientId, organisationId } =
     Object.fromEntries(formData);
+    console.log(formData);
+    console.log(formData);
+    console.log(daysOfCollect)
+    
   try {
     await db
       .insert(collectPoint)
