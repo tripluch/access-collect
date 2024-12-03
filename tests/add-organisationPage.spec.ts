@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto("http://localhost:3000/dashboard/add-organisation");
+  await page.goto("/dashboard/add-organisation");
 });
 
 test.describe("Add Organisation Page", () => {
@@ -26,7 +26,7 @@ test.describe("Add Organisation Page", () => {
         name: "ANNULER",
       })
       .click();
-    await page.goto("http://localhost:3000/dashboard/organisation");
+    await page.goto("/dashboard/organisation");
   });
 
   test("OrgaForm should add a new organisation to db", async ({ page }) => {
