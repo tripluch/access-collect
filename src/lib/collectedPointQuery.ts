@@ -1,12 +1,7 @@
 "use server";
 
 import "@/lib/config";
-import {
-  CollectPoint,
-  collectPoint,
-  user,
-  User,
-} from "./schema/schema";
+import { CollectPoint, collectPoint, user, User } from "./schema/schema";
 import { db } from "./drizzle";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
@@ -42,7 +37,7 @@ export const getClientsFromOrganisation = async (organisationId: string) => {
       .select()
       .from(user)
       .where(eq(user.organisationId, organisationId));
-  
+
     return selectResult as User[];
   } catch {
     console.error("this organisation hasn't got a client");

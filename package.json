@@ -15,10 +15,11 @@
     "db:down": "cd docker && docker compose down",
     "db:generate": "npx drizzle-kit generate",
     "db:migrate": "npx drizzle-kit migrate",
-    "db:seed": "node --import=tsx --env-file=.env.development src/lib/scripts/seed.ts",
-    "db:drop_all": "node --import=tsx --env-file=.env.development src/lib/database/seed/drop_all.ts",
-    "db:studio": "npx drizzle-kit studio",
-    "seed": "tsx --require dotenv/config src/lib/scripts/seed.ts"
+    "db:seed": "node --import=tsx --env-file=.env src/lib/scripts/seed.ts",
+    "db:create": "docker exec -it access-collect-postgres psql -U tripluch -d postgres -c \"CREATE DATABASE test_db_access_collect;\"",
+    "db:drop": "docker exec -it access-collect-postgres psql -U tripluch -d postgres -c \"DROP DATABASE IF EXISTS test_db_access_collect;\"",
+    "db:drop-migration": "npx drizzle-kit drop",
+    "db:studio": "npx drizzle-kit studio"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.7.1",

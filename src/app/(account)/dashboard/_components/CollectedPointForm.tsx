@@ -31,7 +31,7 @@ export const CollectedPointForm = ({
         } catch (error) {
           console.error("Error retrieving clients :", error);
         }
-      } 
+      }
     };
 
     fetchClients();
