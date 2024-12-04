@@ -10,6 +10,7 @@ import { Organisation } from "@/lib/schema/organisation";
 import { useEffect, useState } from "react";
 import OrangeButton from "@/app/components/button/orangeButton";
 import { User } from "@/lib/schema/user";
+import { InputFormRequired } from "@/app/components/InputFormRequired";
 
 export const CollectedPointForm = ({
   organisationInfos,
@@ -42,12 +43,12 @@ export const CollectedPointForm = ({
       action={addCollectedPoint}
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
-      <InputForm
+      <InputFormRequired
         name={"name"}
         label={"Nom du point de collecte :"}
         placeholder={"Point Exemple"}
       />
-      <InputForm
+      <InputFormRequired
         name={"address"}
         label={"Adresse: "}
         placeholder={"3 rue de l'exemple 01234 Exemple-Ville"}
@@ -74,6 +75,7 @@ export const CollectedPointForm = ({
           onChange={(e) => setSelectedOrga(e.target.value)}
           className=" block appearance-none bg-transparentLightOrange leading-tight focus:outline-none focus:bg-transparentBrightOrange  text-midnightBlue rounded-md text-sm w-72 h-8 md:w-96"
           name="organisationId"
+          required
         >
           <option value="" className="hover:bg-brightOrange">
             --Choisir une option--
@@ -99,6 +101,7 @@ export const CollectedPointForm = ({
           className="block appearance-none bg-transparentLightOrange leading-tight focus:outline-none focus:bg-transparentBrightOrange text-midnightBlue rounded-md text-sm w-72 h-8 md:w-96"
           name="clientId"
           disabled={clients.length === 0}
+          required
         >
           <option value="">--Choisir une option--</option>
           {clients.map((user) => (

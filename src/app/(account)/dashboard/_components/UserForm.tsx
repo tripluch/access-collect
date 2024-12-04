@@ -2,6 +2,7 @@
 import CancelButton from "@/app/components/button/cancelButton";
 import OrangeButton from "@/app/components/button/orangeButton";
 import { InputForm } from "@/app/components/InputForm";
+import { InputFormRequired } from "@/app/components/InputFormRequired";
 import { InputPassword } from "@/app/components/InputPassword";
 import { Organisation } from "@/lib/schema/organisation";
 import { addUser } from "@/lib/userQuery";
@@ -20,8 +21,12 @@ const UserForm = ({
       action={addUser}
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
-      <InputForm name={"name"} label={"Nom: "} placeholder={"Nom"} />
-      <InputForm name={"email"} label={"Email: "} placeholder={"Email"} />
+      <InputFormRequired name={"name"} label={"Nom: "} placeholder={"Jean Exemple"} />
+      <InputFormRequired
+        name={"email"}
+        label={"Email: "}
+        placeholder={"mail@exemple.fr"}
+      />
       <InputPassword name={"password"} label={"Mot de passe: "} />
       <InputForm
         name={"phone"}
@@ -42,6 +47,7 @@ const UserForm = ({
           className="block appearance-none bg-transparentLightOrange leading-tight focus:outline-none focus:bg-transparentBrightOrange  text-midnightBlue rounded-md text-sm w-72 h-8 md:w-96"
           id="grid-state"
           name="role"
+          required
         >
           <option value="" className="hover:bg-brightOrange">
             {"--Choisir une option--"}
@@ -65,6 +71,7 @@ const UserForm = ({
           className="block appearance-none bg-transparentLightOrange leading-tight focus:outline-none focus:bg-transparentBrightOrange  text-midnightBlue rounded-md text-sm w-72 h-8 md:w-96"
           id="grid-state"
           name="organisationId"
+          required
         >
           <option value="" className="hover:bg-brightOrange">
             {"--Choisir une option--"}

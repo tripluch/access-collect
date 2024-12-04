@@ -11,8 +11,11 @@ export const getOrganisations = async () => {
 };
 
 export const addOrganisation = async (formData: any) => {
+  
   const { name, address, phone, contact, agrement } =
     Object.fromEntries(formData);
+
+    
 
   try {
     await db
@@ -31,3 +34,5 @@ export const addOrganisation = async (formData: any) => {
     console.error("the organisation has not been added to the database");
   }
 };
+
+
