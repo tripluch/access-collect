@@ -33,14 +33,8 @@ import { sql, eq } from "drizzle-orm";
 import { PgTable } from "drizzle-orm/pg-core";
 
 const clear = async () => {
-  await db.execute(sql`truncate table "organisation" restart identity cascade`);
-  await db.execute(sql`truncate table "user" restart identity cascade`);
-  await db.execute(sql`truncate table "waste" restart identity cascade`);
-  await db.execute(sql`truncate table "containing" restart identity cascade`);
-  await db.execute(sql`truncate table "collectPoint" restart identity cascade`);
-  await db.execute(
-    sql`truncate table "collectedData" restart identity cascade`,
-  );
+  await db.execute(sql`do $$ declare
+    table_name text; begin for table_name in (select tablename from pg_tables where schemaname = 'public') loop execute 'truncate table public."' || table_name || '" cascade'; end loop; end $$;`);
   console.log("Cleared tables");
 };
 
@@ -48,7 +42,6 @@ const convertOrganisation = async (
   organisation: Organisation,
 ): Promise<NewOrganisation> => {
   return Promise.resolve({
-    id: organisation.id,
     name: organisation.name,
     address: organisation.address,
     phoneNumber: organisation.phoneNumber,
