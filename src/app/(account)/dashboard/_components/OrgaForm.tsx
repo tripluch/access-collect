@@ -4,15 +4,16 @@ import OrangeButton from "@/app/components/button/orangeButton";
 import { InputForm } from "@/app/components/InputForm";
 import { InputFormRequired } from "@/app/components/InputFormRequired";
 import { addOrganisation } from "@/lib/organisationQuery";
+import { replaceEmptyValueByNull } from "@/lib/utils";
 
 const OrgaForm = () => {
-  const handleSubmit = (formData : FormData) => { 
+  // const handleSubmit = (formData : FormData) => { 
     
-    const data = Object.fromEntries(formData); 
-    console.log(data)};
+  //   const data = Object.fromEntries(formData); 
+  //   console.log(data)};
   return (
     <form
-      action={handleSubmit}
+      action={replaceEmptyValueByNull}
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
       <InputFormRequired

@@ -11,11 +11,10 @@ export const getOrganisations = async () => {
 };
 
 export const addOrganisation = async (formData: any) => {
+  console.log(formData)
   
   const { name, address, phone, contact, agrement } =
-    Object.fromEntries(formData);
-
-    
+    Object.fromEntries(formData); 
 
   try {
     await db
