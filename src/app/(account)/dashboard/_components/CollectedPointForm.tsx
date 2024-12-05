@@ -5,7 +5,6 @@ import {
 } from "@/lib/collectedPointQuery";
 import { CheckboxDaysOfCollect } from "./CheckboxDaysOfCollect";
 import CancelButton from "@/app/components/button/cancelButton";
-import { InputForm } from "@/app/components/InputForm";
 import { Organisation } from "@/lib/schema/organisation";
 import { useEffect, useState } from "react";
 import OrangeButton from "@/app/components/button/orangeButton";

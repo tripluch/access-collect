@@ -52,10 +52,8 @@ test.describe("Add Organisation Page", () => {
     // await expect(page.getByPlaceholder("AGR-2023-0567")).toHaveValue(
     //   /^[a-zA-Z0-9\-]+$/,
     // );
-    const requestPromise = page.waitForRequest('dashboard/add-organisation');
+    const requestPromise = page.waitForRequest("dashboard/add-organisation");
     await page.getByRole("button", { name: "Confirmer" }).click();
     await requestPromise;
-
-
   });
 });

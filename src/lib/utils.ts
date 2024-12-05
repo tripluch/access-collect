@@ -1,9 +1,13 @@
-//function who takes formData and delete empty object or replace the value '' by null 
+export const replaceEmptyValueByNull = async (formData: FormData) => {
+  const inputData = Object.fromEntries(formData);
 
-export const replaceEmptyValueByNull = async(formData : any) => {
-    console.log(formData)
-
-
-
-
-}
+  let newData: any = {};
+  Object.keys(inputData).forEach((key) => {
+    if (inputData[key] === "") {
+      newData[key] = null;
+    } else {
+      newData[key] = inputData[key];
+    }
+  });
+  return newData;
+};
