@@ -1,7 +1,7 @@
 export const replaceEmptyValueByNull = async (formData: FormData) => {
   const inputData = Object.fromEntries(formData);
 
-  let newData: any = {};
+  const newData: any = {};
   Object.keys(inputData).forEach((key) => {
     if (inputData[key] === "") {
       newData[key] = null;
