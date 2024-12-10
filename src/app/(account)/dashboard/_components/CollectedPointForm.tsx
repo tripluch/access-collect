@@ -7,10 +7,9 @@ import { CheckboxDaysOfCollect } from "./CheckboxDaysOfCollect";
 import CancelButton from "@/app/components/button/cancelButton";
 import { InputForm } from "@/app/components/InputForm";
 import { Organisation } from "@/lib/schema/organisation";
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import OrangeButton from "@/app/components/button/orangeButton";
 import { User } from "@/lib/schema/user";
-import { text } from "stream/consumers";
 
 export const CollectedPointForm = ({
   organisationInfos,
@@ -20,24 +19,22 @@ export const CollectedPointForm = ({
   const [selectedOrga, setSelectedOrga] = useState<string>("");
   const [clients, setClients] = useState<User[]>([]);
   const [selectedClient, setSelectedClient] = useState<string>("");
-  const [checkDeliveryDay,setCheckDeliveryDay]=useState<string[]>([]);
-    
- 
-    const changer= (e: { target: { checked: boolean; value: string; }; })=>{
-      let checked=e.target.checked;
-      console.log(checked);
-      console.log(typeof checkDeliveryDay.join(','))
-      let value=e.target.value;
-      if(checked){
-       setCheckDeliveryDay([...checkDeliveryDay,value])
-       console.log(checkDeliveryDay)
-      }else{
-       setCheckDeliveryDay(checkDeliveryDay.filter((verification)=>verification!==value))
-       console.log(checkDeliveryDay)
-      }
-       }
+  const [checkDeliveryDay, setCheckDeliveryDay] = useState<string[]>([]);
 
+  const handleChange = (e: { target: { checked: boolean; value: string } }) => {
+    let deliveryDays: string[] = checkDeliveryDay;
+    let checked = e.target.checked;
+    let value = e.target.value;
 
+    if (checked && !deliveryDays.includes(value)) {
+      deliveryDays.push(value);
+    }
+    if (!checked && deliveryDays.includes(value)) {
+      deliveryDays = checkDeliveryDay.filter((day) => day !== value);
+    }
+
+    setCheckDeliveryDay(deliveryDays);
+  };
 
   useEffect(() => {
     const fetchClients = async () => {
@@ -75,11 +72,11 @@ export const CollectedPointForm = ({
         {"Jour de collecte: "}
       </div>
       <div className="flex flex-row flex-wrap">
-        <CheckboxDaysOfCollect id="monday" label={"Lundi"} value={"lundi"} onChange={changer}/>
-        <CheckboxDaysOfCollect  id="tuesday" label={"Mardi"} value={"mardi"} onChange={changer} />
-        <CheckboxDaysOfCollect  id="wednesday" label={"Mercredi"} value={"mercredi"} onChange={changer}/>
-        <CheckboxDaysOfCollect  id="thursday" label={"Jeudi"} value={"jeudi"} onChange={changer}/>
-        <CheckboxDaysOfCollect  id="friday" label={"Vendredi"} value={"vendredi"} onChange={changer} />
+        <CheckboxDaysOfCollect id="monday" label={"Lundi"} value={"lundi"} onChange={handleChange}/>
+        <CheckboxDaysOfCollect  id="tuesday" label={"Mardi"} value={"mardi"} onChange={handleChange} />
+        <CheckboxDaysOfCollect  id="wednesday" label={"Mercredi"} value={"mercredi"} onChange={handleChange}/>
+        <CheckboxDaysOfCollect  id="thursday" label={"Jeudi"} value={"jeudi"} onChange={handleChange}/>
+        <CheckboxDaysOfCollect  id="friday" label={"Vendredi"} value={"vendredi"} onChange={handleChange} />
       </div>
       
       <div className="flex flex-col">

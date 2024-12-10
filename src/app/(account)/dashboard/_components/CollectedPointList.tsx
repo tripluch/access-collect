@@ -7,7 +7,7 @@ export default async function CollectedPointList() {
 
   return (
     <>
-      <div className="max-sm:hidden mt-6 text-midnightBlue flex justify-center mb-6">
+      <div className="max-sm:hidden mt-6 mx-6 text-midnightBlue flex justify-center mb-6">
         <table className="border border-oliveGreen ">
           <thead>
             <tr className="border border-oliveGreen text-center">
@@ -25,9 +25,11 @@ export default async function CollectedPointList() {
                 }`}
                 key={index}
               >
-                <td className="px-8">{collectedPoint.name}</td>
-                <td className="px-8">{collectedPoint.address}</td>
-                <td className="px-8">{collectedPoint.daysOfCollect}</td>
+                <td className="pl-4">{collectedPoint.name}</td>
+                <td className="pl-8">{collectedPoint.address}</td>
+                <td className="pl-8">
+                  {collectedPoint.daysOfCollect.join(", ")}
+                </td>
                 <td className=" flex justify-center">
                   <Link
                     href={`/dashboard/collected-point/${collectedPoint.id}`}

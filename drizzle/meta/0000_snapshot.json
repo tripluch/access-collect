@@ -1,5 +1,5 @@
 {
-  "id": "2d1029be-14c0-414b-b3fe-8011bef8d560",
+  "id": "9f1d43ba-4f9f-4e11-b91a-b94d7f73c740",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -238,10 +238,10 @@
         },
         "daysOfCollect": {
           "name": "daysOfCollect",
-          "type": "daysOfCollect",
-          "typeSchema": "public",
+          "type": "day[]",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "default": "'{}'"
         },
         "user_id": {
           "name": "user_id",
@@ -459,10 +459,18 @@
       "schema": "public",
       "values": ["superAdmin", "admin", "client", "collector"]
     },
-    "public.daysOfCollect": {
-      "name": "daysOfCollect",
+    "public.day": {
+      "name": "day",
       "schema": "public",
-      "values": ["monday", "tuesday", "wednesday", "thursday", "friday"]
+      "values": [
+        "Lundi",
+        "Mardi",
+        "Mercredi",
+        "Jeudi",
+        "Vendredi",
+        "Samedi",
+        "Dimanche"
+      ]
     }
   },
   "schemas": {},
