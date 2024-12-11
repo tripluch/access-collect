@@ -95,11 +95,10 @@ export const sendResetPasswordEmailIfUserExists = async (formData: any) => {
     const info = await creationOfTransporter();
     try {
       info.sendMail({
-        from: '"tripluch" <contact@tripluch.fr>',
+        from: '"access-collect" <contact@tripluch.fr>',
         to: "ileana.bolas.16@gmail.com",
-        subject: "Hello ✔",
-        text: "Hello world?",
-        html: "<b>Hello world?</b>",
+        subject: "Réinitialisation de votre mot de passe",
+        html: "<h3>Bonjour,</h3><p>Vous recevez ce mail car nous avons reçu une demande de réinitialisation du mot de passe pour votre compte.</p>",
       });
       console.log("Message sent to user");
     } catch {
