@@ -30,14 +30,14 @@ test.describe("Add Organisation Page", () => {
   });
 
   test("OrgaForm should add a new organisation to db", async ({ page }) => {
-    await page.getByPlaceholder("Nom").fill("Organisation Playwright");
+    await page.getByPlaceholder("Nom", {exact:true}).fill("Organisation Playwright");
     await page
       .getByPlaceholder("Adresse")
       .fill("2 rue du test 01111 TestVille");
     await page.getByPlaceholder("Téléphone").fill("0101020203");
     await page.getByPlaceholder("Nom contact").fill("Jean-Paul Playwrîght");
     await page.getByPlaceholder("N° d'agrément").fill("AGR-2345-0567");
-    await expect(page.getByPlaceholder("Nom")).toHaveValue(
+    await expect(page.getByPlaceholder("Nom", {exact:true})).toHaveValue(
       /[a-zA-Z0-9À-ÖØ-öø-ÿ -]/,
     );
     await expect(page.getByPlaceholder("Adresse")).toHaveValue(
