@@ -14,14 +14,14 @@ export const daysEnum = pgEnum("day", [
   "sunday",
 ]);
 
-export type days = typeof daysEnum;
+export type days = keyof typeof daysEnum;
 
 export const collectPoint = pgTable("collectPoint", {
   id: text("id")
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
   name: varchar("name").notNull(),
-  address: varchar("adress").notNull(),
+  address: varchar("address").notNull(),
   daysOfCollect: daysEnum().array().notNull().default([]),
   clientId: text("user_id")
     .references(() => user.id, { onDelete: "cascade" })

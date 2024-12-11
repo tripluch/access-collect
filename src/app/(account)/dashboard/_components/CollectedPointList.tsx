@@ -1,11 +1,12 @@
 import { getCollectedPoints } from "@/lib/collectedPointQuery";
+import { daysEnum } from "@/lib/schema/collectPoint";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function CollectedPointList() {
   const data = await getCollectedPoints();
 
-  const dictionnaryDays = {
+  const dictionnaryDays: { [key in typeof daysEnum as string]: string } = {
     monday: "Lundi",
     tuesday: "Mardi",
     wednesday: "Mercredi",
@@ -37,11 +38,9 @@ export default async function CollectedPointList() {
                 <td className="pl-4">{collectedPoint.name}</td>
                 <td className="pl-8">{collectedPoint.address}</td>
                 <td className="pl-8">
-                  {
-                    dictionnaryDays[
-                      collectedPoint.daysOfCollect as unknown as keyof typeof dictionnaryDays
-                    ]
-                  }
+                  {collectedPoint.daysOfCollect.map(
+                    (day) => dictionnaryDays[day] + " ",
+                  )}
                 </td>
                 <td className=" flex justify-center">
                   <Link
