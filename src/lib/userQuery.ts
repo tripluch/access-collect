@@ -6,6 +6,7 @@ import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import Bcrypt from "bcryptjs";
 import { replaceEmptyValueByNull } from "./utils";
+import nodemailer from "nodemailer";
 
 export const hashPassword = async (text: string) => {
   try {
@@ -69,13 +70,40 @@ export const getUserDataWithEmail = async (email: string) => {
   return user as User;
 };
 
+export const creationOfTransporter = async () => {
+  const transporter = nodemailer.createTransport({
+    host: process.env.MAIL_HOST,
+    service: process.env.MAIL_SERVICE,
+    port: Number(process.env.MAIL_PORT),
+    secure: true,
+    auth: {
+      user: process.env.MAIL_USER,
+      pass: process.env.MAIL_PASS,
+    },
+    tls: { rejectedUnauthorized: false },
+  });
+  return transporter;
+};
+
 export const sendResetPasswordEmailIfUserExists = async (formData: any) => {
   const userEmail = Object.fromEntries(formData);
   const user = await getUserDataWithEmail(userEmail.email);
 
   if (!user) {
-    console.log("error");
+    console.log("error email doesn't exists on database");
   } else {
-    //Have to send email here
+    const info = await creationOfTransporter();
+    try {
+      info.sendMail({
+        from: '"tripluch" <contact@tripluch.fr>',
+        to: "ileana.bolas.16@gmail.com",
+        subject: "Hello ✔",
+        text: "Hello world?",
+        html: "<b>Hello world?</b>",
+      });
+      console.log("Message sent to user");
+    } catch {
+      console.error("Message not sent to user");
+    }
   }
 };
