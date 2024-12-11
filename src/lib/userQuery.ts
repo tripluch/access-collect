@@ -68,3 +68,14 @@ export const getUserDataWithEmail = async (email: string) => {
   });
   return user as User;
 };
+
+export const sendResetPasswordEmailIfUserExists = async (formData: any) => {
+  const userEmail = Object.fromEntries(formData);
+  const user = await getUserDataWithEmail(userEmail.email);
+
+  if (!user) {
+    console.log("error");
+  } else {
+    //Have to send email here
+  }
+};
