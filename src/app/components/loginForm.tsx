@@ -49,7 +49,7 @@ const LoginForm = () => {
       </form>
 
       {/* Need to modify the link path */}
-      <Link href="/" className="flex justify-start">
+      <Link href="/forgotten-password" className="flex justify-start">
         <p className="text-midnightBlue">{"Mot de passe oublié ?"}</p>
       </Link>
     </div>
