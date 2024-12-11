@@ -10,16 +10,8 @@ const OrgaForm = () => {
       action={addOrganisation}
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
-      <InputForm
-        name={"name"}
-        label={"Nom: "}
-        placeholder={"Nom"}
-      />
-      <InputForm
-        name={"address"}
-        label={"Adresse: "}
-        placeholder={"Adresse"}
-      />
+      <InputForm name={"name"} label={"Nom: "} placeholder={"Nom"} />
+      <InputForm name={"address"} label={"Adresse: "} placeholder={"Adresse"} />
       <InputForm
         name={"phone"}
         label={"N° de téléphone: "}

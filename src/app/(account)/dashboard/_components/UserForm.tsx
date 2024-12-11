@@ -21,11 +21,7 @@ const UserForm = ({
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
       <InputForm name={"name"} label={"Nom: "} placeholder={"Nom"} />
-      <InputForm
-        name={"email"}
-        label={"Email: "}
-        placeholder={"Email"}
-      />
+      <InputForm name={"email"} label={"Email: "} placeholder={"Email"} />
       <InputPassword name={"password"} label={"Mot de passe: "} />
       <InputForm
         name={"phone"}
