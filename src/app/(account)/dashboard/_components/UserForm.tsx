@@ -20,10 +20,14 @@ const UserForm = ({
       action={addUser}
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
-      <InputForm name={"name"} label={"Nom: "} />
-      <InputForm name={"email"} label={"Email: "} />
+      <InputForm name={"name"} label={"Nom: "} placeholder={"Nom"} />
+      <InputForm name={"email"} label={"Email: "} placeholder={"Email"} />
       <InputPassword name={"password"} label={"Mot de passe: "} />
-      <InputForm name={"phone"} label={"N° de téléphone: "} />
+      <InputForm
+        name={"phone"}
+        label={"N° de téléphone: "}
+        placeholder={"Téléphone"}
+      />
 
       <div className="flex flex-col">
         <label

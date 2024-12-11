@@ -12,18 +12,21 @@ const DashboardLinks = async () => {
       path: "/dashboard/user",
       picto: "/dashboard.svg",
       alt: "Accéder à la page dashboard/utilisateur",
+      name: "userLink",
     },
     {
       title: "Organisations",
       path: "/dashboard/organisation",
       picto: "/dashboard.svg",
       alt: "Accéder à la page dashboard/organisation",
+      name: "organisationLink",
     },
     {
       title: "Points de collecte",
       path: "/dashboard/collected-point-list",
       picto: "/collectPoint.svg",
       alt: "Accéder à la page dashboard/point de collecte",
+      name: "collectPointLink",
     },
   ];
   return (
