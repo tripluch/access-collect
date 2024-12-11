@@ -5,6 +5,15 @@ import Link from "next/link";
 export default async function CollectedPointList() {
   const data = await getCollectedPoints();
 
+  const dictionnaryDays = {
+    monday: "Lundi",
+    tuesday: "Mardi",
+    wednesday: "Mercredi",
+    thursday: "Jeudi",
+    friday: "Vendredi",
+    saturday: "Samedi",
+  };
+
   return (
     <>
       <div className="max-sm:hidden mt-6 mx-6 text-midnightBlue flex justify-center mb-6">
@@ -28,7 +37,11 @@ export default async function CollectedPointList() {
                 <td className="pl-4">{collectedPoint.name}</td>
                 <td className="pl-8">{collectedPoint.address}</td>
                 <td className="pl-8">
-                  {collectedPoint.daysOfCollect.join(", ")}
+                  {
+                    dictionnaryDays[
+                      collectedPoint.daysOfCollect as unknown as keyof typeof dictionnaryDays
+                    ]
+                  }
                 </td>
                 <td className=" flex justify-center">
                   <Link

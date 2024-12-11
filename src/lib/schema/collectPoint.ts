@@ -5,14 +5,16 @@ import { organisation } from "./organisation";
 import { collectedData } from "./collectedData";
 
 export const daysEnum = pgEnum("day", [
-  "Lundi",
-  "Mardi",
-  "Mercredi",
-  "Jeudi",
-  "Vendredi",
-  "Samedi",
-  "Dimanche",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
 ]);
+
+export type days = typeof daysEnum;
 
 export const collectPoint = pgTable("collectPoint", {
   id: text("id")

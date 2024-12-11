@@ -23,8 +23,8 @@ export const CollectedPointForm = ({
 
   const handleChange = (e: { target: { checked: boolean; value: string } }) => {
     let deliveryDays: string[] = checkDeliveryDay;
-    let checked = e.target.checked;
-    let value = e.target.value;
+    const checked = e.target.checked;
+    const value = e.target.value;
 
     if (checked && !deliveryDays.includes(value)) {
       deliveryDays.push(value);

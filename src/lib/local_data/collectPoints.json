@@ -2,7 +2,7 @@
   {
     "name": "point test 1",
     "address": "10 avenue des Champs-Elysées 75008 Paris",
-    "daysOfCollect": ["Lundi", "Mardi"],
+    "daysOfCollect": ["monday", "tuesday"],
     "clientId": "",
     "organisationId": ""
   },
@@ -10,7 +10,7 @@
   {
     "name": "point test 2",
     "address": "5 avenue Victor Hugo 75016 Paris",
-    "daysOfCollect": ["Vendredi"],
+    "daysOfCollect": ["friday"],
     "clientId": "",
     "organisationId": ""
   },
@@ -18,7 +18,7 @@
   {
     "name": "point test 3",
     "address": "107 rue de Rivoli 75001 Paris",
-    "daysOfCollect": ["Mardi", "Vendredi"],
+    "daysOfCollect": ["tuesday", "friday"],
     "clientId": "",
     "organisationId": ""
   }

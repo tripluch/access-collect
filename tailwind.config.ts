@@ -26,6 +26,7 @@ const config: Config = {
         title: ["verdana"],
         subTitle: ["openDyslexic"],
         body: ["openDyslexic"],
+        section: ["courrierPrimeBold"],
       },
     },
   },

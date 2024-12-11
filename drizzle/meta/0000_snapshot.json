@@ -1,5 +1,5 @@
 {
-  "id": "9f1d43ba-4f9f-4e11-b91a-b94d7f73c740",
+  "id": "511044fd-a88f-4ac4-a932-cdac7a8a9f15",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -463,13 +463,13 @@
       "name": "day",
       "schema": "public",
       "values": [
-        "Lundi",
-        "Mardi",
-        "Mercredi",
-        "Jeudi",
-        "Vendredi",
-        "Samedi",
-        "Dimanche"
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
       ]
     }
   },
