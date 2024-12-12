@@ -32,14 +32,14 @@ test.describe("Add User Page", () => {
   });
 
   test("UserForm should add a user to db", async ({ page }) => {
-    await page.getByPlaceholder("Jean Exemple").click();
-    await page.getByPlaceholder("Jean Exemple").fill("Jean");
-    await page.getByPlaceholder("mail@exemple.fr").click();
-    await page.getByPlaceholder("mail@exemple.fr").fill("jeanValou@mail.fr");
+    await page.getByPlaceholder("Nom").click();
+    await page.getByPlaceholder("Nom").fill("Jean");
+    await page.getByPlaceholder("Email").click();
+    await page.getByPlaceholder("Email").fill("jeanValou@mail.fr");
     await page.locator('input[name="password"]').click();
     await page.locator('input[name="password"]').fill("JeanValJean");
-    await page.getByPlaceholder("0612345678").click();
-    await page.getByPlaceholder("0612345678").fill("0606060606");
+    await page.getByPlaceholder("Téléphone").click();
+    await page.getByPlaceholder("Téléphone").fill("0606060606");
     await page.locator('select[name="role"]').selectOption("admin");
     await page
       .locator('select[name="organisationId"]')

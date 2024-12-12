@@ -24,12 +24,12 @@ const UserForm = ({
       <InputFormRequired
         name={"name"}
         label={"Nom: "}
-        placeholder={"Jean Exemple"}
+        placeholder={"Nom"}
       />
       <InputFormRequired
         name={"email"}
         label={"Email: "}
-        placeholder={"mail@exemple.fr"}
+        placeholder={"Email"}
       />
       <InputPassword name={"password"} label={"Mot de passe: "} />
       <InputForm

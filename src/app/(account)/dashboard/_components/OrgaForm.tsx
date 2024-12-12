@@ -11,15 +11,15 @@ const OrgaForm = () => {
       action={addOrganisation}
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
-      <InputForm
+      <InputFormRequired
         name={"name"}
         label={"Nom: "}
-        placeholder={"OrganisationExemple"}
+        placeholder={"Nom"}
       />
       <InputFormRequired
         name={"address"}
         label={"Adresse: "}
-        placeholder={"1 rue de l'exemple 01234 ExempleVille"}
+        placeholder={"Adresse"}
       />
       <InputFormRequired
         name={"phone"}
@@ -29,7 +29,7 @@ const OrgaForm = () => {
       <InputFormRequired
         name={"contact"}
         label={"Nom du contact: "}
-        placeholder={"Nom contact"}
+        placeholder={"Contact"}
       />
       <InputFormRequired
         name={"agrement"}
