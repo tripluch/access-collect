@@ -21,11 +21,7 @@ const UserForm = ({
       action={addUser}
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
-      <InputFormRequired
-        name={"name"}
-        label={"Nom: "}
-        placeholder={"Nom"}
-      />
+      <InputFormRequired name={"name"} label={"Nom: "} placeholder={"Nom"} />
       <InputFormRequired
         name={"email"}
         label={"Email: "}

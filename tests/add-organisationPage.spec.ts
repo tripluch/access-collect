@@ -24,15 +24,13 @@ test.describe("Add Organisation Page", () => {
     await page
       .getByRole("button", {
         name: "ANNULER",
-      }) 
+      })
       .click();
     await page.goto("/dashboard/organisation");
   });
 
   test("OrgaForm should add a new organisation to db", async ({ page }) => {
-    await page
-      .getByPlaceholder("Nom")
-      .fill("Organisation Playwright");
+    await page.getByPlaceholder("Nom").fill("Organisation Playwright");
     await page
       .getByPlaceholder("Adresse")
       .fill("2 rue du test 01111 TestVille");
@@ -42,9 +40,9 @@ test.describe("Add Organisation Page", () => {
     await expect(page.getByPlaceholder("Nom")).toHaveValue(
       /[a-zA-Z0-9À-ÖØ-öø-ÿ -]/,
     );
-    await expect(
-    page.getByPlaceholder("Adresse"),
-    ).toHaveValue(/[a-zA-Z0-9À-ÖØ-öø-ÿ -]/);
+    await expect(page.getByPlaceholder("Adresse")).toHaveValue(
+      /[a-zA-Z0-9À-ÖØ-öø-ÿ -]/,
+    );
     await expect(page.getByPlaceholder("Téléphone")).toHaveValue(/[0-9]/);
     await expect(page.getByPlaceholder("Contact")).toHaveValue(
       /[a-zA-Z-À-ÖØ-öø-ÿ -]/,
