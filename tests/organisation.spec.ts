@@ -10,6 +10,9 @@ test.describe("Organisation Page", () => {
     expect(page.getByText("ORGANISATION")).toBeVisible;
     expect(page.getByText("Liste des organisations :")).toBeVisible;
     expect(page.getByRole("button", { name: "Créer" })).toBeVisible;
+    expect(page.getByText("ORGANISATION")).toBeVisible;
+    expect(page.getByText("Liste des organisations :")).toBeVisible;
+    expect(page.getByRole("button", { name: "Créer" })).toBeVisible;
     expect(
       page.getByRole("link", {
         name: "Accéder à la page dashboard/utilisateur Utilisateurs",

@@ -1,7 +1,7 @@
 "use client";
 import CancelButton from "@/app/components/button/cancelButton";
 import OrangeButton from "@/app/components/button/orangeButton";
-import { InputForm } from "@/app/components/InputForm";
+import { InputFormRequired } from "@/app/components/InputFormRequired";
 import { addOrganisation } from "@/lib/organisationQuery";
 
 const OrgaForm = () => {
@@ -10,19 +10,23 @@ const OrgaForm = () => {
       action={addOrganisation}
       className="flex flex-col align-center gap-4 px-3 my-4"
     >
-      <InputForm name={"name"} label={"Nom: "} placeholder={"Nom"} />
-      <InputForm name={"address"} label={"Adresse: "} placeholder={"Adresse"} />
-      <InputForm
+      <InputFormRequired name={"name"} label={"Nom: "} placeholder={"Nom"} />
+      <InputFormRequired
+        name={"address"}
+        label={"Adresse: "}
+        placeholder={"Adresse"}
+      />
+      <InputFormRequired
         name={"phone"}
         label={"N° de téléphone: "}
         placeholder={"Téléphone"}
       />
-      <InputForm
+      <InputFormRequired
         name={"contact"}
         label={"Nom du contact: "}
-        placeholder={"Nom contact"}
+        placeholder={"Contact"}
       />
-      <InputForm
+      <InputFormRequired
         name={"agrement"}
         label={"N° d'agrément: "}
         placeholder={"N° d'agrément"}

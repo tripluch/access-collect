@@ -30,25 +30,28 @@ test.describe("Add Organisation Page", () => {
   });
 
   test("OrgaForm should add a new organisation to db", async ({ page }) => {
-    await page.getByPlaceholder("Nom", {exact:true}).fill("Organisation Playwright");
+    await page.getByPlaceholder("Nom").fill("Organisation Playwright");
     await page
       .getByPlaceholder("Adresse")
       .fill("2 rue du test 01111 TestVille");
     await page.getByPlaceholder("Téléphone").fill("0101020203");
-    await page.getByPlaceholder("Nom contact").fill("Jean-Paul Playwrîght");
+    await page.getByPlaceholder("Contact").fill("Jean-Paul Playwrîght");
     await page.getByPlaceholder("N° d'agrément").fill("AGR-2345-0567");
-    await expect(page.getByPlaceholder("Nom", {exact:true})).toHaveValue(
+    await expect(page.getByPlaceholder("Nom")).toHaveValue(
       /[a-zA-Z0-9À-ÖØ-öø-ÿ -]/,
     );
     await expect(page.getByPlaceholder("Adresse")).toHaveValue(
       /[a-zA-Z0-9À-ÖØ-öø-ÿ -]/,
     );
     await expect(page.getByPlaceholder("Téléphone")).toHaveValue(/[0-9]/);
-    await expect(page.getByPlaceholder("Nom contact")).toHaveValue(
+    await expect(page.getByPlaceholder("Contact")).toHaveValue(
       /[a-zA-Z-À-ÖØ-öø-ÿ -]/,
     );
     await expect(page.getByPlaceholder("N° d'agrément")).toHaveValue(
       /^[a-zA-Z0-9\-]+$/,
     );
+    const requestPromise = page.waitForRequest("dashboard/add-organisation");
+    await page.getByRole("button", { name: "Confirmer" }).click();
+    await requestPromise;
   });
 });

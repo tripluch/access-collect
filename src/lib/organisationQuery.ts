@@ -3,6 +3,7 @@ import "@/lib/config";
 import { Organisation, organisation } from "./schema/schema";
 import { db } from "./drizzle";
 import { revalidatePath } from "next/cache";
+import { replaceEmptyValueByNull } from "./utils";
 
 export const getOrganisations = async () => {
   const selectResult = await db.select().from(organisation);
@@ -11,18 +12,17 @@ export const getOrganisations = async () => {
 };
 
 export const addOrganisation = async (formData: any) => {
-  const { name, address, phone, contact, agrement } =
-    Object.fromEntries(formData);
+  const data = await replaceEmptyValueByNull(formData);
 
   try {
     await db
       .insert(organisation)
       .values({
-        name: name,
-        address: address,
-        phoneNumber: phone,
-        contact: contact,
-        agrementNumber: agrement,
+        name: data.name,
+        address: data.address,
+        phoneNumber: data.phone,
+        contact: data.contact,
+        agrementNumber: data.agrement,
       })
       .returning();
 

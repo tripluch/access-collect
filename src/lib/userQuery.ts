@@ -5,6 +5,7 @@ import { db } from "./drizzle";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import Bcrypt from "bcryptjs";
+import { replaceEmptyValueByNull } from "./utils";
 
 export const hashPassword = async (text: string) => {
   try {
@@ -38,21 +39,20 @@ export const getUsersWithOrganisationName = async () => {
 };
 
 export const addUser = async (formData: any) => {
-  const { name, email, password, phone, role, organisationId } =
-    Object.fromEntries(formData);
+  const data = await replaceEmptyValueByNull(formData);
 
-  const newPassword = await hashPassword(password);
+  const newPassword = await hashPassword(data.password);
 
   try {
     await db
       .insert(user)
       .values({
-        name: name,
-        email: email,
+        name: data.name,
+        email: data.email,
         password: newPassword as string,
-        phone: phone,
-        role: role,
-        organisationId: organisationId,
+        phone: data.phone,
+        role: data.role,
+        organisationId: data.organisationId,
       })
       .returning();
 
