@@ -1,6 +1,6 @@
 "use client";
 import OrangeButton from "@/app/components/button/orangeButton";
-import { InputPassword } from "@/app/components/InputPassword";
+import { InputPasswordHome } from "@/app/components/inputs/InputPasswordHome";
 import Image from "next/image";
 const toto = async () => {
   console.log("toto");
@@ -22,18 +22,18 @@ const resetPasswordPage = () => {
         </div>
 
         <div className="w-[300px] h-[300px] md:w-[450px] md:h-[300px] shadow-md shadow-lightOliveGreen rounded-lg flex flex-col justify-center items-center gap-4">
-          <h1 className="text-brightOrange">
-            {"REINITIALISER VOTRE MOT DE PASSE"}
+          <h1 className="text-brightOrange uppercase">
+            {"réinitialisez votre mot de passe"}
           </h1>
           <form
             action={toto}
             className="flex flex-col align-center gap-4 px-3 my-4"
           >
-            <InputPassword
+            <InputPasswordHome
               name="NewPassword"
               label={"Entrez votre nouveau mot de passe :"}
             />
-            <InputPassword
+            <InputPasswordHome
               name="NewPasswordRepeat"
               label={"Confirmez votre nouveau mot de passe :"}
             />
