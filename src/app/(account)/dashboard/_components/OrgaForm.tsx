@@ -1,7 +1,7 @@
 "use client";
 import CancelButton from "@/app/components/button/cancelButton";
 import OrangeButton from "@/app/components/button/orangeButton";
-import { InputFormRequired } from "@/app/components/InputFormRequired";
+import { InputFormRequired } from "@/app/components/inputs/InputFormRequired";
 import { addOrganisation } from "@/lib/organisationQuery";
 
 const OrgaForm = () => {
