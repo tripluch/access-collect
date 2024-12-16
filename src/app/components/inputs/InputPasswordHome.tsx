@@ -1,19 +1,14 @@
 export const InputPasswordHome = ({
-    name,
-    label,
-  }: {
-    name: string;
-    label: string;
-  }) => {
-    return (
-      <>
-
-
-<div className="flex flex-col">
-        <label
-          htmlFor={name}
-          className="text-midnightBlue text-base"
-        >
+  name,
+  label,
+}: {
+  name: string;
+  label: string;
+}) => {
+  return (
+    <>
+      <div className="flex flex-col">
+        <label htmlFor={name} className="text-midnightBlue text-base">
           {label}
         </label>
         <input
@@ -24,6 +19,6 @@ export const InputPasswordHome = ({
           required
         />
       </div>
-      </>
-    )
-}
+    </>
+  );
+};
