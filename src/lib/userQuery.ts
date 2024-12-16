@@ -92,13 +92,24 @@ export const sendResetPasswordEmailIfUserExists = async (formData: any) => {
   if (!user) {
     console.log("error email doesn't exists on database");
   } else {
+    const userId = await hashPassword(user.id)
+    console.log(user.id, userId)
     const info = await creationOfTransporter();
+    const URL = "http://localhost:3000/reset-password/"+userId
+    let mailBodyHtml : string = '\
+      <h3>Bonjour, </h3> \
+      <p>Vous recevez ce mail car nous avons reçu une demande de réinitialisation du mot de passe pour votre compte.<br>\
+      Veuillez cliquer sur ce lien : <a href="'+URL+'">Réinitialiser mon mot de passe</a></p>';
+
+    
     try {
       info.sendMail({
         from: '"access-collect" <contact@tripluch.fr>',
         to: "ileana.bolas.16@gmail.com",
         subject: "Réinitialisation de votre mot de passe",
-        html: "<h3>Bonjour,</h3><p>Vous recevez ce mail car nous avons reçu une demande de réinitialisation du mot de passe pour votre compte.</p>",
+        html: mailBodyHtml,
+        
+       
       });
       console.log("Message sent to user");
     } catch {
