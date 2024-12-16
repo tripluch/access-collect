@@ -5,8 +5,9 @@ import { db } from "./drizzle";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import Bcrypt from "bcryptjs";
-import { replaceEmptyValueByNull } from "./utils";
-import nodemailer from "nodemailer";
+import { creationOfTransporter, replaceEmptyValueByNull, sendMailToUser } from "./utils";
+import { addKey, getKeyByUserId } from "./keyQuery";
+import { Key } from "react";
 
 export const hashPassword = async (text: string) => {
   try {
@@ -67,22 +68,8 @@ export const getUserDataWithEmail = async (email: string) => {
   const user = await db.query.user.findFirst({
     where: (user, { eq }) => eq(user.email, email),
   });
+  console.log(user)
   return user as User;
-};
-
-export const creationOfTransporter = async () => {
-  const transporter = nodemailer.createTransport({
-    host: process.env.MAIL_HOST,
-    service: process.env.MAIL_SERVICE,
-    port: Number(process.env.MAIL_PORT),
-    secure: true,
-    auth: {
-      user: process.env.MAIL_USER,
-      pass: process.env.MAIL_PASS,
-    },
-    tls: { rejectedUnauthorized: false },
-  });
-  return transporter;
 };
 
 export const sendResetPasswordEmailIfUserExists = async (formData: any) => {
@@ -92,28 +79,10 @@ export const sendResetPasswordEmailIfUserExists = async (formData: any) => {
   if (!user) {
     console.log("error email doesn't exists on database");
   } else {
-    const userId = await hashPassword(user.id)
-    console.log(user.id, userId)
-    const info = await creationOfTransporter();
-    const URL = "http://localhost:3000/reset-password/"+userId
-    let mailBodyHtml : string = '\
-      <h3>Bonjour, </h3> \
-      <p>Vous recevez ce mail car nous avons reçu une demande de réinitialisation du mot de passe pour votre compte.<br>\
-      Veuillez cliquer sur ce lien : <a href="'+URL+'">Réinitialiser mon mot de passe</a></p>';
-
-    
-    try {
-      info.sendMail({
-        from: '"access-collect" <contact@tripluch.fr>',
-        to: "ileana.bolas.16@gmail.com",
-        subject: "Réinitialisation de votre mot de passe",
-        html: mailBodyHtml,
-        
-       
-      });
-      console.log("Message sent to user");
-    } catch {
-      console.error("Message not sent to user");
-    }
+    addKey(user.id)
+    const userKey = await getKeyByUserId(user.id)
+    const info : any = await creationOfTransporter();
+    const url : string = "http://localhost:3000/reset-password/"+userKey.id
+    sendMailToUser(url, info);
   }
 };
