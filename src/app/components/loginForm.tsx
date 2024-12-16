@@ -34,9 +34,9 @@ const LoginForm = () => {
         className="flex flex-col align-center gap-4 px-3 my-4"
       >
         <div id="warning" className="text-red-500"></div>
-       <InputFormHome name={"email"} label={"Email"} placeholder={"Email"}/>
-       <InputPasswordHome name={"password"} label={"Mot de passe"}/>
-      <div className="flex justify-center">
+        <InputFormHome name={"email"} label={"Email"} placeholder={"Email"} />
+        <InputPasswordHome name={"password"} label={"Mot de passe"} />
+        <div className="flex justify-center">
           <button className="bg-lightOrange  text-midnightBlue rounded-full p-2 font-title uppercase mb-4">
             {"CONNEXION"}
           </button>

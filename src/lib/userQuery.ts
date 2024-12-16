@@ -5,7 +5,11 @@ import { db } from "./drizzle";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import Bcrypt from "bcryptjs";
-import { creationOfTransporter, replaceEmptyValueByNull, sendMailToUser } from "./utils";
+import {
+  creationOfTransporter,
+  replaceEmptyValueByNull,
+  sendMailToUser,
+} from "./utils";
 import { addKey, getKeyByUserId } from "./keyQuery";
 import { Key } from "react";
 
@@ -68,7 +72,7 @@ export const getUserDataWithEmail = async (email: string) => {
   const user = await db.query.user.findFirst({
     where: (user, { eq }) => eq(user.email, email),
   });
-  console.log(user)
+  console.log(user);
   return user as User;
 };
 
@@ -79,10 +83,10 @@ export const sendResetPasswordEmailIfUserExists = async (formData: any) => {
   if (!user) {
     console.log("error email doesn't exists on database");
   } else {
-    addKey(user.id)
-    const userKey = await getKeyByUserId(user.id)
-    const info : any = await creationOfTransporter();
-    const url : string = "http://localhost:3000/reset-password/"+userKey.id
+    addKey(user.id);
+    const userKey = await getKeyByUserId(user.id);
+    const info: any = await creationOfTransporter();
+    const url: string = "http://localhost:3000/reset-password/" + userKey.id;
     sendMailToUser(url, info);
   }
 };
