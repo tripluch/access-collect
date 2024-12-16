@@ -2,6 +2,7 @@ import { pgEnum, pgTable, text, varchar, timestamp } from "drizzle-orm/pg-core";
 import { InferInsertModel, InferSelectModel, relations } from "drizzle-orm";
 import { collectPoint } from "./collectPoint";
 import { organisation } from "./organisation";
+import { key } from "./key";
 
 export const rolesEnum = pgEnum("role", [
   "superAdmin",
@@ -33,6 +34,8 @@ export const usersRelations = relations(user, ({ many, one }) => ({
     fields: [user.organisationId],
     references: [organisation.id],
   }),
+
+  key: one(key),
 }));
 
 export type NewUser = InferInsertModel<typeof user>;
