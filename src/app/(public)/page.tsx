@@ -17,7 +17,7 @@ export default function Home() {
           alt={"élément décoratif"}
           width={70}
           height={70}
-        />        
+        />
         <p className="mx-4 text-xl font-section md:w-2/3 md:text-4xl md:ml-16 md:mr-0 md:mt-12">
           {"Optimisez la collecte des déchets en entreprise avec une solution"}
           <span className="text-lightOrange">{" inclusive"}</span> {"et"}{" "}
@@ -27,13 +27,13 @@ export default function Home() {
       <div className="hidden md:block md:ml-16 md:mt-16">
         <LogButton label={"Demander une démo"} />
       </div>
-        <Image
-          className="absolute top-64 left-16 md:bg-transparentImperialYellow md:top-40 md:rounded-full md:p-4 md:left-[880px] md:w-[400px] md:h-[400px]"
-          src="/containeurs.svg"
-          alt={"poubelle"}
-          width={250}
-          height={100}
-        />
+      <Image
+        className="absolute top-64 left-16 md:bg-transparentImperialYellow md:top-40 md:rounded-full md:p-4 md:left-[880px] md:w-[400px] md:h-[400px]"
+        src="/containeurs.svg"
+        alt={"poubelle"}
+        width={250}
+        height={100}
+      />
       <Image
         className="absolute top-[286px] left-0 block md:hidden"
         src="/decoration.svg"
