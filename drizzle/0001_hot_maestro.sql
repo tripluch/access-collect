@@ -1,1 +1,0 @@
-ALTER TABLE "collectPoint" RENAME COLUMN "adress" TO "address";

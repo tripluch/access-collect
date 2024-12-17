@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS "user" (
 CREATE TABLE IF NOT EXISTS "collectPoint" (
 	"id" text PRIMARY KEY NOT NULL,
 	"name" varchar NOT NULL,
-	"adress" varchar NOT NULL,
+	"address" varchar NOT NULL,
 	"daysOfCollect" day[] DEFAULT '{}' NOT NULL,
 	"user_id" text NOT NULL,
 	"organisationId" text NOT NULL,
