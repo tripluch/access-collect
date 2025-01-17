@@ -30,9 +30,8 @@ export default async function CollectedPointList() {
           <tbody>
             {data.map((collectedPoint, index) => (
               <tr
-                className={`border border-oliveGreen ${
-                  index % 2 === 0 ? "bg-transparentOliveGreen" : "bg-white"
-                }`}
+                className={`border border-oliveGreen ${index % 2 === 0 ? "bg-transparentOliveGreen" : "bg-white"
+                  }`}
                 key={index}
               >
                 <td className="pl-4">{collectedPoint.name}</td>

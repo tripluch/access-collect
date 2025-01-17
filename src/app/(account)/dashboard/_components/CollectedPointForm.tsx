@@ -72,12 +72,37 @@ export const CollectedPointForm = ({
           {"Jour de collecte: "}
         </div>
         <div className="flex flex-row flex-wrap">
-          <CheckboxDaysOfCollect id="monday" label={"Lundi"} value={"lundi"} onChange={handleChange} />
-          <CheckboxDaysOfCollect id="tuesday" label={"Mardi"} value={"mardi"} onChange={handleChange} />
-          <CheckboxDaysOfCollect id="wednesday" label={"Mercredi"} value={"mercredi"} onChange={handleChange} />
-          <CheckboxDaysOfCollect id="thursday" label={"Jeudi"} value={"jeudi"} onChange={handleChange} />
-          <CheckboxDaysOfCollect id="friday" label={"Vendredi"} value={"vendredi"} onChange={handleChange} />
-        </div>
+          <CheckboxDaysOfCollect
+            id="monday"
+            label={"Lundi"}
+            value={"monday"}
+            onChange={handleChange}
+          />
+          <CheckboxDaysOfCollect
+            id="tuesday"
+            label={"Mardi"}
+            value={"tuesday"}
+            onChange={handleChange}
+          />
+          <CheckboxDaysOfCollect
+            id="wednesday"
+            label={"Mercredi"}
+            value={"wednesday"}
+            onChange={handleChange}
+          />
+          <CheckboxDaysOfCollect
+            id="thursday"
+            label={"Jeudi"}
+            value={"thursday"}
+            onChange={handleChange}
+          />
+          <CheckboxDaysOfCollect
+            id="friday"
+            label={"Vendredi"}
+            value={"friday"}
+            onChange={handleChange}
+          />
+        </div >
 
         <div className="flex flex-col">
           <label
@@ -131,7 +156,7 @@ export const CollectedPointForm = ({
           <CancelButton />
           <OrangeButton label={"Confirmer"} route={""} />
         </div>
-      </form>
+      </form >
     </>
   );
 };
