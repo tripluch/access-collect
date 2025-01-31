@@ -16,7 +16,6 @@ export const addCollectedPoint = async (formData: any) => {
     Object.fromEntries(formData);
 
   const days = formData.getAll("daysOfCollect");
-
   try {
     await db
       .insert(collectPoint)
