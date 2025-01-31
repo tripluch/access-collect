@@ -102,7 +102,7 @@ export const CollectedPointForm = ({
             value={"friday"}
             onChange={handleChange}
           />
-        </div >
+        </div>
 
         <div className="flex flex-col">
           <label
@@ -156,7 +156,7 @@ export const CollectedPointForm = ({
           <CancelButton />
           <OrangeButton label={"Confirmer"} route={""} />
         </div>
-      </form >
+      </form>
     </>
   );
 };
