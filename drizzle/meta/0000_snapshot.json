@@ -1,5 +1,5 @@
 {
-  "id": "402e5eec-a909-44cf-b33c-974965eb0c0f",
+  "id": "106530be-cd97-497d-8fe3-ff46c46a6a0d",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -114,8 +114,12 @@
           "name": "vehicles_organisationId_organisation_id_fk",
           "tableFrom": "vehicles",
           "tableTo": "organisation",
-          "columnsFrom": ["organisationId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "organisationId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -125,7 +129,9 @@
         "vehicles_registration_unique": {
           "name": "vehicles_registration_unique",
           "nullsNotDistinct": false,
-          "columns": ["registration"]
+          "columns": [
+            "registration"
+          ]
         }
       },
       "checkConstraints": {}
@@ -198,8 +204,12 @@
           "name": "user_organisationId_organisation_id_fk",
           "tableFrom": "user",
           "tableTo": "organisation",
-          "columnsFrom": ["organisationId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "organisationId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -209,7 +219,9 @@
         "user_email_unique": {
           "name": "user_email_unique",
           "nullsNotDistinct": false,
-          "columns": ["email"]
+          "columns": [
+            "email"
+          ]
         }
       },
       "checkConstraints": {}
@@ -276,8 +288,12 @@
           "name": "collectPoint_user_id_user_id_fk",
           "tableFrom": "collectPoint",
           "tableTo": "user",
-          "columnsFrom": ["user_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -285,8 +301,12 @@
           "name": "collectPoint_organisationId_organisation_id_fk",
           "tableFrom": "collectPoint",
           "tableTo": "organisation",
-          "columnsFrom": ["organisationId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "organisationId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -442,8 +462,12 @@
           "name": "collectedData_vehicleId_vehicles_id_fk",
           "tableFrom": "collectedData",
           "tableTo": "vehicles",
-          "columnsFrom": ["vehicleId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "vehicleId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -457,7 +481,12 @@
     "public.role": {
       "name": "role",
       "schema": "public",
-      "values": ["superAdmin", "admin", "client", "collector"]
+      "values": [
+        "superAdmin",
+        "admin",
+        "client",
+        "collector"
+      ]
     },
     "public.day": {
       "name": "day",
