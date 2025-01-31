@@ -13,6 +13,7 @@ export const CheckboxDaysOfCollect = (props: any) => {
           type="checkbox"
           name="daysOfCollect"
           value={props.value}
+          onChange={props.onChange}
         />
       </div>
     </>

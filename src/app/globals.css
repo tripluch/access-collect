@@ -43,6 +43,13 @@ body {
     url("./fonts/Verdana.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "courrierPrimeBold";
+  src:
+    local("courrierPrimeBold"),
+    url("./fonts/CourierPrime-Bold.ttf") format("truetype");
+}
+
 @layer base {
   body {
     font-family: "openDyslexic";

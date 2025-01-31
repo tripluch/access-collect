@@ -19,6 +19,22 @@ export const CollectedPointForm = ({
   const [selectedOrga, setSelectedOrga] = useState<string>("");
   const [clients, setClients] = useState<User[]>([]);
   const [selectedClient, setSelectedClient] = useState<string>("");
+  const [checkDeliveryDay, setCheckDeliveryDay] = useState<string[]>([]);
+
+  const handleChange = (e: { target: { checked: boolean; value: string } }) => {
+    let deliveryDays: string[] = checkDeliveryDay;
+    const checked = e.target.checked;
+    const value = e.target.value;
+
+    if (checked && !deliveryDays.includes(value)) {
+      deliveryDays.push(value);
+    }
+    if (!checked && deliveryDays.includes(value)) {
+      deliveryDays = checkDeliveryDay.filter((day) => day !== value);
+    }
+
+    setCheckDeliveryDay(deliveryDays);
+  };
 
   useEffect(() => {
     const fetchClients = async () => {
@@ -33,11 +49,11 @@ export const CollectedPointForm = ({
         }
       }
     };
-
     fetchClients();
   }, [selectedOrga]);
 
   return (
+    <>
     <form
       action={addCollectedPoint}
       className="flex flex-col align-center gap-4 px-3 my-4"
@@ -56,12 +72,13 @@ export const CollectedPointForm = ({
         {"Jour de collecte: "}
       </div>
       <div className="flex flex-row flex-wrap">
-        <CheckboxDaysOfCollect label={"Monday"} value={"monday"} />
-        <CheckboxDaysOfCollect label={"Tuesday"} value={"tuesday"} />
-        <CheckboxDaysOfCollect label={"Wednesday"} value={"wednesday"} />
-        <CheckboxDaysOfCollect label={"Thursday"} value={"thursday"} />
-        <CheckboxDaysOfCollect label={"Friday"} value={"friday"} />
+        <CheckboxDaysOfCollect id="monday" label={"Lundi"} value={"lundi"} onChange={handleChange}/>
+        <CheckboxDaysOfCollect  id="tuesday" label={"Mardi"} value={"mardi"} onChange={handleChange} />
+        <CheckboxDaysOfCollect  id="wednesday" label={"Mercredi"} value={"mercredi"} onChange={handleChange}/>
+        <CheckboxDaysOfCollect  id="thursday" label={"Jeudi"} value={"jeudi"} onChange={handleChange}/>
+        <CheckboxDaysOfCollect  id="friday" label={"Vendredi"} value={"vendredi"} onChange={handleChange} />
       </div>
+      
       <div className="flex flex-col">
         <label
           className="text-oliveGreen uppercase font-title text-sm"
@@ -112,9 +129,10 @@ export const CollectedPointForm = ({
       </div>
       <div className="flex justify-around">
         <CancelButton />
-        <OrangeButton label={"Confirmer"} route={""} />
+        <OrangeButton label={"Confirmer"} route={""}  />
       </div>
     </form>
+    </>
   );
 };
 
