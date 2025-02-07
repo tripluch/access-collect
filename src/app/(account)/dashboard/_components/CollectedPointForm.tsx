@@ -9,7 +9,7 @@ import { Organisation } from "@/lib/schema/organisation";
 import { useEffect, useState } from "react";
 import OrangeButton from "@/app/components/button/orangeButton";
 import { User } from "@/lib/schema/user";
-import { InputFormRequired } from "@/app/components/InputFormRequired";
+import { InputFormRequired } from "@/app/components/inputs/InputFormRequired";
 
 export const CollectedPointForm = ({
   organisationInfos,
