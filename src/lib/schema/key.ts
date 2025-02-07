@@ -9,7 +9,9 @@ export const key = pgTable("key", {
   userId: text("userId")
     .references(() => user.id, { onDelete: "cascade" })
     .notNull(),
+  expirationDate: timestamp({ mode: "date" }).notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
+  
 });
 
 export const keysRelations = relations(key, ({ one }) => ({
