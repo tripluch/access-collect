@@ -29,7 +29,7 @@ export const creationOfTransporter = async () => {
   return transporter;
 };
 
-export const sendMailToUser = async (url: string, info: any) => {
+export const sendMailToUser = async (url: string, info: any, email: string) => {
   let mailBodyHtml: string =
     '\
       <h3>Bonjour, </h3> \
@@ -41,7 +41,7 @@ export const sendMailToUser = async (url: string, info: any) => {
   try {
     info.sendMail({
       from: '"access-collect" <contact@tripluch.fr>',
-      to: "ileana.bolas.16@gmail.com",
+      to: email,
       subject: "Réinitialisation de votre mot de passe",
       html: mailBodyHtml,
     });
