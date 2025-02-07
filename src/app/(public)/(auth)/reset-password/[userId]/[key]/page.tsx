@@ -2,8 +2,16 @@
 import OrangeButton from "@/app/components/button/orangeButton";
 import { InputPasswordHome } from "@/app/components/inputs/InputPasswordHome";
 import Image from "next/image";
-const toto = async () => {
-  console.log("toto");
+
+const handleSubmitNewPassword = async (formData: FormData) => {
+  const {newPassword, newPasswordRepeat} = Object.fromEntries(formData);
+
+  if(newPassword != newPasswordRepeat){
+    return;
+  }
+ 
+
+  
 };
 const resetPasswordIdPage = () => {
   return (
@@ -26,15 +34,15 @@ const resetPasswordIdPage = () => {
             {"réinitialisez votre mot de passe"}
           </h1>
           <form
-            action={toto}
+            action={handleSubmitNewPassword}
             className="flex flex-col align-center gap-4 px-3 my-4"
           >
             <InputPasswordHome
-              name="NewPassword"
+              name="newPassword"
               label={"Entrez votre nouveau mot de passe :"}
             />
             <InputPasswordHome
-              name="NewPasswordRepeat"
+              name="newPasswordRepeat"
               label={"Confirmez votre nouveau mot de passe :"}
             />
 

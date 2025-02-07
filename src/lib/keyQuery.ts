@@ -2,12 +2,16 @@ import { revalidatePath } from "next/cache";
 import { db } from "./drizzle";
 import { Key, key } from "./schema/key";
 
+
 export const addKey = async (userId: any) => {
+  const date = new Date();
+  date.setHours(date.getHours()+1)
   try {
     await db
       .insert(key)
       .values({
         userId: userId,
+        expirationDate: date,
       })
       .returning();
 

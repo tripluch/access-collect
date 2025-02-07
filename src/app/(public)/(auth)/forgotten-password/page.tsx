@@ -4,6 +4,12 @@ import { InputFormHome } from "@/app/components/inputs/InputFormHome";
 import { sendResetPasswordEmailIfUserExists } from "@/lib/userQuery";
 import Image from "next/image";
 const forgottenPasswordPage = () => {
+
+  const handleEmailSending = (formData: FormData) => {
+    const email = Object.fromEntries(formData);
+    sendResetPasswordEmailIfUserExists(email.email as string)
+
+  }
   return (
     <div>
       <h1 className="text-center text-2xl mt-10 text-midnightBlue font-bold">
@@ -29,7 +35,7 @@ const forgottenPasswordPage = () => {
               }
             </p>
             <form
-              action={sendResetPasswordEmailIfUserExists}
+              action={handleEmailSending}
               className="flex flex-col align-center gap-4 px-3 my-4"
             >
               <InputFormHome
