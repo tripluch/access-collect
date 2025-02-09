@@ -35,14 +35,14 @@ export default function Home() {
           <Image
             className="absolute top-64 left-24 md:bg-transparentImperialYellow md:top-40 md:rounded-full md:p-4 md:left-[880px] md:w-[400px] md:h-[400px] lg:left-[900px] lg:top-52 lg:w-[600px] lg:h-[600px]"
             src="/containeurs.svg"
-            alt={"poubelle"}
+            alt={"photo de poubelle"}
             width={250}
             height={100}
           />
           <Image
             className="absolute top-[320px] left-3 block md:hidden"
             src="/decoration.svg"
-            alt={"poubelle"}
+            alt={"photo de poubelle"}
             width={70}
             height={70}
           />
@@ -66,7 +66,7 @@ export default function Home() {
               <Image
                 src="/mobile.png"
                 alt={"exemple d'une vue mobile sur un téléphone"}
-                width={200}
+                width={180}
                 height={300}
                 className="w-[180px] h-[300px] md:w-64 md:h-96 lg:w-80 lg:h-[600px]"
               />
