@@ -3,17 +3,22 @@ import OrangeButton from "@/app/components/button/orangeButton";
 import { InputPasswordHome } from "@/app/components/inputs/InputPasswordHome";
 import Image from "next/image";
 
-const handleSubmitNewPassword = async (formData: FormData) => {
-  const {newPassword, newPasswordRepeat} = Object.fromEntries(formData);
 
-  if(newPassword != newPasswordRepeat){
-    return;
-  }
- 
-
-  
-};
 const resetPasswordIdPage = () => {
+  const handleSubmitNewPassword = async (formData: FormData) => {
+    const {newPassword, newPasswordRepeat} = Object.fromEntries(formData);
+  
+    if(newPassword != newPasswordRepeat){
+      return;
+    }
+    
+    
+
+    
+   
+  
+    
+  };
   return (
     <div>
       <h1 className="text-center text-2xl mt-10 text-midnightBlue font-bold">
