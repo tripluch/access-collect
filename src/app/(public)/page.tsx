@@ -118,7 +118,37 @@ export default function Home() {
 
         {/* section Les fonctionnalités */}
 
-        <section className="text-midnightBlue lg:mt-24"></section>
+        <section className="text-midnightBlue mt-12 lg:mt-24">
+          <div className="ml-3 relative">
+            <Image
+              src="/titreMobile.png"
+              alt={"bandeau titre décoratif"}
+              width={440}
+              height={1}
+              className="z-0 w-[440px] h-[90px]"
+            />
+            <h1 className="z-10 top-8 left-10 absolute text-center text-2xl text-lightOrange font-section">{"Les fonctionnalités"}</h1>
+          </div>
+
+          {/* planifier */}
+          <div className="relative">
+            <div className="mt-10 ml-8">
+              <Image
+                src="/planifier.png"
+                alt={"image représentant une personne qui planifie ses tâches"}
+                width={250}
+                height={1}
+                className="w-[150px] h-[150px]"
+              />
+            </div>
+            <div>
+              <h2 className=" absolute top-12 left-32 bg-white text-center text-lightOrange text-lg shadow-md shadow-lightOrange w-40 h-10">{"PLANIFIER"}</h2>
+            </div>
+          </div>
+          <div>
+            <p className="text-midnightBlue mx-4 mt-4">{"Planifiez et anticipez vos collectes avec une gestion centralisée"}</p>
+          </div>
+        </section>
       </div>
     </>
   );
