@@ -10,7 +10,7 @@ export default function DashboardLayout({
   return (
     <>
       <Navbar />
-      <main className="flex-grow">{children}</main>
+      <main className="flex-grow bg-orange-200">{children}</main>
       <Footer />
     </>
   );
