@@ -1,4 +1,5 @@
 "use client";
+import { successAlert } from "@/app/components/alert";
 import OrangeButton from "@/app/components/button/orangeButton";
 import { InputPasswordHome } from "@/app/components/inputs/InputPasswordHome";
 import { updatePassword } from "@/lib/userQuery";
@@ -31,6 +32,7 @@ const resetPasswordPage = async () => {
         console.log("error");
         return;
       }
+      successAlert("Votre mot de passe a bien été mis à jour.")
     }
   };
 
