@@ -18,11 +18,11 @@ export default function Home() {
 
       {/* section de présentation */}
       <section className="text-midnightBlue md:bg-[url('/backgroundHomepage.svg')] md:bg-cover md:bg-center md:bg-no-repeat">
-        <div className=" md:mx-24 lg:mx-48 md:flex md:h-screen">
+        <div className="md:mx-24 lg:mx-48 md:flex md:h-screen">
           {/* partie de gauche */}
           <div className="w-full md:flex md:flex-col md:justify-around md:h-3/4 md:mt-12 md:w-1/2">
-            <div className="mt-12 mx-6 md:mt-0">
-              <p className="relative text-lg font-section md:text-2xl lg:text-4xl  lg:leading-[2] lg:w-[600px] 
+            <div className="h-64 mt-20 mx-8 md:h-auto md:mt-0 md:mx-0 ">
+              <p className="relative text-xl font-section md:text-2xl lg:text-4xl  lg:leading-[2] lg:w-[600px] 
                         before:content-[''] before:absolute before:bg-[url('/decoration.svg')] before:bg-contain before:bg-no-repeat
                         before:w-[50px] before:h-[50px] md:before:w-[70px] md:before:h-[70px] 
                         before:top-0 before:-left-2 md:before:-top-2 md:before:-left-4 lg:before:top-0 lg:before:-left-4
@@ -36,12 +36,19 @@ export default function Home() {
             <div className="hidden md:block">
               <LogButton label={"Demander une démo"} />
             </div>
-            <div className="bg-transparentImperialYellow md:bg-transparent">
-              <p className="relative text-md md:w-full md:text-xl lg:w-[600px] lg:leading-[2]">
+            <div className="bg-transparentImperialYellow pt-24 pb-10 md:bg-transparent md:pt-auto md:pb-auto
+                            before:content-[''] before:absolute before:bg-[url('/containeurs.svg')] before:bg-contain before:bg-no-repeat
+                            before:block md:before:hidden
+                            before:w-[320px] before:h-[320px]
+                            before:top-[410px]  before:left-1/2 before:-translate-x-1/2 ">
+              <p className="mx-6 relative text-md md:w-full md:text-xl lg:w-[600px] lg:leading-[2] md:mx-0">
                 {
                   "Une application pour faciliter la collecte des déchets recyclables en entreprise, tout en favorisant l’inclusion des personnes en situation de handicap."
                 }
               </p>
+              <div className="block flex justify-center mt-10 md:hidden">
+                <LogButton label={"Demander une démo"} />
+              </div>
             </div>
           </div>
 
@@ -57,21 +64,12 @@ export default function Home() {
               height={600}
             />
           </div>
-
-
-          {/* <Image
-            className="absolute top-[320px] left-3 block md:hidden"
-            src="/decoration.svg"
-            alt={"photo de poubelle"}
-            width={70}
-            height={70}
-          /> */}
         </div>
       </section>
 
       {/* section Pourquoi choisir notre application? */}
 
-      <section className="text-midnightBlue lg:mt-24">
+      <section className="text-midnightBlue mt-24 md:mt-24">
         <h1 className="text-center text-xl text-brightOrange font-section md:text-4xl">
           {"Pourquoi choisir notre application ?"}
         </h1>
