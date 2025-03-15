@@ -52,6 +52,7 @@ export default function Home() {
             </div>
           </div>
 
+
           {/* partie de droite */}
 
           <div className="hidden md:flex md:items-center md:justify-center md:h-3/4 md:mt-12 md:w-1/2">
@@ -69,7 +70,7 @@ export default function Home() {
 
       {/* section Pourquoi choisir notre application? */}
 
-      <section className="text-midnightBlue mt-24 md:mt-24">
+      <section className="text-midnightBlue mt-24 md:mx-24 lg:mx-48 md:h-screen">
         <h1 className="text-center text-xl text-brightOrange font-section md:text-4xl">
           {"Pourquoi choisir notre application ?"}
         </h1>
@@ -130,16 +131,14 @@ export default function Home() {
 
       {/* section Les fonctionnalités */}
 
-      <section className="text-midnightBlue mt-12 lg:mt-24">
-        <div className="ml-3 relative">
-          <Image
-            src="/titreMobile.png"
-            alt={"bandeau titre décoratif"}
-            width={440}
-            height={1}
-            className="z-0 w-[440px] h-[90px] lg:w-full lg:h-36"
-          />
-          <h1 className="z-10 top-8 left-16 absolute text-center text-xl text-lightOrange font-section lg:left-[450px] lg:top-12 lg:text-4xl">{"Les fonctionnalités"}</h1>
+      <section className="text-midnightBlue mt-24 lg:mt-24">
+        <div className=" bg-transparentOliveGreen rounded-r-[50px] w-[90%] rotate-6 -ml-2">
+          <h1 className="relative text-center text-xl text-brightOrange font-section py-10 md:py-20 md:text-4xl -rotate-6
+                        before:content-[''] before:absolute before:bg-[url('/decoration.svg')] before:bg-contain before:bg-no-repeat
+                        before:w-[80px] before:h-[80px] 
+                        before:-mt-12 before:ml-52
+                        before:scale-x-[-1] 
+                        before: md:before:scale-100  lg:before:scale-125 ">{"Les fonctionnalités"}</h1>
         </div>
 
         <div className="flex-none lg:flex">
@@ -156,7 +155,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <h2 className=" absolute top-20 left-40 bg-white text-center text-lightOrange text-2xl shadow-md shadow-lightOrange w-44 h-11 pt-1">{"PLANIFIER"}</h2>
+                <h2 className=" absolute top-20 left-44 bg-white text-center text-lightOrange text-2xl shadow-md shadow-lightOrange w-44 h-11 pt-1">{"PLANIFIER"}</h2>
               </div>
             </div>
             <div className="mb-10">
@@ -177,7 +176,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <h2 className="absolute top-20 left-20 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1">{"SAISIR"}</h2>
+                <h2 className="absolute top-20 left-8 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1">{"SAISIR"}</h2>
               </div>
             </div>
             <div className="mb-10">
@@ -200,7 +199,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <h2 className=" absolute top-20 left-44 bg-white text-center text-strongYellow text-2xl shadow-md shadow-imperialYellow w-52 h-11 pt-1">{"ACCES CLIENT"}</h2>
+                <h2 className=" absolute top-20 left-40 bg-white text-center text-strongYellow text-2xl shadow-md shadow-imperialYellow w-52 h-11 pt-1">{"ACCES CLIENT"}</h2>
               </div>
             </div>
             <div className="mb-10">
