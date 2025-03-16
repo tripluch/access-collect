@@ -14,9 +14,6 @@ export async function GET(
   const userId = params.userId;
   const key = params.key;
 
-  console.log(userId);
-  console.log(key);
-
   if (!userId || !key) {
     url.pathname = "/forgotten-password/on-failed";
     return NextResponse.redirect(url);
