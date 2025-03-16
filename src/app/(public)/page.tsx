@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import LogButton from "../components/button/logButton";
 import LoginCollectButton from "./_components/LoginCollectButton";
+import Arrow from "../components/fleche";
 
 export const metadata: Metadata = {
   title: "Access Collect",
@@ -39,8 +40,8 @@ export default function Home() {
             <div className="bg-transparentImperialYellow pt-24 pb-10 md:bg-transparent md:pt-auto md:pb-auto
                             before:content-[''] before:absolute before:bg-[url('/containeurs.svg')] before:bg-contain before:bg-no-repeat
                             before:block md:before:hidden
-                            before:w-[320px] before:h-[320px]
-                            before:top-[410px]  before:left-1/2 before:-translate-x-1/2 ">
+                            before:w-[350px] before:h-[350px]
+                            before:top-[370px]  before:left-1/2 before:-translate-x-1/2 ">
               <p className="mx-6 relative text-md md:w-full md:text-xl lg:w-[600px] lg:leading-[2] md:mx-0">
                 {
                   "Une application pour faciliter la collecte des déchets recyclables en entreprise, tout en favorisant l’inclusion des personnes en situation de handicap."
@@ -74,7 +75,7 @@ export default function Home() {
         <h1 className="text-center text-2xl text-brightOrange font-section md:text-4xl">
           {"Pourquoi choisir notre application ?"}
         </h1>
-        <div className="md:flex md:justify-start md:ml-24 lg:mt-10 ">
+        <div className="mt-10 md:flex md:justify-start md:ml-24 lg:mt-10 ">
           <div className="flex justify-center my-8 lg:mt-12">
             <Image
               src="/mobile.png"
@@ -84,13 +85,13 @@ export default function Home() {
               className="w-[180px] h-[300px] md:w-64 md:h-96 lg:w-80 lg:h-[600px]"
             />
           </div>
-          <div className="mx-4">
+          <div className="mx-4 pt-10">
             <div className="flex items-start my-4">
               <Image
-                className="block md:hidden lg:hidden"
-                src="/puceTri.png"
+                className="block -mt-2 md:hidden lg:hidden"
+                src="/puceTri.svg"
                 alt={"image puce tri sélectif"}
-                width={20}
+                width={50}
                 height={5}
               />
               <Image
@@ -106,10 +107,10 @@ export default function Home() {
             </div>
             <div className="flex items-start mt-4 md:mt-8">
               <Image
-                className="block md:hidden lg:hidden"
-                src="/puceTri.png"
+                className="block -mt-2 md:hidden lg:hidden"
+                src="/puceTri.svg"
                 alt={"image puce tri sélectif"}
-                width={20}
+                width={50}
                 height={5}
               />
               <Image
@@ -139,47 +140,47 @@ export default function Home() {
                         before:-mt-12 before:ml-60 md:before:-mt-20 md:before:ml-96
                         before:scale-x-[-1] md:before:transform-none">{"Les fonctionnalités"}</h1>
         </div>
-        <div className="mt-0 md:mt-10 md:mx-24 lg:mx-48">
+        <div className="-mt-6 mx-0 md:mt-10 md:mx-24 lg:mx-48">
           <div className="flex-none gap-x-0 md:flex md:gap-x-10">
             {/* planifier */}
             <div>
               <div className="relative md:flex md:flex-col md:items-center">
                 <div className="mt-10 flex justify-start">
                   <Image
-                    src="/planifier.png"
+                    src="/planifier.svg"
                     alt={"image représentant une personne qui planifie ses tâches"}
                     width={250}
                     height={1}
-                    className="w-[200px] h-[180px] ml-10 md:ml-0"
+                    className="w-[300px] h-[280px] -ml-8 md:ml-0"
                   />
                 </div>
                 <div>
-                  <h2 className=" absolute top-20 left-44 bg-white text-center text-lightOrange text-2xl shadow-md shadow-lightOrange w-44 h-11 pt-1 mt-0 md:static md:mt-2">{"PLANIFIER"}</h2>
+                  <h2 className=" absolute top-20 left-40 bg-white text-center text-lightOrange text-2xl shadow-md shadow-lightOrange w-44 h-11 pt-1 mt-0 md:static md:mt-2">{"PLANIFIER"}</h2>
                 </div>
               </div>
-              <div className="mb-10">
-                <p className="text-midnightBlue mx-4 mt-4">{"Planifiez et anticipez vos collectes avec une gestion centralisée"}</p>
+              <div className="mb-4">
+                <p className="text-midnightBlue mx-4 -mt-12">{"Planifiez et anticipez vos collectes avec une gestion centralisée"}</p>
               </div>
             </div>
 
             {/* saisir */}
             <div>
               <div className="relative md:flex md:flex-col md:items-center">
-                <div className="mt-10 flex justify-end">
+                <div className="flex justify-end">
                   <Image
-                    src="/saisir.png"
+                    src="/saisir.svg"
                     alt={"image représentant une personne qui saisie sur un ordinateur portable"}
                     width={250}
                     height={1}
-                    className="w-[200px] h-[180px] mr-10 md:mr-0"
+                    className="w-[300px] h-[280px] -mr-8 md:mr-0"
                   />
                 </div>
                 <div>
-                  <h2 className="absolute top-20 left-8 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1 mt-0 md:static md:mt-2">{"SAISIR"}</h2>
+                  <h2 className="absolute top-28 left-8 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1 mt-0 md:static md:mt-2">{"SAISIR"}</h2>
                 </div>
               </div>
-              <div className="mb-10">
-                <p className="text-midnightBlue mx-4 mt-4">{"Gagnez du temps sur la collecte et la saisie de vos données"}</p>
+              <div className="mb-4">
+                <p className="text-midnightBlue mx-4 -mt-12">{"Gagnez du temps sur la collecte et la saisie de vos données"}</p>
               </div>
             </div>
           </div>
@@ -188,42 +189,42 @@ export default function Home() {
             {/* acces client */}
             <div>
               <div className="relative md:flex md:flex-col md:items-center">
-                <div className="mt-10 flex justify-start">
+                <div className="flex justify-start">
                   <Image
-                    src="/accesClient.png"
+                    src="/accesClient.svg"
                     alt={"image représentant une personne qui tourne une horloge pour représenter le temps qui passe"}
                     width={250}
                     height={1}
-                    className="w-[200px] h-[180px] ml-10  md:ml-0"
+                    className="w-[300px] h-[280px] -ml-8 md:ml-0"
                   />
                 </div>
                 <div>
-                  <h2 className=" absolute top-20 left-40 bg-white text-center text-strongYellow text-2xl shadow-md shadow-imperialYellow w-52 h-11 pt-1 mt-0 md:static md:mt-2">{"ACCES CLIENT"}</h2>
+                  <h2 className=" absolute top-28 left-40 bg-white text-center text-strongYellow text-2xl shadow-md shadow-imperialYellow w-52 h-11 pt-1 mt-0 md:static md:mt-2">{"ACCES CLIENT"}</h2>
                 </div>
               </div>
-              <div className="mb-10">
-                <p className="text-midnightBlue mx-4 mt-4">{"Offrez à vos clients une vision en temps réel des collectes grâce à un tableau de bord intuitif."}</p>
+              <div className="mb-4">
+                <p className="text-midnightBlue mx-4 -mt-12">{"Offrez à vos clients une vision en temps réel des collectes grâce à un tableau de bord intuitif."}</p>
               </div>
             </div>
 
             {/* statistiques */}
             <div>
               <div className="relative md:flex md:flex-col md:items-center">
-                <div className="mt-10 flex justify-end">
+                <div className="flex justify-end">
                   <Image
-                    src="/statistique.png"
+                    src="/statistiques.svg"
                     alt={"image représentant une personne qui saisie sur un ordinateur portable"}
                     width={250}
                     height={1}
-                    className="w-[200px] h-[180px] mr-10 md:mr-0"
+                    className="w-[300px] h-[280px] -mr-8 md:mr-0"
                   />
                 </div>
                 <div>
-                  <h2 className="absolute top-20 left-6 bg-white text-center text-midnightBlue text-2xl shadow-md shadow-transparentMidnightBlue w-52 h-11 pt-1 mt-0 md:static md:mt-2">{"STATISTIQUES"}</h2>
+                  <h2 className="absolute top-28 left-6 bg-white text-center text-midnightBlue text-2xl shadow-md shadow-transparentMidnightBlue w-52 h-11 pt-1 mt-0 md:static md:mt-2">{"STATISTIQUES"}</h2>
                 </div>
               </div>
               <div className="">
-                <p className="text-midnightBlue mx-4 mt-4">{"Recevez des rapports détaillés sur vos activités de recyclage et votre impact écologique"}</p>
+                <p className="text-midnightBlue mx-4 -mt-12">{"Recevez des rapports détaillés sur vos activités de recyclage et votre impact écologique"}</p>
               </div>
             </div>
           </div>
@@ -238,7 +239,7 @@ export default function Home() {
           {/* REDUCTION DES COUTS */}
 
           <div className="">
-            <h1 className="relative text-center text-brightOrange text-3xl font-section md:text-3xl lg:text-4xl  lg:leading-[2] lg:w-[600px] 
+            <h1 className="relative text-center text-brightOrange text-3xl font-section md:text-3xl lg:text-4xl md:text-left md:w-full
                         before:content-[''] before:absolute before:bg-[url('/decoration.svg')] before:bg-contain before:bg-no-repeat
                         before:w-[80px] before:h-[80px] md:before:w-[70px] md:before:h-[70px] 
                         before:-top-1 before:left-11 md:before:-top-2 md:before:-left-4 lg:before:top-0 lg:before:-left-4
@@ -246,61 +247,71 @@ export default function Home() {
                         before:scale-75 md:before:scale-100 lg:before:scale-125
                         after:content-[''] after:absolute after:border-2 after:border-oliveGreen after:w-24
                         after:translate-x-[-70%] after:translate-y-[-50%] 
-                        after:top-10 left-0">
+                        after:top-10 left-0 md:after:top-16">
               {"Les bénéfices"}
             </h1>
           </div>
-          <div className="flex gap-x-2 mt-12">
-            <div className="">
-              <Image
-                src="/flecheVerte.png"
-                alt={"puce pour liste des différents bénéfices"}
-                width={250}
-                height={1}
-                className="w-[30px] h-[30px]"
-              />
+          <div className="flex mt-12">
+            <div className="-ml-6 -mt-6">
+              <Arrow color="text-oliveGreen" width={70} height={70} />
             </div>
             <h2 className="text-xl">{"REDUCTION DES COÛTS"}</h2>
           </div>
 
-          <div className="mt-6">
-            <p>{"Optimisez la gestion de vos déchets et réduisez vos coûts opérationnels"}</p>
+          <div className="mt-6 flex items-center justify-center gap-x-36">
+            <div className="hidden md:block">
+              <Image
+                src="/cout.svg"
+                alt={"puce pour liste des différents bénéfices"}
+                width={250}
+                height={1}
+                className="w-[200px] h-[200px]"
+              />
+            </div>
+            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">{"Optimisez la gestion de vos déchets et réduisez vos coûts opérationnels"}</p>
           </div>
 
           {/* IMPACT ENVIRONNEMENTAL POSITIF*/}
 
-          <div className="flex gap-x-2 mt-12">
-            <div className="">
+          <div className="flex mt-12">
+            <div className="-ml-6 -mt-6">
+              <Arrow color="text-lightOrange" width={70} height={70} />
+            </div>
+            <h2 className="text-xl md:text-2xl">{"IMPACT ENVIRONNEMENTAL POSITIF"}</h2>
+          </div>
+          <div className="mt-6 flex items-center justify-center gap-x-36">
+            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">{"Mesurez et améliorez votre contribution à la réduction des déchets"}</p>
+            <div className="hidden md:block">
               <Image
-                src="/flecheOrange.png"
+                src="/impactEnvironnement.svg"
                 alt={"puce pour liste des différents bénéfices"}
                 width={250}
                 height={1}
-                className="w-[30px] h-[30px]"
+                className="w-[250px] h-[250px]"
               />
             </div>
-            <h2 className="text-xl">{"IMPACT ENVIRONNEMENTAL POSITIF"}</h2>
           </div>
-          <div className="mt-6">
-            <p>{"Mesurez et améliorez votre contribution à la réduction des déchets"}</p>
-          </div>
+
 
           {/* AMELIORATION DE L’IMAGE DE MARQUE*/}
 
-          <div className="flex gap-x-2 mt-12">
-            <div className="">
+          <div className="flex mt-12">
+            <div className="-ml-6 -mt-6">
+              <Arrow color="text-strongYellow" width={70} height={70} />
+            </div>
+            <h2 className="text-xl md:text-2xl">{"AMELIORATION DE L’IMAGE DE MARQUE"}</h2>
+          </div>
+          <div className="mt-6 flex items-center justify-center gap-x-36">
+            <div className="hidden md:block">
               <Image
-                src="/flecheOrange.png"
+                src="/imageMarque.svg"
                 alt={"puce pour liste des différents bénéfices"}
                 width={250}
                 height={1}
-                className="w-[30px] h-[30px]"
+                className="w-[200px] h-[200px]"
               />
             </div>
-            <h2 className="text-xl">{"AMELIORATION DE L’IMAGE DE MARQUE"}</h2>
-          </div>
-          <div className="mt-6">
-            <p>{"Renforcez votre engagement social et écologique auprès de vos partenaires et clients"}</p>
+            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">{"Renforcez votre engagement social et écologique auprès de vos partenaires et clients"}</p>
           </div>
         </div>
       </section >
