@@ -1,10 +1,10 @@
 "use client";
-import { successAlert } from "@/app/components/alert";
+import { errorAlert, successAlert } from "@/app/components/alert";
 import OrangeButton from "@/app/components/button/orangeButton";
 import { InputPasswordHome } from "@/app/components/inputs/InputPasswordHome";
 import { updatePassword } from "@/lib/userQuery";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { redirect, useSearchParams } from "next/navigation";
 
 const resetPasswordPage = async () => {
   const searchParams = useSearchParams();
@@ -29,10 +29,11 @@ const resetPasswordPage = async () => {
         key,
       );
       if (resultUpdate.error) {
-        console.log("error");
+        errorAlert("Erreur lors de la réinitialisation de mot de passe. Veuillez recommencer.")
         return;
       }
-      successAlert("Votre mot de passe a bien été mis à jour.")
+      successAlert("Votre mot de passe a bien été mis à jour. Vous allez être redirigé vers la page de connexion.")
+      redirect("/login")
     }
   };
 
