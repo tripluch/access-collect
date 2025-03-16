@@ -22,10 +22,6 @@ export const successAlert = async(text: string) => {
           grow: 'row',
           showConfirmButton: false,
           showCloseButton: true,
-
-          customClass: {
-            popup: "custom-swal-popup-success"
-          }
     })
     return result
 }
