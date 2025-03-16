@@ -70,7 +70,7 @@ export default function Home() {
 
       {/* section Pourquoi choisir notre application? */}
 
-      <section className="text-midnightBlue mt-24 md:mx-24 lg:mx-48 md:h-screen">
+      <section className="text-midnightBlue mt-24 md:mx-24 lg:mx-48 ">
         <h1 className="text-center text-xl text-brightOrange font-section md:text-4xl">
           {"Pourquoi choisir notre application ?"}
         </h1>
@@ -104,7 +104,7 @@ export default function Home() {
                 {"Accessible à tous, simple et intuitif"}
               </p>
             </div>
-            <div className="flex items-start my-4 md:my-8">
+            <div className="flex items-start mt-4 md:mt-8">
               <Image
                 className="block md:hidden lg:hidden"
                 src="/puceTri.png"
@@ -131,100 +131,100 @@ export default function Home() {
 
       {/* section Les fonctionnalités */}
 
-      <section className="text-midnightBlue mt-24 lg:mt-24">
-        <div className=" bg-transparentOliveGreen rounded-r-[50px] w-[90%] rotate-6 -ml-2">
-          <h1 className="relative text-center text-xl text-brightOrange font-section py-10 md:py-20 md:text-4xl -rotate-6
-                        before:content-[''] before:absolute before:bg-[url('/decoration.svg')] before:bg-contain before:bg-no-repeat
-                        before:w-[80px] before:h-[80px] 
-                        before:-mt-12 before:ml-52
-                        before:scale-x-[-1] 
-                        before: md:before:scale-100  lg:before:scale-125 ">{"Les fonctionnalités"}</h1>
+      <section className="text-midnightBlue mt-24">
+        <div className=" bg-transparentOliveGreen rounded-r-[50px] w-[90%] rotate-6 -ml-2 md:-ml-4">
+          <h1 className="relative text-center text-xl text-brightOrange font-section py-10 md:py-10 md:text-4xl -rotate-6
+                        before:content-[''] before:absolute before:bg-[url('/decoration.svg')] md:before:bg-[url('/decorationReverse.png')] before:bg-contain before:bg-no-repeat
+                        before:w-[80px] before:h-[80px] md:before:w-[120px] md:before:h-[120px]
+                        before:-mt-12 before:ml-52 md:before:-mt-20 md:before:ml-96
+                        before:scale-x-[-1] md:before:transform-none">{"Les fonctionnalités"}</h1>
         </div>
-
-        <div className="flex-none lg:flex">
-          {/* planifier */}
-          <div>
-            <div className="relative">
-              <div className="mt-10 flex justify-start">
-                <Image
-                  src="/planifier.png"
-                  alt={"image représentant une personne qui planifie ses tâches"}
-                  width={250}
-                  height={1}
-                  className="w-[200px] h-[180px] ml-10"
-                />
+        <div className="mt-0 md:mt-10 md:mx-24 lg:mx-48 md:h-screen">
+          <div className="flex-none gap-x-0 md:flex md:gap-x-10">
+            {/* planifier */}
+            <div>
+              <div className="relative md:flex md:flex-col md:items-center">
+                <div className="mt-10 flex justify-start">
+                  <Image
+                    src="/planifier.png"
+                    alt={"image représentant une personne qui planifie ses tâches"}
+                    width={250}
+                    height={1}
+                    className="w-[200px] h-[180px] ml-10 md:ml-0"
+                  />
+                </div>
+                <div>
+                  <h2 className=" absolute top-20 left-44 bg-white text-center text-lightOrange text-2xl shadow-md shadow-lightOrange w-44 h-11 pt-1 mt-0 md:static md:mt-2">{"PLANIFIER"}</h2>
+                </div>
               </div>
-              <div>
-                <h2 className=" absolute top-20 left-44 bg-white text-center text-lightOrange text-2xl shadow-md shadow-lightOrange w-44 h-11 pt-1">{"PLANIFIER"}</h2>
+              <div className="mb-10">
+                <p className="text-midnightBlue mx-4 mt-4">{"Planifiez et anticipez vos collectes avec une gestion centralisée"}</p>
               </div>
             </div>
-            <div className="mb-10">
-              <p className="text-midnightBlue mx-4 mt-4">{"Planifiez et anticipez vos collectes avec une gestion centralisée"}</p>
+
+            {/* saisir */}
+            <div>
+              <div className="relative md:flex md:flex-col md:items-center">
+                <div className="mt-10 flex justify-end">
+                  <Image
+                    src="/saisir.png"
+                    alt={"image représentant une personne qui saisie sur un ordinateur portable"}
+                    width={250}
+                    height={1}
+                    className="w-[200px] h-[180px] mr-10 md:mr-0"
+                  />
+                </div>
+                <div>
+                  <h2 className="absolute top-20 left-8 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1 mt-0 md:static md:mt-2">{"SAISIR"}</h2>
+                </div>
+              </div>
+              <div className="mb-10">
+                <p className="text-midnightBlue mx-4 mt-4">{"Gagnez du temps sur la collecte et la saisie de vos données"}</p>
+              </div>
             </div>
           </div>
 
-          {/* saisir */}
-          <div>
-            <div className="relative">
-              <div className="mt-10 flex justify-end">
-                <Image
-                  src="/saisir.png"
-                  alt={"image représentant une personne qui saisie sur un ordinateur portable"}
-                  width={250}
-                  height={1}
-                  className="w-[200px] h-[180px] mr-10"
-                />
+          <div className="flex-none lg:flex">
+            {/* acces client */}
+            <div>
+              <div className="relative md:flex md:flex-col md:items-center">
+                <div className="mt-10 flex justify-start">
+                  <Image
+                    src="/accesClient.png"
+                    alt={"image représentant une personne qui tourne une horloge pour représenter le temps qui passe"}
+                    width={250}
+                    height={1}
+                    className="w-[200px] h-[180px] ml-10  md:ml-0"
+                  />
+                </div>
+                <div>
+                  <h2 className=" absolute top-20 left-40 bg-white text-center text-strongYellow text-2xl shadow-md shadow-imperialYellow w-52 h-11 pt-1 mt-0 md:static md:mt-2">{"ACCES CLIENT"}</h2>
+                </div>
               </div>
-              <div>
-                <h2 className="absolute top-20 left-8 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1">{"SAISIR"}</h2>
+              <div className="mb-10">
+                <p className="text-midnightBlue mx-4 mt-4">{"Offrez à vos clients une vision en temps réel des collectes grâce à un tableau de bord intuitif."}</p>
               </div>
             </div>
-            <div className="mb-10">
-              <p className="text-midnightBlue mx-4 mt-4">{"Gagnez du temps sur la collecte et la saisie de vos données"}</p>
-            </div>
-          </div>
-        </div>
 
-        <div className="flex-none lg:flex">
-          {/* acces client */}
-          <div>
-            <div className="relative">
-              <div className="mt-10 flex justify-start">
-                <Image
-                  src="/accesClient.png"
-                  alt={"image représentant une personne qui tourne une horloge pour représenter le temps qui passe"}
-                  width={250}
-                  height={1}
-                  className="w-[200px] h-[180px] ml-10"
-                />
+            {/* statistiques */}
+            <div>
+              <div className="relative md:flex md:flex-col md:items-center">
+                <div className="mt-10 flex justify-end">
+                  <Image
+                    src="/statistique.png"
+                    alt={"image représentant une personne qui saisie sur un ordinateur portable"}
+                    width={250}
+                    height={1}
+                    className="w-[200px] h-[180px] mr-10 md:mr-0"
+                  />
+                </div>
+                <div>
+                  <h2 className="absolute top-20 left-6 bg-white text-center text-midnightBlue text-2xl shadow-md shadow-transparentMidnightBlue w-52 h-11 pt-1 mt-0 md:static md:mt-2">{"STATISTIQUES"}</h2>
+                </div>
               </div>
-              <div>
-                <h2 className=" absolute top-20 left-40 bg-white text-center text-strongYellow text-2xl shadow-md shadow-imperialYellow w-52 h-11 pt-1">{"ACCES CLIENT"}</h2>
+              <div className="mb-40">
+                <p className="text-midnightBlue mx-4 mt-4">{"Recevez des rapports détaillés sur vos activités de recyclage et votre impact écologique"}</p>
               </div>
-            </div>
-            <div className="mb-10">
-              <p className="text-midnightBlue mx-4 mt-4">{"Offrez à vos clients une vision en temps réel des collectes grâce à un tableau de bord intuitif."}</p>
-            </div>
-          </div>
-
-          {/* statistiques */}
-          <div>
-            <div className="relative">
-              <div className="mt-10 flex justify-end">
-                <Image
-                  src="/statistique.png"
-                  alt={"image représentant une personne qui saisie sur un ordinateur portable"}
-                  width={250}
-                  height={1}
-                  className="w-[200px] h-[180px] mr-10"
-                />
-              </div>
-              <div>
-                <h2 className="absolute top-20 left-6 bg-white text-center text-midnightBlue text-2xl shadow-md shadow-transparentMidnightBlue w-52 h-11 pt-1">{"STATISTIQUES"}</h2>
-              </div>
-            </div>
-            <div className="mb-40">
-              <p className="text-midnightBlue mx-4 mt-4">{"Recevez des rapports détaillés sur vos activités de recyclage et votre impact écologique"}</p>
             </div>
           </div>
         </div>
