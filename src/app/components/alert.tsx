@@ -22,6 +22,36 @@ export const successAlert = async(text: string) => {
           grow: 'row',
           showConfirmButton: false,
           showCloseButton: true,
+
+          customClass: {
+            popup: "custom-swal-popup-success"
+          }
     })
     return result
+}
+
+export const errorAlert = async(text: string) => {
+  const result = await Swal.fire({
+      text: text,
+      position: 'top',
+      color: "#FFA632",
+      showClass: {
+          popup: `
+          animate__animated
+          animate__fadeInDown
+          animate__faster
+        `,
+        },
+      hideClass: {
+          popup: `
+          animate__animated
+          animate__fadeOutUp
+          animate__faster
+        `,
+        },
+        grow: 'row',
+        showConfirmButton: false,
+        showCloseButton: true,
+  })
+  return result
 }
