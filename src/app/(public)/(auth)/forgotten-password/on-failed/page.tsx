@@ -1,5 +1,3 @@
-import { NextPage } from "next";
-
 const ForgottenPasswordError = () => {
   return (
     <>
