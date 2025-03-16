@@ -71,7 +71,7 @@ export default function Home() {
       {/* section Pourquoi choisir notre application? */}
 
       <section className="text-midnightBlue mt-24 md:mx-24 lg:mx-48 ">
-        <h1 className="text-center text-xl text-brightOrange font-section md:text-4xl">
+        <h1 className="text-center text-2xl text-brightOrange font-section md:text-4xl">
           {"Pourquoi choisir notre application ?"}
         </h1>
         <div className="md:flex md:justify-start md:ml-24 lg:mt-10 ">
@@ -132,14 +132,14 @@ export default function Home() {
       {/* section Les fonctionnalités */}
 
       <section className="text-midnightBlue mt-24">
-        <div className=" bg-transparentOliveGreen rounded-r-[50px] w-[90%] rotate-6 -ml-2 md:-ml-4">
-          <h1 className="relative text-center text-xl text-brightOrange font-section py-10 md:py-10 md:text-4xl -rotate-6
+        <div className=" bg-transparentOliveGreen rounded-r-[50px] w-[90%] rotate-6 md:rotate-3 -ml-2 md:-ml-4">
+          <h1 className="relative text-center text-2xl text-brightOrange font-section py-10 md:py-10 md:text-4xl -rotate-6 md:-rotate-3
                         before:content-[''] before:absolute before:bg-[url('/decoration.svg')] md:before:bg-[url('/decorationReverse.png')] before:bg-contain before:bg-no-repeat
-                        before:w-[80px] before:h-[80px] md:before:w-[120px] md:before:h-[120px]
-                        before:-mt-12 before:ml-52 md:before:-mt-20 md:before:ml-96
+                        before:w-[90px] before:h-[90px] md:before:w-[120px] md:before:h-[120px]
+                        before:-mt-12 before:ml-60 md:before:-mt-20 md:before:ml-96
                         before:scale-x-[-1] md:before:transform-none">{"Les fonctionnalités"}</h1>
         </div>
-        <div className="mt-0 md:mt-10 md:mx-24 lg:mx-48 md:h-screen">
+        <div className="mt-0 md:mt-10 md:mx-24 lg:mx-48">
           <div className="flex-none gap-x-0 md:flex md:gap-x-10">
             {/* planifier */}
             <div>
@@ -222,7 +222,7 @@ export default function Home() {
                   <h2 className="absolute top-20 left-6 bg-white text-center text-midnightBlue text-2xl shadow-md shadow-transparentMidnightBlue w-52 h-11 pt-1 mt-0 md:static md:mt-2">{"STATISTIQUES"}</h2>
                 </div>
               </div>
-              <div className="mb-40">
+              <div className="">
                 <p className="text-midnightBlue mx-4 mt-4">{"Recevez des rapports détaillés sur vos activités de recyclage et votre impact écologique"}</p>
               </div>
             </div>
@@ -230,6 +230,80 @@ export default function Home() {
         </div>
       </section>
 
+      {/* section Les bénéfices */}
+
+      <section className="text-midnightBlue pt-5 pb-20 mt-24 bg-transparentImperialYellow">
+        <div className="mx-6 md:mx-24 lg:mx-48">
+
+          {/* REDUCTION DES COUTS */}
+
+          <div className="">
+            <h1 className="relative text-center text-brightOrange text-3xl font-section md:text-3xl lg:text-4xl  lg:leading-[2] lg:w-[600px] 
+                        before:content-[''] before:absolute before:bg-[url('/decoration.svg')] before:bg-contain before:bg-no-repeat
+                        before:w-[80px] before:h-[80px] md:before:w-[70px] md:before:h-[70px] 
+                        before:-top-1 before:left-11 md:before:-top-2 md:before:-left-4 lg:before:top-0 lg:before:-left-4
+                        before:translate-x-[-50%] before:translate-y-[-50%] 
+                        before:scale-75 md:before:scale-100 lg:before:scale-125
+                        after:content-[''] after:absolute after:border-2 after:border-oliveGreen after:w-24
+                        after:translate-x-[-70%] after:translate-y-[-50%] 
+                        after:top-10 left-0">
+              {"Les bénéfices"}
+            </h1>
+          </div>
+          <div className="flex gap-x-2 mt-12">
+            <div className="">
+              <Image
+                src="/flecheVerte.png"
+                alt={"puce pour liste des différents bénéfices"}
+                width={250}
+                height={1}
+                className="w-[30px] h-[30px]"
+              />
+            </div>
+            <h2 className="text-xl">{"REDUCTION DES COÛTS"}</h2>
+          </div>
+
+          <div className="mt-6">
+            <p>{"Optimisez la gestion de vos déchets et réduisez vos coûts opérationnels"}</p>
+          </div>
+
+          {/* IMPACT ENVIRONNEMENTAL POSITIF*/}
+
+          <div className="flex gap-x-2 mt-12">
+            <div className="">
+              <Image
+                src="/flecheOrange.png"
+                alt={"puce pour liste des différents bénéfices"}
+                width={250}
+                height={1}
+                className="w-[30px] h-[30px]"
+              />
+            </div>
+            <h2 className="text-xl">{"IMPACT ENVIRONNEMENTAL POSITIF"}</h2>
+          </div>
+          <div className="mt-6">
+            <p>{"Mesurez et améliorez votre contribution à la réduction des déchets"}</p>
+          </div>
+
+          {/* AMELIORATION DE L’IMAGE DE MARQUE*/}
+
+          <div className="flex gap-x-2 mt-12">
+            <div className="">
+              <Image
+                src="/flecheOrange.png"
+                alt={"puce pour liste des différents bénéfices"}
+                width={250}
+                height={1}
+                className="w-[30px] h-[30px]"
+              />
+            </div>
+            <h2 className="text-xl">{"AMELIORATION DE L’IMAGE DE MARQUE"}</h2>
+          </div>
+          <div className="mt-6">
+            <p>{"Renforcez votre engagement social et écologique auprès de vos partenaires et clients"}</p>
+          </div>
+        </div>
+      </section >
     </>
   );
 }
