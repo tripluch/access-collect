@@ -29,11 +29,15 @@ const resetPasswordPage = async () => {
         key,
       );
       if (resultUpdate.error) {
-        errorAlert("Erreur lors de la réinitialisation de mot de passe. Veuillez recommencer.")
+        errorAlert(
+          "Erreur lors de la réinitialisation de mot de passe. Veuillez recommencer.",
+        );
         return;
       }
-      successAlert("Votre mot de passe a bien été mis à jour. Vous avez été redirigé vers la page de connexion.")
-      redirect("/login")
+      successAlert(
+        "Votre mot de passe a bien été mis à jour. Vous avez été redirigé vers la page de connexion.",
+      );
+      redirect("/login");
     }
   };
 
