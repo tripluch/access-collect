@@ -1,5 +1,15 @@
-CREATE TYPE "public"."role" AS ENUM('superAdmin', 'admin', 'client', 'collector');--> statement-breakpoint
-CREATE TYPE "public"."day" AS ENUM('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday');--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "public"."role" AS ENUM('superAdmin', 'admin', 'client', 'collector');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+
+DO $$ BEGIN
+ CREATE TYPE "public"."day" AS ENUM('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+
 CREATE TABLE IF NOT EXISTS "organisation" (
 	"id" text PRIMARY KEY NOT NULL,
 	"name" varchar NOT NULL,
