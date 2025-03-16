@@ -1,12 +1,20 @@
 "use client";
+import { errorAlert, successAlert } from "@/app/components/alert";
 import OrangeButton from "@/app/components/button/orangeButton";
 import { InputFormHome } from "@/app/components/inputs/InputFormHome";
 import { sendResetPasswordEmailIfUserExists } from "@/lib/userQuery";
 import Image from "next/image";
 const forgottenPasswordPage = () => {
-  const handleEmailSending = (formData: FormData) => {
+  const handleEmailSending = async(formData: FormData) => {
     const email = Object.fromEntries(formData);
-    sendResetPasswordEmailIfUserExists(email.email as string);
+    const sendEmail = await sendResetPasswordEmailIfUserExists(email.email as string);
+    if(sendEmail?.error){
+      errorAlert("Oups.. Une erreur est survenue");
+      return
+    }
+
+    successAlert("Un mail de réinitialisation, vous a été envoyé.")
+
   };
   return (
     <div>

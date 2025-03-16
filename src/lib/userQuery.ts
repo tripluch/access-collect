@@ -79,7 +79,7 @@ export const sendResetPasswordEmailIfUserExists = async (email: string) => {
   const user = await getUserDataWithEmail(email);
 
   if (!user) {
-    console.log("error email doesn't exists on database");
+    return {error: "email doesn't exists on database"};
   } else {
     addKey(user.id);
     const userKey = await getKeyByUserId(user.id);

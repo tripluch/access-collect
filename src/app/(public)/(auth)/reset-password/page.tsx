@@ -32,7 +32,7 @@ const resetPasswordPage = async () => {
         errorAlert("Erreur lors de la réinitialisation de mot de passe. Veuillez recommencer.")
         return;
       }
-      successAlert("Votre mot de passe a bien été mis à jour. Vous allez être redirigé vers la page de connexion.")
+      successAlert("Votre mot de passe a bien été mis à jour. Vous avez été redirigé vers la page de connexion.")
       redirect("/login")
     }
   };
@@ -42,7 +42,7 @@ const resetPasswordPage = async () => {
       <h1 className="text-center text-2xl mt-10 text-midnightBlue font-bold">
         {"Bienvenue sur AccessCollect"}
       </h1>
-      <div className="flex flex-wrap gap-x-4 justify-around gap-y-8 mb-8 mt-24">
+      <div className="flex flex-wrap gap-x-4 justify-around gap-y-8 mb-8 mt-8 lg:mt-24">
         <div>
           <Image
             src="/tri2.png"
@@ -52,7 +52,7 @@ const resetPasswordPage = async () => {
           />
         </div>
 
-        <div className="w-[300px] h-[300px] md:w-[450px] md:h-[300px] shadow-md shadow-lightOliveGreen rounded-lg flex flex-col justify-center items-center gap-4">
+        <div className="w-[300px] h-[300px] md:w-[450px] md:h-[350px] shadow-md shadow-lightOliveGreen rounded-lg flex flex-col justify-center items-center gap-4">
           <h1 className="text-brightOrange uppercase">
             {"réinitialisez votre mot de passe"}
           </h1>
