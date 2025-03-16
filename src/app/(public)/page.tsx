@@ -145,21 +145,21 @@ export default function Home() {
             {/* planifier */}
             <div>
               <div className="relative md:flex md:flex-col md:items-center">
-                <div className="mt-10 flex justify-start">
+                <div className="mt-10 flex justify-start md:mt-auto">
                   <Image
                     src="/planifier.svg"
                     alt={"image représentant une personne qui planifie ses tâches"}
                     width={250}
                     height={1}
-                    className="w-[300px] h-[280px] -ml-8 md:ml-0"
+                    className="w-[300px] h-[280px] -ml-8 mb-auto md:ml-0 md:-mb-14"
                   />
                 </div>
                 <div>
-                  <h2 className=" absolute top-20 left-40 bg-white text-center text-lightOrange text-2xl shadow-md shadow-lightOrange w-44 h-11 pt-1 mt-0 md:static md:mt-2">{"PLANIFIER"}</h2>
+                  <h2 className=" absolute top-20 left-40 bg-white text-center text-lightOrange text-2xl shadow-md shadow-lightOrange w-44 h-11 pt-1 mt-0 md:static">{"PLANIFIER"}</h2>
                 </div>
               </div>
               <div className="mb-4">
-                <p className="text-midnightBlue mx-4 -mt-12">{"Planifiez et anticipez vos collectes avec une gestion centralisée"}</p>
+                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">{"Planifiez et anticipez vos collectes avec une gestion centralisée"}</p>
               </div>
             </div>
 
@@ -172,15 +172,15 @@ export default function Home() {
                     alt={"image représentant une personne qui saisie sur un ordinateur portable"}
                     width={250}
                     height={1}
-                    className="w-[300px] h-[280px] -mr-8 md:mr-0"
+                    className="w-[300px] h-[280px] mb-auto -mr-8 md:mr-0 md:-mb-14"
                   />
                 </div>
                 <div>
-                  <h2 className="absolute top-28 left-8 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1 mt-0 md:static md:mt-2">{"SAISIR"}</h2>
+                  <h2 className="absolute top-28 left-8 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1 mt-0 md:static">{"SAISIR"}</h2>
                 </div>
               </div>
               <div className="mb-4">
-                <p className="text-midnightBlue mx-4 -mt-12">{"Gagnez du temps sur la collecte et la saisie de vos données"}</p>
+                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">{"Gagnez du temps sur la collecte et la saisie de vos données"}</p>
               </div>
             </div>
           </div>
@@ -195,7 +195,7 @@ export default function Home() {
                     alt={"image représentant une personne qui tourne une horloge pour représenter le temps qui passe"}
                     width={250}
                     height={1}
-                    className="w-[300px] h-[280px] -ml-8 md:ml-0"
+                    className="w-[300px] h-[280px] -ml-8 mb-auto md:ml-0 md:-mb-14"
                   />
                 </div>
                 <div>
@@ -203,7 +203,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="mb-4">
-                <p className="text-midnightBlue mx-4 -mt-12">{"Offrez à vos clients une vision en temps réel des collectes grâce à un tableau de bord intuitif."}</p>
+                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">{"Offrez à vos clients une vision en temps réel des collectes grâce à un tableau de bord intuitif."}</p>
               </div>
             </div>
 
@@ -216,15 +216,15 @@ export default function Home() {
                     alt={"image représentant une personne qui saisie sur un ordinateur portable"}
                     width={250}
                     height={1}
-                    className="w-[300px] h-[280px] -mr-8 md:mr-0"
+                    className="w-[300px] h-[280px] mb-auto -mr-8 md:mr-0 md:-mb-14"
                   />
                 </div>
                 <div>
-                  <h2 className="absolute top-28 left-6 bg-white text-center text-midnightBlue text-2xl shadow-md shadow-transparentMidnightBlue w-52 h-11 pt-1 mt-0 md:static md:mt-2">{"STATISTIQUES"}</h2>
+                  <h2 className="absolute top-28 left-6 bg-white text-center text-midnightBlue text-2xl shadow-md shadow-transparentMidnightBlue w-52 h-11 pt-1 mt-0 md:static">{"STATISTIQUES"}</h2>
                 </div>
               </div>
               <div className="">
-                <p className="text-midnightBlue mx-4 -mt-12">{"Recevez des rapports détaillés sur vos activités de recyclage et votre impact écologique"}</p>
+                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">{"Recevez des rapports détaillés sur vos activités de recyclage et votre impact écologique"}</p>
               </div>
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function Home() {
                         before:scale-75 md:before:scale-100 lg:before:scale-125
                         after:content-[''] after:absolute after:border-2 after:border-oliveGreen after:w-24
                         after:translate-x-[-70%] after:translate-y-[-50%] 
-                        after:top-10 left-0 md:after:top-16">
+                        after:top-10 left-0 md:after:top-10">
               {"Les bénéfices"}
             </h1>
           </div>
@@ -258,14 +258,14 @@ export default function Home() {
             <h2 className="text-xl">{"REDUCTION DES COÛTS"}</h2>
           </div>
 
-          <div className="mt-6 flex items-center justify-center gap-x-36">
+          <div className="mt-6 flex items-center justify-center gap-x-24">
             <div className="hidden md:block">
               <Image
                 src="/cout.svg"
-                alt={"puce pour liste des différents bénéfices"}
+                alt={"image montrant un escalier de cube avec une flèche pour montrer le coût qui diminue"}
                 width={250}
                 height={1}
-                className="w-[200px] h-[200px]"
+                className="w-[180px] h-[180px]"
               />
             </div>
             <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">{"Optimisez la gestion de vos déchets et réduisez vos coûts opérationnels"}</p>
@@ -279,7 +279,7 @@ export default function Home() {
             </div>
             <h2 className="text-xl md:text-2xl">{"IMPACT ENVIRONNEMENTAL POSITIF"}</h2>
           </div>
-          <div className="mt-6 flex items-center justify-center gap-x-36">
+          <div className="mt-6 flex items-center justify-center gap-x-24">
             <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">{"Mesurez et améliorez votre contribution à la réduction des déchets"}</p>
             <div className="hidden md:block">
               <Image
@@ -287,7 +287,7 @@ export default function Home() {
                 alt={"puce pour liste des différents bénéfices"}
                 width={250}
                 height={1}
-                className="w-[250px] h-[250px]"
+                className="w-[180px] h-[180px]"
               />
             </div>
           </div>
@@ -301,14 +301,14 @@ export default function Home() {
             </div>
             <h2 className="text-xl md:text-2xl">{"AMELIORATION DE L’IMAGE DE MARQUE"}</h2>
           </div>
-          <div className="mt-6 flex items-center justify-center gap-x-36">
+          <div className="mt-6 flex items-center justify-center gap-x-24">
             <div className="hidden md:block">
               <Image
                 src="/imageMarque.svg"
                 alt={"puce pour liste des différents bénéfices"}
                 width={250}
                 height={1}
-                className="w-[200px] h-[200px]"
+                className="w-[180px] h-[180px]"
               />
             </div>
             <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">{"Renforcez votre engagement social et écologique auprès de vos partenaires et clients"}</p>
