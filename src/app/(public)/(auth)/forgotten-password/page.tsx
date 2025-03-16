@@ -5,16 +5,17 @@ import { InputFormHome } from "@/app/components/inputs/InputFormHome";
 import { sendResetPasswordEmailIfUserExists } from "@/lib/userQuery";
 import Image from "next/image";
 const forgottenPasswordPage = () => {
-  const handleEmailSending = async(formData: FormData) => {
+  const handleEmailSending = async (formData: FormData) => {
     const email = Object.fromEntries(formData);
-    const sendEmail = await sendResetPasswordEmailIfUserExists(email.email as string);
-    if(sendEmail?.error){
+    const sendEmail = await sendResetPasswordEmailIfUserExists(
+      email.email as string,
+    );
+    if (sendEmail?.error) {
       errorAlert("Oups.. Une erreur est survenue");
-      return
+      return;
     }
 
-    successAlert("Un mail de réinitialisation, vous a été envoyé.")
-
+    successAlert("Un mail de réinitialisation, vous a été envoyé.");
   };
   return (
     <div>
