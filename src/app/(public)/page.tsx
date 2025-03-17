@@ -19,14 +19,14 @@ export default function Home() {
 
       {/* section de présentation */}
       <section className="text-midnightBlue md:bg-[url('/backgroundHomepage.svg')] md:bg-cover md:bg-center md:bg-no-repeat">
-        <div className="md:mx-24 lg:mx-48 md:flex md:h-screen">
+        <div className="md:mx-24 lg:mx-48 md:flex md:items-center md:h-screen">
           {/* partie de gauche */}
-          <div className="w-full md:flex md:flex-col md:justify-around md:h-3/4 md:mt-12 md:w-1/2">
+          <div className="w-full md:flex md:flex-col md:justify-between md:h-3/4 md:w-1/2 ">
             <div className="h-64 mt-20 mx-8 md:h-auto md:mt-0 md:mx-0 ">
-              <p className="relative text-xl font-section md:text-2xl lg:text-4xl  lg:leading-[2] lg:w-[600px] 
+              <p className="relative text-xl font-section md:text-2xl lg:text-6xl  lg:leading-[2] lg:w-[900px] 
                         before:content-[''] before:absolute before:bg-[url('/decoration.svg')] before:bg-contain before:bg-no-repeat
-                        before:w-[50px] before:h-[50px] md:before:w-[70px] md:before:h-[70px] 
-                        before:top-0 before:-left-2 md:before:-top-2 md:before:-left-4 lg:before:top-0 lg:before:-left-4
+                        before:w-[50px] before:h-[50px] md:before:w-[70px] md:before:h-[70px] lg:before:w-[100px] lg:before:h-[100px] 
+                        before:top-0 before:-left-2 md:before:-top-2 md:before:-left-4 lg:before:top-0 lg:before:-left-6
                         before:translate-x-[-50%] before:translate-y-[-50%] 
                         before:scale-75 md:before:scale-100 lg:before:scale-125 ">
                 {"Optimisez la collecte des déchets en entreprise avec une solution"}
@@ -34,20 +34,20 @@ export default function Home() {
                 <span className="text-lightOrange">{"écologique"}</span>
               </p>
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:block md:mt-16">
               <LogButton label={"Demander une démo"} />
             </div>
-            <div className="bg-transparentImperialYellow pt-24 pb-10 md:bg-transparent md:pt-auto md:pb-auto
+            <div className="bg-transparentImperialYellow pt-24 pb-10 md:bg-transparent md:pt-auto
                             before:content-[''] before:absolute before:bg-[url('/containeurs.svg')] before:bg-contain before:bg-no-repeat
                             before:block md:before:hidden
                             before:w-[350px] before:h-[350px]
-                            before:top-[370px]  before:left-1/2 before:-translate-x-1/2 ">
-              <p className="mx-6 relative text-md md:w-full md:text-xl lg:w-[600px] lg:leading-[2] md:mx-0">
+                            before:top-[65%] before:-translate-y-1/2  before:left-1/2 before:-translate-x-1/2 ">
+              <p className="mx-6 relative text-md md:w-full md:text-xl  lg:text-4xl lg:w-[900px] lg:leading-[2] md:mx-0">
                 {
                   "Une application pour faciliter la collecte des déchets recyclables en entreprise, tout en favorisant l’inclusion des personnes en situation de handicap."
                 }
               </p>
-              <div className="block flex justify-center mt-10 md:hidden">
+              <div className="block flex mt-10 justify-center md:hidden">
                 <LogButton label={"Demander une démo"} />
               </div>
             </div>
@@ -72,9 +72,13 @@ export default function Home() {
       {/* section Pourquoi choisir notre application? */}
 
       <section className="text-midnightBlue mt-24 md:mx-24 lg:mx-48 ">
-        <h1 className="text-center text-2xl text-brightOrange font-section md:text-4xl">
+        <h1 className="relative text-center text-2xl text-brightOrange font-section md:text-4xl
+                     after:content-[''] after:absolute after:border-2 after:border-midnightBlue after:w-16
+                     after:top-8 after:-translate-y-1/2 after:left-[26%] after:-translate-x-full">
           {"Pourquoi choisir notre application ?"}
         </h1>
+
+
         <div className="mt-10 md:flex md:justify-start md:ml-24 lg:mt-10 ">
           <div className="flex justify-center my-8 lg:mt-12">
             <Image
@@ -268,7 +272,7 @@ export default function Home() {
                 className="w-[180px] h-[180px]"
               />
             </div>
-            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">{"Optimisez la gestion de vos déchets et réduisez vos coûts opérationnels"}</p>
+            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Optimisez"}</span>{" la gestion de vos déchets et "}<span className="text-brightOrange text-bold">{"réduisez vos coûts"}</span>{" opérationnels"}</p>
           </div>
 
           {/* IMPACT ENVIRONNEMENTAL POSITIF*/}
@@ -280,7 +284,7 @@ export default function Home() {
             <h2 className="text-xl md:text-2xl">{"IMPACT ENVIRONNEMENTAL POSITIF"}</h2>
           </div>
           <div className="mt-6 flex items-center justify-center gap-x-24">
-            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">{"Mesurez et améliorez votre contribution à la réduction des déchets"}</p>
+            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Mesurez"}</span>{" et "}<span className="text-brightOrange text-bold">{"améliorez"}</span>{" votre contribution à la réduction des déchets"}</p>
             <div className="hidden md:block">
               <Image
                 src="/impactEnvironnement.svg"
@@ -311,10 +315,54 @@ export default function Home() {
                 className="w-[180px] h-[180px]"
               />
             </div>
-            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">{"Renforcez votre engagement social et écologique auprès de vos partenaires et clients"}</p>
+            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Renforcez votre engagement social"}</span>{" et "}<span className="text-brightOrange text-bold">{"écologique"}</span>{" auprès de vos partenaires et clients"}</p>
           </div>
         </div>
       </section >
+
+      {/* section accessCollect en chiffre*/}
+
+      <section className="text-midnightBlue pb-20">
+        <div className="md:mx-24 lg:mx-48">
+          <div className="">
+            <h1 className="relative text-center text-2xl text-brightOrange font-section py-10 md:py-10 md:text-4xl
+                        before:content-[''] before:absolute before:bg-[url('/decorationHautD.svg')] md:before:bg-[url('/decorationReverse.png')] before:bg-contain before:bg-no-repeat
+                        before:w-[100px] before:h-[100px] md:before:w-[120px] md:before:h-[120px] before:transform before:-rotate-12
+                        before:-mt-10 before:ml-[310px] md:before:-mt-20 md:before:ml-96
+                        after:content-[''] after:absolute after:border-2 after:border-midnightBlue after:w-16
+                        after:top-20 after:-translate-y-1/2 after:left-[23%] after:-translate-x-full">{"AccessCollect en chiffre"}</h1>
+          </div>
+        </div>
+        <div className="mx-6 md:mx-24 lg:mx-48">
+          <div className="flex justify-around mt-10">
+            <div className="flex flex-col items-center w-1/2">
+              <Image
+                src="/poubelle.svg"
+                alt={"image d'une poubelle"}
+                width={250}
+                height={1}
+                className="w-[130px] h-[130px]"
+              />
+              <p className="text-center mt-2 text-lg">100<span>T</span></p>
+              <p className="text-center">de déchets recyclés</p>
+            </div>
+
+            <div className="flex flex-col items-center w-1/2">
+              <Image
+                src="/collecteur.svg"
+                alt={"image d'un éboueur"}
+                width={250}
+                height={1}
+                className="w-[130px] h-[130px]"
+              />
+              <p className="text-center mt-2 text-lg">25</p>
+              <p className="text-center">collecteurs en situation de handicap engagés et soutenus</p>
+            </div>
+
+          </div>
+        </div>
+      </section >
+
     </>
   );
 }
