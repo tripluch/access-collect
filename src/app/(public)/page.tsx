@@ -72,14 +72,21 @@ export default function Home() {
       {/* section Pourquoi choisir notre application? */}
 
       <section className="text-midnightBlue mt-24 md:mx-24 lg:mx-48 ">
-        <h1 className="relative text-center text-2xl text-brightOrange font-section md:text-4xl
-                     after:content-[''] after:absolute after:border-2 after:border-midnightBlue after:w-16
-                     after:top-8 after:-translate-y-1/2 after:left-[26%] after:-translate-x-full">
+        <h1 className="relative text-center text-2xl text-brightOrange font-section md:text-4xl">
+          <span className="after:content-[''] after:absolute after:border-2 after:border-midnightBlue after:w-16 md:after:w-24
+                     after:top-8 md:after:top-10 after:-translate-y-1/2 after:left-[26%] md:after:left-[36%] after:-translate-x-full
+                     "></span>
+          <span className="after:content-[''] after:absolute after:bg-[url('/decorationHautD.svg')] after:bg-contain after:bg-no-repeat
+                            after:hidden md:after:block
+                            after:w-[170px] after:h-[170px]
+                            after:right-auto after:left-[66%]  after:top-[20%] after:-translate-y-1/2
+                            
+                     "></span>
           {"Pourquoi choisir notre application ?"}
         </h1>
 
 
-        <div className="mt-10 md:flex md:justify-start md:ml-24 lg:mt-10 ">
+        <div className="mt-10 md:flex md:justify-center md:mx-auto lg:mt-10 max-w-[1200px] ">
           <div className="flex justify-center my-8 lg:mt-12">
             <Image
               src="/mobile.png"
@@ -144,9 +151,9 @@ export default function Home() {
                         before:-mt-12 before:ml-60 md:before:-mt-20 md:before:ml-96
                         before:scale-x-[-1] md:before:transform-none">{"Les fonctionnalités"}</h1>
         </div>
-        <div className="-mt-6 mx-0 md:mt-10 md:mx-24 lg:mx-48">
-          <div className="flex-none gap-x-0 md:flex md:gap-x-10">
-            {/* planifier */}
+        <div className="-mt-6 mx-auto md:mt-10 lg:mt-12 max-w-screen-xl">
+          <div className="flex-none gap-x-0 md:flex md:justify-center md:gap-x-20">
+            {/* Planifier */}
             <div>
               <div className="relative md:flex md:flex-col md:items-center">
                 <div className="mt-10 flex justify-start md:mt-auto">
@@ -167,7 +174,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* saisir */}
+            {/* Saisir */}
             <div>
               <div className="relative md:flex md:flex-col md:items-center">
                 <div className="flex justify-end">
@@ -190,7 +197,7 @@ export default function Home() {
           </div>
 
           <div className="flex-none lg:flex">
-            {/* acces client */}
+            {/* Accès client */}
             <div>
               <div className="relative md:flex md:flex-col md:items-center">
                 <div className="flex justify-start">
@@ -211,7 +218,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* statistiques */}
+            {/* Statistiques */}
             <div>
               <div className="relative md:flex md:flex-col md:items-center">
                 <div className="flex justify-end">
@@ -233,15 +240,13 @@ export default function Home() {
             </div>
           </div>
         </div>
+
       </section>
 
       {/* section Les bénéfices */}
 
       <section className="text-midnightBlue pt-5 pb-20 mt-24 bg-transparentImperialYellow">
-        <div className="mx-6 md:mx-24 lg:mx-48">
-
-          {/* REDUCTION DES COUTS */}
-
+        <div className="mx-6 md:mx-[650px] md:flex md:flex-col md:items-start max-w-screen-xl mt-12">
           <div className="">
             <h1 className="relative text-center text-brightOrange text-3xl font-section md:text-3xl lg:text-4xl md:text-left md:w-full
                         before:content-[''] before:absolute before:bg-[url('/decoration.svg')] before:bg-contain before:bg-no-repeat
@@ -255,6 +260,8 @@ export default function Home() {
               {"Les bénéfices"}
             </h1>
           </div>
+
+          {/* REDUCTION DES COUTS */}
           <div className="flex mt-12">
             <div className="-ml-6 -mt-6">
               <Arrow color="text-oliveGreen" width={70} height={70} />
@@ -326,14 +333,15 @@ export default function Home() {
         <div className="md:mx-24 lg:mx-48">
           <div className="">
             <h1 className="relative text-center text-2xl text-brightOrange font-section py-10 md:py-10 md:text-4xl
-                        before:content-[''] before:absolute before:bg-[url('/decorationHautD.svg')] md:before:bg-[url('/decorationReverse.png')] before:bg-contain before:bg-no-repeat
-                        before:w-[100px] before:h-[100px] md:before:w-[120px] md:before:h-[120px] before:transform before:-rotate-12
-                        before:-mt-10 before:ml-[310px] md:before:-mt-20 md:before:ml-96
-                        after:content-[''] after:absolute after:border-2 after:border-midnightBlue after:w-16
-                        after:top-20 after:-translate-y-1/2 after:left-[23%] after:-translate-x-full">{"AccessCollect en chiffre"}</h1>
+                        before:content-[''] before:absolute before:bg-[url('/decorationHautD.svg')] before:bg-contain before:bg-no-repeat
+                        before:w-[100px] before:h-[100px] md:before:w-[180px] md:before:h-[180px]
+                        before:-mt-10 before:ml-[310px] md:before:-mt-20 md:before:ml-[22%]
+                        
+                        after:content-[''] after:absolute after:border-2 after:border-midnightBlue after:w-16 md:after:w-24
+                        after:top-20 after:-translate-y-1/2 after:left-[23%] md:after:left-[42%] after:-translate-x-full">{"AccessCollect en chiffre"}</h1>
           </div>
         </div>
-        <div className="mx-6 md:mx-24 lg:mx-48">
+        <div className="mx-6 md:mx-24 lg:mx-96">
           <div className="flex justify-around mt-10">
             <div className="flex flex-col items-center w-1/2">
               <Image
@@ -341,10 +349,10 @@ export default function Home() {
                 alt={"image d'une poubelle"}
                 width={250}
                 height={1}
-                className="w-[130px] h-[130px]"
+                className="w-[130px] h-[130px] md:w-[200px] md:h-[200px]"
               />
-              <p className="text-center mt-2 text-lg">100<span>T</span></p>
-              <p className="text-center">de déchets recyclés</p>
+              <p className="text-center text-lg md:text-2xl">100<span>T</span></p>
+              <p className="text-center md:text-lg">de déchets recyclés</p>
             </div>
 
             <div className="flex flex-col items-center w-1/2">
@@ -353,10 +361,10 @@ export default function Home() {
                 alt={"image d'un éboueur"}
                 width={250}
                 height={1}
-                className="w-[130px] h-[130px]"
+                className="w-[130px] h-[130px] md:w-[200px] md:h-[200px]"
               />
-              <p className="text-center mt-2 text-lg">25</p>
-              <p className="text-center">collecteurs en situation de handicap engagés et soutenus</p>
+              <p className="text-center mt-2 text-lg md:text-2xl">25</p>
+              <p className="text-center md:text-lg">collecteurs en situation de handicap engagés et soutenus</p>
             </div>
 
           </div>
