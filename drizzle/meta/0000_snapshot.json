@@ -1,5 +1,5 @@
 {
-  "id": "106530be-cd97-497d-8fe3-ff46c46a6a0d",
+  "id": "0049bca6-d643-4a67-9f39-9a0b1d7fa7cf",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -114,12 +114,8 @@
           "name": "vehicles_organisationId_organisation_id_fk",
           "tableFrom": "vehicles",
           "tableTo": "organisation",
-          "columnsFrom": [
-            "organisationId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["organisationId"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -129,9 +125,7 @@
         "vehicles_registration_unique": {
           "name": "vehicles_registration_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "registration"
-          ]
+          "columns": ["registration"]
         }
       },
       "checkConstraints": {}
@@ -204,12 +198,8 @@
           "name": "user_organisationId_organisation_id_fk",
           "tableFrom": "user",
           "tableTo": "organisation",
-          "columnsFrom": [
-            "organisationId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["organisationId"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -219,9 +209,7 @@
         "user_email_unique": {
           "name": "user_email_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "email"
-          ]
+          "columns": ["email"]
         }
       },
       "checkConstraints": {}
@@ -288,12 +276,8 @@
           "name": "collectPoint_user_id_user_id_fk",
           "tableFrom": "collectPoint",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -301,12 +285,8 @@
           "name": "collectPoint_organisationId_organisation_id_fk",
           "tableFrom": "collectPoint",
           "tableTo": "organisation",
-          "columnsFrom": [
-            "organisationId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["organisationId"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -462,13 +442,55 @@
           "name": "collectedData_vehicleId_vehicles_id_fk",
           "tableFrom": "collectedData",
           "tableTo": "vehicles",
-          "columnsFrom": [
-            "vehicleId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["vehicleId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "public.key": {
+      "name": "key",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "userId": {
+          "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expirationDate": {
+          "name": "expirationDate",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "key_userId_user_id_fk": {
+          "name": "key_userId_user_id_fk",
+          "tableFrom": "key",
+          "tableTo": "user",
+          "columnsFrom": ["userId"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
@@ -481,12 +503,7 @@
     "public.role": {
       "name": "role",
       "schema": "public",
-      "values": [
-        "superAdmin",
-        "admin",
-        "client",
-        "collector"
-      ]
+      "values": ["superAdmin", "admin", "client", "collector"]
     },
     "public.day": {
       "name": "day",
