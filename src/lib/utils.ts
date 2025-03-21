@@ -14,6 +14,7 @@ export const replaceEmptyValueByNull = async (formData: FormData) => {
   return newData;
 };
 
+
 export const creationOfTransporter = async () => {
   const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
