@@ -1,5 +1,4 @@
 import { deleteKey, getKeyByUserId } from "@/lib/keyQuery";
-import { ConsoleLogWriter } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
@@ -26,8 +25,8 @@ export async function GET(
     return NextResponse.redirect(url);
   }
 
-  let now = new Date();
-  let hasTokenExpired: boolean =
+  const now = new Date();
+  const hasTokenExpired: boolean =
     foundKey.expirationDate.getHours() < now.getHours();
 
   if (hasTokenExpired) {

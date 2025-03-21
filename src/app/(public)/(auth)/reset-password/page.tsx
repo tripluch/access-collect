@@ -6,7 +6,7 @@ import { updatePassword } from "@/lib/userQuery";
 import Image from "next/image";
 import { redirect, useSearchParams } from "next/navigation";
 
-const resetPasswordPage = async () => {
+const ResetPasswordPage = () => {
   const searchParams = useSearchParams();
   const userId = searchParams.get("userId");
   const key = searchParams.get("userKey");
@@ -82,4 +82,4 @@ const resetPasswordPage = async () => {
   );
 };
 
-export default resetPasswordPage;
+export default ResetPasswordPage;
