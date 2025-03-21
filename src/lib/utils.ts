@@ -14,6 +14,7 @@ export const replaceEmptyValueByNull = async (formData: FormData) => {
   return newData;
 };
 
+
 export const creationOfTransporter = async () => {
   const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
@@ -30,7 +31,7 @@ export const creationOfTransporter = async () => {
 };
 
 export const sendMailToUser = async (url: string, info: any, email: string) => {
-  let mailBodyHtml: string =
+  const mailBodyHtml: string =
     '\
       <h3>Bonjour, </h3> \
       <p>Vous recevez ce mail car nous avons reçu une demande de réinitialisation du mot de passe pour votre compte.<br>\
