@@ -2,7 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import LogButton from "../components/button/logButton";
 import LoginCollectButton from "./_components/LoginCollectButton";
-import Arrow from "../components/fleche";
+import Arrow from "../components/arrow";
+import Spark from "../components/spark";
 
 export const metadata: Metadata = {
   title: "Access Collect",
@@ -73,7 +74,7 @@ export default function Home() {
 
       <section className="text-midnightBlue mt-24 md:mx-24 lg:mx-48 ">
         <h1 className="relative text-center text-2xl text-brightOrange font-section md:text-4xl">
-          <span className="after:content-[''] after:absolute after:border-2 after:border-midnightBlue after:w-16 md:after:w-24
+          <span className="after:content-[''] after:absolute after:border after:border-midnightBlue after:w-16 md:after:w-24
                      after:top-8 md:after:top-10 after:-translate-y-1/2 after:left-[26%] md:after:left-[36%] after:-translate-x-full
                      "></span>
           <span className="after:content-[''] after:absolute after:bg-[url('/decorationHautD.svg')] after:bg-contain after:bg-no-repeat
@@ -183,11 +184,11 @@ export default function Home() {
                     alt={"image représentant une personne qui saisie sur un ordinateur portable"}
                     width={250}
                     height={1}
-                    className="w-[300px] h-[280px] mb-auto -mr-8 md:mr-0 md:-mb-14"
+                    className="w-[300px] h-[280px] mb-auto -mr- md:mr-0 md:-mb-14"
                   />
                 </div>
                 <div>
-                  <h2 className="absolute top-28 left-8 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1 mt-0 md:static">{"SAISIR"}</h2>
+                  <h2 className="absolute top-28 left-10 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1 mt-0 md:static">{"SAISIR"}</h2>
                 </div>
               </div>
               <div className="mb-4">
@@ -254,7 +255,7 @@ export default function Home() {
                         before:-top-1 before:left-11 md:before:-top-2 md:before:-left-4 lg:before:top-0 lg:before:-left-4
                         before:translate-x-[-50%] before:translate-y-[-50%] 
                         before:scale-75 md:before:scale-100 lg:before:scale-125
-                        after:content-[''] after:absolute after:border-2 after:border-oliveGreen after:w-24
+                        after:content-[''] after:absolute after:border after:border-oliveGreen after:w-24
                         after:translate-x-[-70%] after:translate-y-[-50%] 
                         after:top-10 left-0 md:after:top-10">
               {"Les bénéfices"}
@@ -335,10 +336,10 @@ export default function Home() {
             <h1 className="relative text-center text-2xl text-brightOrange font-section py-10 md:py-10 md:text-4xl
                         before:content-[''] before:absolute before:bg-[url('/decorationHautD.svg')] before:bg-contain before:bg-no-repeat
                         before:w-[100px] before:h-[100px] md:before:w-[180px] md:before:h-[180px]
-                        before:-mt-10 before:ml-[310px] md:before:-mt-20 md:before:ml-[22%]
+                        before:-mt-10 before:ml-[310px] md:before:-mt-20 md:before:ml-[32%]
                         
-                        after:content-[''] after:absolute after:border-2 after:border-midnightBlue after:w-16 md:after:w-24
-                        after:top-20 after:-translate-y-1/2 after:left-[23%] md:after:left-[42%] after:-translate-x-full">{"AccessCollect en chiffre"}</h1>
+                        after:content-[''] after:absolute after:border after:border-midnightBlue after:w-16 md:after:w-24
+                        after:top-20 after:-translate-y-1/2 after:left-[23%] md:after:left-[38%] after:-translate-x-full">{"AccessCollect en chiffre"}</h1>
           </div>
         </div>
         <div className="mx-6 md:mx-24 lg:mx-96">
@@ -368,6 +369,25 @@ export default function Home() {
             </div>
 
           </div>
+        </div>
+      </section >
+
+      {/* section ils nous ont fait confiance*/}
+
+      <section className="text-midnightBlue pb-20 bg-transparentOliveGreen">
+        <div className="md:mx-24 lg:mx-48">
+          <div className="flex">
+            <div className="-mt-4 ml-6">
+              <Spark color="text-lightOrange" width={60} height={60} />
+            </div>
+            <h1 className="relative text-2xl font-section  mt-8 md:text-4xl">
+              {"Ils nous ont fait "}
+              <span className="text-brightOrange relative inline-block">{" confiance"}
+                <span className="absolute bottom-0 right-0 w-24 border border-oliveGreen transform translate-x-[10%]"></span>
+              </span>
+            </h1>
+          </div>
+
         </div>
       </section >
 
