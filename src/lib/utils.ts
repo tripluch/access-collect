@@ -25,7 +25,7 @@ export const creationOfTransporter = async () => {
       user: process.env.MAIL_USER,
       pass: process.env.MAIL_PASS,
     },
-    tls: { rejectedUnauthorized: false },
+    tls: { rejectUnauthorized: false },
   });
   return transporter;
 };
