@@ -20,7 +20,7 @@ jobs:
   create_neon_branch:
     name: Create Neon Branch
     outputs:
-      db_url: ${{ steps.create_branch.outputs.db_url }}
+      db_url: ${{ steps.create_neon_branch.outputs.db_url }}
       db_url_with_pooler: ${{ steps.create_branch.outputs.db_url_with_pooler }}
     needs: setup
     if: |
@@ -46,28 +46,26 @@ jobs:
         run: npm install && npm run db:generate && npm run db:migrate
         env:
            DATABASE_URL: "${{ steps.create_branch.outputs.db_url_with_pooler }}"
-
-
-  test:
-    timeout-minutes: 60
-    needs: create_neon_branch
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+        
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - name: Install dependencies
+
+      - name: Install dependencies for tests
         run: npm ci
+        
       - name: Build
         run: npm run build
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - run: echo db_url ${{ needs.create_neon_branch.outputs.db_url_with_pooler }}
+   
       - name: Run Playwright tests
         run: npx playwright test
         env:
-          DATABASE_URL: "${{ needs.create_neon_branch.outputs.db_url_with_pooler }}"
+          DATABASE_URL: "${{ steps.create_branch.outputs.db_url_with_pooler }}"
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
