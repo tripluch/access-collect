@@ -1,7 +1,11 @@
-const Spark = ({ color, width, height }: { color: string, width: number, height: number }) => {
+const Spark = ({ color, width, height, reverseH = false, reverseV = false,
+    rotate = 0 }: {
+        color: string, width: number, height: number, reverseH?: boolean, reverseV?: boolean;
+        rotate?: number;
+    }) => {
     return (
         <>
-            <div className={`w-[${width}px] h-[${height}px] ${color}`}>
+            <div className={`w-[${width}px] h-[${height}px] ${color} rotate-[${rotate}deg] ${reverseH ? "scale-x-[-1]" : ""}  ${reverseV ? "scale-y-[-1]" : ""}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width={width} zoomAndPan="magnify" viewBox="0 0 375 374.999991" height={height} preserveAspectRatio="xMidYMid meet" version="1.0">
                     <defs>
                         <clipPath id="1958f261bc"><path d="M 232 24.097656 L 282 24.097656 L 282 244 L 232 244 Z M 232 24.097656 " clip-rule="nonzero" /></clipPath>
