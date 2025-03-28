@@ -6,15 +6,12 @@ import Arrow from "../components/arrow";
 import Spark from "../components/spark";
 import SliderTrustHome from "./_components/slider/sliderTrust/Slider";
 
-
 export const metadata: Metadata = {
   title: "Access Collect",
   description: "Access Collect - votre outil pour gérer vos collectes",
 };
 
 export default function Home() {
-
-
   return (
     <>
       {/* section connexion pour le collecteur en version mobile uniquement */}
@@ -33,13 +30,17 @@ export default function Home() {
                 <Spark color="text-oliveGreen" width={100} height={100} />
               </div>
               <p className="relative text-xl font-section -mt-4 md:-mt-8 md:text-2xl lg:text-6xl  lg:leading-[2] lg:w-[900px]">
-                {"Optimisez la collecte des déchets en entreprise avec une solution"}
+                {
+                  "Optimisez la collecte des déchets en entreprise avec une solution"
+                }
                 <span className="text-brightOrange">{" inclusive"}</span> {"et"}{" "}
                 <span className="text-brightOrange">{"écologique"}</span>
               </p>
             </div>
             <div className="hidden md:block md:mt-16">
-              <LogButton label={"Demander une démo"} />
+              <a href="/contact">
+                <LogButton label={"Demander une démo"} />
+              </a>
             </div>
             <div className="bg-transparentImperialYellow md:bg-transparent">
               <div className="bg-oliveGreen relative md:hidden">
@@ -61,7 +62,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
 
           {/* partie de droite */}
 
@@ -85,16 +85,26 @@ export default function Home() {
           <h1 className="relative text-center text-2xl text-brightOrange font-section md:text-4xl">
             <span className="before:content-[''] before:absolute before:border before:border-midnightBlue before:w-16 md:before:w-24 before:bottom-8 md:before:bottom-0">
               {"Pourquoi"}
-            </span>{" choisir notre application ?"}
+            </span>
+            {" choisir notre application ?"}
           </h1>
           <div className="block -mt-24 md:hidden">
-            <Spark color="text-midnightBlue" width={50} height={50} reverseH={true} />
+            <Spark
+              color="text-midnightBlue"
+              width={50}
+              height={50}
+              reverseH={true}
+            />
           </div>
           <div className="hidden md:block md:-mt-24">
-            <Spark color="text-midnightBlue" width={85} height={85} reverseH={true} />
+            <Spark
+              color="text-midnightBlue"
+              width={85}
+              height={85}
+              reverseH={true}
+            />
           </div>
         </div>
-
 
         <div className="mt-10 md:flex md:justify-center md:mx-auto lg:mt-10 max-w-[1200px] ">
           <div className="flex justify-center my-8 lg:mt-12">
@@ -149,19 +159,33 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section >
+      </section>
 
       {/* section Les fonctionnalités */}
 
-      < section className="text-midnightBlue mt-24" >
+      <section className="text-midnightBlue mt-24">
         <div className="flex justify-center items-center bg-transparentOliveGreen rounded-r-[50px] w-[90%] rotate-6 md:rotate-3 -ml-2 md:-ml-4">
-          <h1 className="text-center text-2xl text-brightOrange font-section py-10 md:py-10 md:text-4xl -rotate-6 md:-rotate-3
-                        ">{"Les fonctionnalités"}</h1>
+          <h1
+            className="text-center text-2xl text-brightOrange font-section py-10 md:py-10 md:text-4xl -rotate-6 md:-rotate-3
+                        "
+          >
+            {"Les fonctionnalités"}
+          </h1>
           <div className="block -mt-24 md:hidden">
-            <Spark color="text-oliveGreen" width={50} height={50} reverseH={true} />
+            <Spark
+              color="text-oliveGreen"
+              width={50}
+              height={50}
+              reverseH={true}
+            />
           </div>
           <div className="hidden md:block md:-mt-28">
-            <Spark color="text-oliveGreen" width={85} height={85} reverseH={true} />
+            <Spark
+              color="text-oliveGreen"
+              width={85}
+              height={85}
+              reverseH={true}
+            />
           </div>
         </div>
 
@@ -173,18 +197,26 @@ export default function Home() {
                 <div className="mt-10 flex justify-start md:mt-auto">
                   <Image
                     src="/planifier.svg"
-                    alt={"image représentant une personne qui planifie ses tâches"}
+                    alt={
+                      "image représentant une personne qui planifie ses tâches"
+                    }
                     width={250}
                     height={1}
                     className="w-[300px] h-[280px] -ml-8 mb-auto md:ml-0 md:-mb-14"
                   />
                 </div>
                 <div>
-                  <h2 className=" absolute top-20 left-40 bg-white text-center text-lightOrange text-2xl shadow-md shadow-lightOrange w-44 h-11 pt-1 mt-0 md:static">{"PLANIFIER"}</h2>
+                  <h2 className=" absolute top-20 left-40 bg-white text-center text-lightOrange text-2xl shadow-md shadow-lightOrange w-44 h-11 pt-1 mt-0 md:static">
+                    {"PLANIFIER"}
+                  </h2>
                 </div>
               </div>
               <div className="mb-4">
-                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">{"Planifiez et anticipez vos collectes avec une gestion centralisée"}</p>
+                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">
+                  {
+                    "Planifiez et anticipez vos collectes avec une gestion centralisée"
+                  }
+                </p>
               </div>
             </div>
 
@@ -194,18 +226,26 @@ export default function Home() {
                 <div className="flex justify-end">
                   <Image
                     src="/saisir.svg"
-                    alt={"image représentant une personne qui saisie sur un ordinateur portable"}
+                    alt={
+                      "image représentant une personne qui saisie sur un ordinateur portable"
+                    }
                     width={250}
                     height={1}
                     className="w-[300px] h-[280px] mb-auto -mr- md:mr-0 md:-mb-14"
                   />
                 </div>
                 <div>
-                  <h2 className="absolute top-28 left-10 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1 mt-0 md:static">{"SAISIR"}</h2>
+                  <h2 className="absolute top-28 left-10 bg-white text-center text-oliveGreen text-2xl shadow-md shadow-oliveGreen w-44 h-11 pt-1 mt-0 md:static">
+                    {"SAISIR"}
+                  </h2>
                 </div>
               </div>
               <div className="mb-4">
-                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">{"Gagnez du temps sur la collecte et la saisie de vos données"}</p>
+                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">
+                  {
+                    "Gagnez du temps sur la collecte et la saisie de vos données"
+                  }
+                </p>
               </div>
             </div>
           </div>
@@ -217,18 +257,26 @@ export default function Home() {
                 <div className="flex justify-start">
                   <Image
                     src="/accesClient.svg"
-                    alt={"image représentant une personne qui tourne une horloge pour représenter le temps qui passe"}
+                    alt={
+                      "image représentant une personne qui tourne une horloge pour représenter le temps qui passe"
+                    }
                     width={250}
                     height={1}
                     className="w-[300px] h-[280px] -ml-8 mb-auto md:ml-0 md:-mb-14"
                   />
                 </div>
                 <div>
-                  <h2 className=" absolute top-28 left-40 bg-white text-center text-strongYellow text-2xl shadow-md shadow-imperialYellow w-52 h-11 pt-1 mt-0 md:static md:mt-2">{"ACCES CLIENT"}</h2>
+                  <h2 className=" absolute top-28 left-40 bg-white text-center text-strongYellow text-2xl shadow-md shadow-imperialYellow w-52 h-11 pt-1 mt-0 md:static md:mt-2">
+                    {"ACCES CLIENT"}
+                  </h2>
                 </div>
               </div>
               <div className="mb-4">
-                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">{"Offrez à vos clients une vision en temps réel des collectes grâce à un tableau de bord intuitif."}</p>
+                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">
+                  {
+                    "Offrez à vos clients une vision en temps réel des collectes grâce à un tableau de bord intuitif."
+                  }
+                </p>
               </div>
             </div>
 
@@ -238,28 +286,35 @@ export default function Home() {
                 <div className="flex justify-end">
                   <Image
                     src="/statistiques.svg"
-                    alt={"image représentant une personne qui saisie sur un ordinateur portable"}
+                    alt={
+                      "image représentant une personne qui saisie sur un ordinateur portable"
+                    }
                     width={250}
                     height={1}
                     className="w-[300px] h-[280px] mb-auto -mr-8 md:mr-0 md:-mb-14"
                   />
                 </div>
                 <div>
-                  <h2 className="absolute top-28 left-6 bg-white text-center text-midnightBlue text-2xl shadow-md shadow-transparentMidnightBlue w-52 h-11 pt-1 mt-0 md:static">{"STATISTIQUES"}</h2>
+                  <h2 className="absolute top-28 left-6 bg-white text-center text-midnightBlue text-2xl shadow-md shadow-transparentMidnightBlue w-52 h-11 pt-1 mt-0 md:static">
+                    {"STATISTIQUES"}
+                  </h2>
                 </div>
               </div>
               <div className="">
-                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">{"Recevez des rapports détaillés sur vos activités de recyclage et votre impact écologique"}</p>
+                <p className="text-midnightBlue mx-4 -mt-12 md:mt-4">
+                  {
+                    "Recevez des rapports détaillés sur vos activités de recyclage et votre impact écologique"
+                  }
+                </p>
               </div>
             </div>
           </div>
         </div>
-
-      </section >
+      </section>
 
       {/* section Les bénéfices */}
 
-      < section className="text-midnightBlue pt-5 pb-20 mt-24 bg-transparentImperialYellow" >
+      <section className="text-midnightBlue pt-5 pb-20 mt-24 bg-transparentImperialYellow">
         <div className="mx-6 mt-2 max-w-screen-xl md:mx-[650px] md:flex md:flex-col md:items-start md:mt-10 ">
           <div className="flex">
             <div className="block -mt-10 md:hidden">
@@ -270,7 +325,10 @@ export default function Home() {
             </div>
             <div className="">
               <h1 className="relative text-center text-brightOrange text-3xl font-section md:text-3xl lg:text-4xl md:text-left md:w-full">
-                {"Les bénéf"}<span className="before:content-[''] before:absolute before:border before:border-oliveGreen before:w-24 before:bottom-0">{"ices"}</span>
+                {"Les bénéf"}
+                <span className="before:content-[''] before:absolute before:border before:border-oliveGreen before:w-24 before:bottom-0">
+                  {"ices"}
+                </span>
               </h1>
             </div>
           </div>
@@ -288,13 +346,24 @@ export default function Home() {
               <div className="hidden md:block">
                 <Image
                   src="/cout.svg"
-                  alt={"image montrant un escalier de cube avec une flèche pour montrer le coût qui diminue"}
+                  alt={
+                    "image montrant un escalier de cube avec une flèche pour montrer le coût qui diminue"
+                  }
                   width={250}
                   height={1}
                   className="w-[180px] h-[180px]"
                 />
               </div>
-              <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Optimisez"}</span>{" la gestion de vos déchets et "}<span className="text-brightOrange text-bold">{"réduisez vos coûts"}</span>{" opérationnels"}</p>
+              <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">
+                <span className="text-brightOrange text-bold">
+                  {"Optimisez"}
+                </span>
+                {" la gestion de vos déchets et "}
+                <span className="text-brightOrange text-bold">
+                  {"réduisez vos coûts"}
+                </span>
+                {" opérationnels"}
+              </p>
             </div>
 
             {/* IMPACT ENVIRONNEMENTAL POSITIF*/}
@@ -303,10 +372,19 @@ export default function Home() {
               <div className="-ml-6 -mt-6">
                 <Arrow color="text-lightOrange" width={70} height={70} />
               </div>
-              <h2 className="text-xl md:text-2xl">{"IMPACT ENVIRONNEMENTAL POSITIF"}</h2>
+              <h2 className="text-xl md:text-2xl">
+                {"IMPACT ENVIRONNEMENTAL POSITIF"}
+              </h2>
             </div>
             <div className="mt-6 flex items-center justify-center gap-x-24">
-              <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Mesurez"}</span>{" et "}<span className="text-brightOrange text-bold">{"améliorez"}</span>{" votre contribution à la réduction des déchets"}</p>
+              <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">
+                <span className="text-brightOrange text-bold">{"Mesurez"}</span>
+                {" et "}
+                <span className="text-brightOrange text-bold">
+                  {"améliorez"}
+                </span>
+                {" votre contribution à la réduction des déchets"}
+              </p>
               <div className="hidden md:block">
                 <Image
                   src="/impactEnvironnement.svg"
@@ -318,14 +396,15 @@ export default function Home() {
               </div>
             </div>
 
-
             {/* AMELIORATION DE L’IMAGE DE MARQUE*/}
 
             <div className="flex mt-12">
               <div className="-ml-6 -mt-6">
                 <Arrow color="text-strongYellow" width={70} height={70} />
               </div>
-              <h2 className="text-xl md:text-2xl">{"AMELIORATION DE L’IMAGE DE MARQUE"}</h2>
+              <h2 className="text-xl md:text-2xl">
+                {"AMELIORATION DE L’IMAGE DE MARQUE"}
+              </h2>
             </div>
             <div className="mt-6 flex items-center justify-center gap-x-24">
               <div className="hidden md:block">
@@ -337,25 +416,46 @@ export default function Home() {
                   className="w-[180px] h-[180px]"
                 />
               </div>
-              <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Renforcez votre engagement social"}</span>{" et "}<span className="text-brightOrange text-bold">{"écologique"}</span>{" auprès de vos partenaires et clients"}</p>
+              <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]">
+                <span className="text-brightOrange text-bold">
+                  {"Renforcez votre engagement social"}
+                </span>
+                {" et "}
+                <span className="text-brightOrange text-bold">
+                  {"écologique"}
+                </span>
+                {" auprès de vos partenaires et clients"}
+              </p>
             </div>
           </div>
         </div>
-      </section >
+      </section>
 
       {/* section accessCollect en chiffre*/}
 
-      < section className="text-midnightBlue pb-20 max-w-[1200px] md:mx-auto lg:mt-10" >
+      <section className="text-midnightBlue pb-20 max-w-[1200px] md:mx-auto lg:mt-10">
         <div className="flex justify-center">
           <h1 className="relative text-center text-2xl text-brightOrange font-section pt-8 md:pt-0 md:text-4xl">
-            <span className="before:absolute before:content-[''] before:border before:border-midnightBlue before:w-24 before:bottom-0">{"Access"}</span>
+            <span className="before:absolute before:content-[''] before:border before:border-midnightBlue before:w-24 before:bottom-0">
+              {"Access"}
+            </span>
             {"Collect en chiffre"}
           </h1>
           <div className="block -mt-4 md:hidden">
-            <Spark color="text-midnightBlue" width={50} height={50} reverseH={true} />
+            <Spark
+              color="text-midnightBlue"
+              width={50}
+              height={50}
+              reverseH={true}
+            />
           </div>
           <div className="hidden md:block md:-mt-20">
-            <Spark color="text-midnightBlue" width={85} height={85} reverseH={true} />
+            <Spark
+              color="text-midnightBlue"
+              width={85}
+              height={85}
+              reverseH={true}
+            />
           </div>
         </div>
         <div className="">
@@ -368,7 +468,9 @@ export default function Home() {
                 height={1}
                 className="w-[130px] h-[130px] md:w-[200px] md:h-[200px]"
               />
-              <p className="text-center text-lg md:text-2xl">100<span>T</span></p>
+              <p className="text-center text-lg md:text-2xl">
+                100<span>T</span>
+              </p>
               <p className="text-center md:text-lg">de déchets recyclés</p>
             </div>
 
@@ -381,16 +483,17 @@ export default function Home() {
                 className="w-[130px] h-[130px] md:w-[200px] md:h-[200px]"
               />
               <p className="text-center mt-2 text-lg md:text-2xl">25</p>
-              <p className="text-center md:text-lg">collecteurs en situation de handicap engagés et soutenus</p>
+              <p className="text-center md:text-lg">
+                collecteurs en situation de handicap engagés et soutenus
+              </p>
             </div>
-
           </div>
         </div>
-      </section >
+      </section>
 
       {/* section ils nous ont fait confiance*/}
 
-      < section className="text-midnightBlue pb-20 bg-transparentOliveGreen" >
+      <section className="text-midnightBlue pb-20 bg-transparentOliveGreen">
         <div className="max-w-screen-xl mx-auto">
           <div className="flex">
             <div className="block -mt-4 ml-2 md:hidden">
@@ -401,7 +504,8 @@ export default function Home() {
             </div>
             <h1 className="relative text-2xl font-section  mt-8 md:text-4xl">
               {"Ils nous ont fait "}
-              <span className=" relative text-brightOrange inline-block after:absolute after:content-[''] after:border after:border-oliveGreen after:w-24 after:right-0 after:bottom-0">{"confiance"}
+              <span className=" relative text-brightOrange inline-block after:absolute after:content-[''] after:border after:border-oliveGreen after:w-24 after:right-0 after:bottom-0">
+                {"confiance"}
               </span>
             </h1>
           </div>
@@ -409,8 +513,36 @@ export default function Home() {
             <SliderTrustHome />
           </div>
         </div>
-      </section >
+      </section>
 
+      {/* section nous contacter*/}
+
+      <section className="text-midnightBlue pb-20 flex flex-col items-center justify-center">
+        <Image
+          src="/arrowAnimate.gif"
+          alt={"flèche animée insistant sur la phrase n'hésitez plus!"}
+          width={200}
+          height={1}
+          className="flex w-[100px] md:w-[200px] justify-center"
+        />
+        <div className="shadow-lg rounded-lg shadow-oliveGreen -mt-20 mx-6 ">
+          <h1 className="text-center relative text-2xl font-section pt-20 md:text-6xl before:absolute before:content-[''] before:w-24 before:border before:border-oliveGreen before:bottom-0">
+            {"N'hésitez plus!"}
+          </h1>
+          <div className="h-[250px] bg-[url('/waveContact.svg')] mt-20 bg-cover bg-center bg-no-repeat flex flex-col items-center justify-normal gap-y-10 md:justify-center md:mx-auto md:gap-y-20 md:h-[730px] md:max-w-6xl">
+            <p className="w-[80%] tracking-widest text-lg md:text-3xl relative lg:leading-[3] ">
+              {
+                "Dynamiser la gestion de votre collecte de déchets grâce à notre solution simple, fiable et flexible"
+              }
+            </p>
+            <div className="mt-0">
+              <a href="/contact">
+                <LogButton label={"NOUS CONTACTER"} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
