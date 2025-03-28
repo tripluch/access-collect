@@ -82,13 +82,6 @@ CREATE TABLE IF NOT EXISTS "collectedData" (
 	"updatedAt" timestamp DEFAULT now()
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "key" (
-	"id" text PRIMARY KEY NOT NULL,
-	"userId" text NOT NULL,
-	"expirationDate" timestamp NOT NULL,
-	"createdAt" timestamp DEFAULT now() NOT NULL
-);
---> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "vehicles" ADD CONSTRAINT "vehicles_organisationId_organisation_id_fk" FOREIGN KEY ("organisationId") REFERENCES "public"."organisation"("id") ON DELETE cascade ON UPDATE no action;
 EXCEPTION
@@ -115,12 +108,6 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "collectedData" ADD CONSTRAINT "collectedData_vehicleId_vehicles_id_fk" FOREIGN KEY ("vehicleId") REFERENCES "public"."vehicles"("id") ON DELETE no action ON UPDATE no action;
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
- ALTER TABLE "key" ADD CONSTRAINT "key_userId_user_id_fk" FOREIGN KEY ("userId") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

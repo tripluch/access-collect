@@ -6,7 +6,7 @@ const ForgottenPasswordError = () => {
     <div className="flex flex-col items-center justify-center mt-56">
       <h1 className="text-brightOrange uppercase">{"Oups.. "}</h1>
       <p className="text-midnightBlue text-center px-6 py-4">
-        {"Il semble qu'un problème soit survenu."}
+        {"Il semblerait qu'un problème soit survenu."}
       </p>
       <OrangeButton label={"ACCUEIL"} route={"/"} />
     </div>
