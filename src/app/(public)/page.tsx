@@ -32,8 +32,8 @@ export default function Home() {
               </div>
               <p className="relative text-xl font-section -mt-4 md:-mt-8 md:text-2xl lg:text-6xl  lg:leading-[2] lg:w-[900px]">
                 {"Optimisez la collecte des déchets en entreprise avec une solution"}
-                <span className="text-lightOrange">{" inclusive"}</span> {"et"}{" "}
-                <span className="text-lightOrange">{"écologique"}</span>
+                <span className="text-brightOrange">{" inclusive"}</span> {"et"}{" "}
+                <span className="text-brightOrange">{"écologique"}</span>
               </p>
             </div>
             <div className="hidden md:block md:mt-16">
@@ -78,20 +78,19 @@ export default function Home() {
 
       {/* section Pourquoi choisir notre application? */}
 
-      <section className="text-midnightBlue mt-24 md:mx-24 lg:mx-48 ">
-        <div className="flex">
+      <section className="text-midnightBlue mt-24 mx-auto md:mt-10 lg:mt-12 max-w-screen-xl ">
+        <div className="flex justify-center items-center h-24">
           <h1 className="relative text-center text-2xl text-brightOrange font-section md:text-4xl">
-            <span className="relative inline-block">
+            <span className="before:content-[''] before:absolute before:border before:border-midnightBlue before:w-16 md:before:w-24 before:bottom-8 md:before:bottom-0">
               {"Pourquoi"}
-              <span
-                className="absolute border-b border-midnightBlue 
-                 w-[calc(4ch+4px)] md:w-[calc(4ch+6px)] 
-                 left-1/4 transform -translate-x-1/2 
-                 bottom-0"
-              ></span>
             </span>{" choisir notre application ?"}
           </h1>
-          <Spark color="text-midnightBlue" width={40} height={50} reverseH={true} />
+          <div className="block -mt-24 md:hidden">
+            <Spark color="text-midnightBlue" width={50} height={50} reverseH={true} />
+          </div>
+          <div className="hidden md:block md:-mt-24">
+            <Spark color="text-midnightBlue" width={85} height={85} reverseH={true} />
+          </div>
         </div>
 
 
@@ -134,7 +133,7 @@ export default function Home() {
                 height={5}
               />
               <Image
-                className="hidden md:block md:absolute md:ml-16  md:z-0 md:ml-[600px] lg:mt-20"
+                className="hidden md:block md:absolute md:ml-16 md:z-0 md:ml-[600px] lg:mt-20"
                 src="/roundedDecoration2.png"
                 alt={"élément décoratif jaune"}
                 width={200}
@@ -153,13 +152,17 @@ export default function Home() {
       {/* section Les fonctionnalités */}
 
       < section className="text-midnightBlue mt-24" >
-        <div className=" bg-transparentOliveGreen rounded-r-[50px] w-[90%] rotate-6 md:rotate-3 -ml-2 md:-ml-4">
-          <h1 className="relative text-center text-2xl text-brightOrange font-section py-10 md:py-10 md:text-4xl -rotate-6 md:-rotate-3
-                        before:content-[''] before:absolute before:bg-[url('/decoration.svg')] md:before:bg-[url('/decorationReverse.png')] before:bg-contain before:bg-no-repeat
-                        before:w-[90px] before:h-[90px] md:before:w-[120px] md:before:h-[120px]
-                        before:-mt-12 before:ml-60 md:before:-mt-20 md:before:ml-96
-                        before:scale-x-[-1] md:before:transform-none">{"Les fonctionnalités"}</h1>
+        <div className="flex justify-center items-center bg-transparentOliveGreen rounded-r-[50px] w-[90%] rotate-6 md:rotate-3 -ml-2 md:-ml-4">
+          <h1 className="text-center text-2xl text-brightOrange font-section py-10 md:py-10 md:text-4xl -rotate-6 md:-rotate-3
+                        ">{"Les fonctionnalités"}</h1>
+          <div className="block -mt-24 md:hidden">
+            <Spark color="text-oliveGreen" width={50} height={50} reverseH={true} />
+          </div>
+          <div className="hidden md:block md:-mt-28">
+            <Spark color="text-oliveGreen" width={85} height={85} reverseH={true} />
+          </div>
         </div>
+
         <div className="-mt-6 mx-auto md:mt-10 lg:mt-12 max-w-screen-xl">
           <div className="flex-none gap-x-0 md:flex md:justify-center md:gap-x-20">
             {/* Planifier */}
@@ -255,103 +258,106 @@ export default function Home() {
       {/* section Les bénéfices */}
 
       < section className="text-midnightBlue pt-5 pb-20 mt-24 bg-transparentImperialYellow" >
-        <div className="mx-6 md:mx-[650px] md:flex md:flex-col md:items-start max-w-screen-xl mt-12">
-          <div className="">
-            <h1 className="relative text-center text-brightOrange text-3xl font-section md:text-3xl lg:text-4xl md:text-left md:w-full
-                        before:content-[''] before:absolute before:bg-[url('/decoration.svg')] before:bg-contain before:bg-no-repeat
-                        before:w-[80px] before:h-[80px] md:before:w-[70px] md:before:h-[70px] 
-                        before:-top-1 before:left-11 md:before:-top-2 md:before:-left-4 lg:before:top-0 lg:before:-left-4
-                        before:translate-x-[-50%] before:translate-y-[-50%] 
-                        before:scale-75 md:before:scale-100 lg:before:scale-125
-                        after:content-[''] after:absolute after:border after:border-oliveGreen after:w-24
-                        after:translate-x-[-70%] after:translate-y-[-50%] 
-                        after:top-10 left-0 md:after:top-10">
-              {"Les bénéfices"}
-            </h1>
-          </div>
-
-          {/* REDUCTION DES COUTS */}
-          <div className="flex mt-12">
-            <div className="-ml-6 -mt-6">
-              <Arrow color="text-oliveGreen" width={70} height={70} />
+        <div className="mx-6 mt-2 max-w-screen-xl md:mx-[650px] md:flex md:flex-col md:items-start md:mt-10 ">
+          <div className="flex">
+            <div className="block -mt-10 md:hidden">
+              <Spark color="text-oliveGreen" width={50} height={50} />
             </div>
-            <h2 className="text-xl">{"REDUCTION DES COÛTS"}</h2>
-          </div>
-
-          <div className="mt-6 flex items-center justify-center gap-x-24">
-            <div className="hidden md:block">
-              <Image
-                src="/cout.svg"
-                alt={"image montrant un escalier de cube avec une flèche pour montrer le coût qui diminue"}
-                width={250}
-                height={1}
-                className="w-[180px] h-[180px]"
-              />
+            <div className="hidden md:block -mt-20">
+              <Spark color="text-oliveGreen" width={85} height={85} />
             </div>
-            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Optimisez"}</span>{" la gestion de vos déchets et "}<span className="text-brightOrange text-bold">{"réduisez vos coûts"}</span>{" opérationnels"}</p>
-          </div>
-
-          {/* IMPACT ENVIRONNEMENTAL POSITIF*/}
-
-          <div className="flex mt-12">
-            <div className="-ml-6 -mt-6">
-              <Arrow color="text-lightOrange" width={70} height={70} />
-            </div>
-            <h2 className="text-xl md:text-2xl">{"IMPACT ENVIRONNEMENTAL POSITIF"}</h2>
-          </div>
-          <div className="mt-6 flex items-center justify-center gap-x-24">
-            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Mesurez"}</span>{" et "}<span className="text-brightOrange text-bold">{"améliorez"}</span>{" votre contribution à la réduction des déchets"}</p>
-            <div className="hidden md:block">
-              <Image
-                src="/impactEnvironnement.svg"
-                alt={"puce pour liste des différents bénéfices"}
-                width={250}
-                height={1}
-                className="w-[180px] h-[180px]"
-              />
+            <div className="">
+              <h1 className="relative text-center text-brightOrange text-3xl font-section md:text-3xl lg:text-4xl md:text-left md:w-full">
+                {"Les bénéf"}<span className="before:content-[''] before:absolute before:border before:border-oliveGreen before:w-24 before:bottom-0">{"ices"}</span>
+              </h1>
             </div>
           </div>
 
-
-          {/* AMELIORATION DE L’IMAGE DE MARQUE*/}
-
-          <div className="flex mt-12">
-            <div className="-ml-6 -mt-6">
-              <Arrow color="text-strongYellow" width={70} height={70} />
+          <div className="pl-0 md:pl-36">
+            {/* REDUCTION DES COUTS */}
+            <div className="flex mt-12">
+              <div className="-ml-6 -mt-6">
+                <Arrow color="text-oliveGreen" width={70} height={70} />
+              </div>
+              <h2 className="text-xl">{"REDUCTION DES COÛTS"}</h2>
             </div>
-            <h2 className="text-xl md:text-2xl">{"AMELIORATION DE L’IMAGE DE MARQUE"}</h2>
-          </div>
-          <div className="mt-6 flex items-center justify-center gap-x-24">
-            <div className="hidden md:block">
-              <Image
-                src="/imageMarque.svg"
-                alt={"puce pour liste des différents bénéfices"}
-                width={250}
-                height={1}
-                className="w-[180px] h-[180px]"
-              />
+
+            <div className="mt-6 flex items-center justify-center gap-x-24">
+              <div className="hidden md:block">
+                <Image
+                  src="/cout.svg"
+                  alt={"image montrant un escalier de cube avec une flèche pour montrer le coût qui diminue"}
+                  width={250}
+                  height={1}
+                  className="w-[180px] h-[180px]"
+                />
+              </div>
+              <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Optimisez"}</span>{" la gestion de vos déchets et "}<span className="text-brightOrange text-bold">{"réduisez vos coûts"}</span>{" opérationnels"}</p>
             </div>
-            <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Renforcez votre engagement social"}</span>{" et "}<span className="text-brightOrange text-bold">{"écologique"}</span>{" auprès de vos partenaires et clients"}</p>
+
+            {/* IMPACT ENVIRONNEMENTAL POSITIF*/}
+
+            <div className="flex mt-12">
+              <div className="-ml-6 -mt-6">
+                <Arrow color="text-lightOrange" width={70} height={70} />
+              </div>
+              <h2 className="text-xl md:text-2xl">{"IMPACT ENVIRONNEMENTAL POSITIF"}</h2>
+            </div>
+            <div className="mt-6 flex items-center justify-center gap-x-24">
+              <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Mesurez"}</span>{" et "}<span className="text-brightOrange text-bold">{"améliorez"}</span>{" votre contribution à la réduction des déchets"}</p>
+              <div className="hidden md:block">
+                <Image
+                  src="/impactEnvironnement.svg"
+                  alt={"puce pour liste des différents bénéfices"}
+                  width={250}
+                  height={1}
+                  className="w-[180px] h-[180px]"
+                />
+              </div>
+            </div>
+
+
+            {/* AMELIORATION DE L’IMAGE DE MARQUE*/}
+
+            <div className="flex mt-12">
+              <div className="-ml-6 -mt-6">
+                <Arrow color="text-strongYellow" width={70} height={70} />
+              </div>
+              <h2 className="text-xl md:text-2xl">{"AMELIORATION DE L’IMAGE DE MARQUE"}</h2>
+            </div>
+            <div className="mt-6 flex items-center justify-center gap-x-24">
+              <div className="hidden md:block">
+                <Image
+                  src="/imageMarque.svg"
+                  alt={"puce pour liste des différents bénéfices"}
+                  width={250}
+                  height={1}
+                  className="w-[180px] h-[180px]"
+                />
+              </div>
+              <p className="text-normal w-full md:text-xl md:w-[600px] md:lg:leading-[2]"><span className="text-brightOrange text-bold">{"Renforcez votre engagement social"}</span>{" et "}<span className="text-brightOrange text-bold">{"écologique"}</span>{" auprès de vos partenaires et clients"}</p>
+            </div>
           </div>
         </div>
       </section >
 
       {/* section accessCollect en chiffre*/}
 
-      < section className="text-midnightBlue pb-20" >
-        <div className="md:mx-24 lg:mx-48">
-          <div className="">
-            <h1 className="relative text-center text-2xl text-brightOrange font-section py-10 md:py-10 md:text-4xl
-                        before:content-[''] before:absolute before:bg-[url('/decorationHautD.svg')] before:bg-contain before:bg-no-repeat
-                        before:w-[100px] before:h-[100px] md:before:w-[180px] md:before:h-[180px]
-                        before:-mt-10 before:ml-[310px] md:before:-mt-20 md:before:ml-[32%]
-                        
-                        after:content-[''] after:absolute after:border after:border-midnightBlue after:w-16 md:after:w-24
-                        after:top-20 after:-translate-y-1/2 after:left-[23%] md:after:left-[38%] after:-translate-x-full">{"AccessCollect en chiffre"}</h1>
+      < section className="text-midnightBlue pb-20 max-w-[1200px] md:mx-auto lg:mt-10" >
+        <div className="flex justify-center">
+          <h1 className="relative text-center text-2xl text-brightOrange font-section pt-8 md:pt-0 md:text-4xl">
+            <span className="before:absolute before:content-[''] before:border before:border-midnightBlue before:w-24 before:bottom-0">{"Access"}</span>
+            {"Collect en chiffre"}
+          </h1>
+          <div className="block -mt-4 md:hidden">
+            <Spark color="text-midnightBlue" width={50} height={50} reverseH={true} />
+          </div>
+          <div className="hidden md:block md:-mt-20">
+            <Spark color="text-midnightBlue" width={85} height={85} reverseH={true} />
           </div>
         </div>
-        <div className="mx-6 md:mx-24 lg:mx-96">
-          <div className="flex justify-around mt-10">
+        <div className="">
+          <div className="flex justify-between mt-10 mx-4 md:mx-0 ">
             <div className="flex flex-col items-center w-1/2">
               <Image
                 src="/poubelle.svg"
@@ -383,19 +389,20 @@ export default function Home() {
       {/* section ils nous ont fait confiance*/}
 
       < section className="text-midnightBlue pb-20 bg-transparentOliveGreen" >
-        <div className="md:mx-24 lg:mx-48">
+        <div className="max-w-screen-xl mx-auto">
           <div className="flex">
-            <div className="-mt-4 ml-6">
-              <Spark color="text-lightOrange" width={60} height={60} />
+            <div className="block -mt-4 ml-2 md:hidden">
+              <Spark color="text-lightOrange" width={50} height={50} />
+            </div>
+            <div className="hidden md:block -mt-12">
+              <Spark color="text-lightOrange" width={85} height={85} />
             </div>
             <h1 className="relative text-2xl font-section  mt-8 md:text-4xl">
               {"Ils nous ont fait "}
-              <span className="text-brightOrange relative inline-block">{" confiance"}
-                <span className="absolute bottom-0 right-0 w-24 border border-oliveGreen transform translate-x-[10%]"></span>
+              <span className=" relative text-brightOrange inline-block after:absolute after:content-[''] after:border after:border-oliveGreen after:w-24 after:right-0 after:bottom-0">{"confiance"}
               </span>
             </h1>
           </div>
-
         </div>
       </section >
 
