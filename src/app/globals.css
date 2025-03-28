@@ -55,3 +55,26 @@ body {
     font-family: "openDyslexic";
   }
 }
+
+.slick-prev {
+  left: -45px !important;
+}
+
+.slick-next:before,
+.slick-prev:before {
+  font-size: 40px !important;
+  color: #7F9F80 !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 600px) {
+
+  .slick-next,
+  .slick-prev {
+    display: none !important;
+  }
+}
+
+.slick-dots li button:before {
+  color: #7F9F80 !important;
+}

@@ -4,6 +4,8 @@ import LogButton from "../components/button/logButton";
 import LoginCollectButton from "./_components/LoginCollectButton";
 import Arrow from "../components/arrow";
 import Spark from "../components/spark";
+import SliderTrustHome from "./_components/slider/sliderTrust/Slider";
+
 
 export const metadata: Metadata = {
   title: "Access Collect",
@@ -402,6 +404,9 @@ export default function Home() {
               <span className=" relative text-brightOrange inline-block after:absolute after:content-[''] after:border after:border-oliveGreen after:w-24 after:right-0 after:bottom-0">{"confiance"}
               </span>
             </h1>
+          </div>
+          <div className="mt-14 md:mt-28">
+            <SliderTrustHome />
           </div>
         </div>
       </section >
