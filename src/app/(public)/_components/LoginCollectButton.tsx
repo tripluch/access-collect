@@ -5,23 +5,25 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function LoginCollectButton() {
-    const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
 
-    return (
-        <>
-            <div className="block mt-10 flex justify-center md:hidden">
-                <div className="flex mx-6 items-center gap-5">
-                    <p className="text-midnightBlue text-center text-sm">{'Vous êtes collecteur ?'}</p>
-                    <Link
-                        href="/login"
-                        onClick={handleClick}
-                        className="flex justify-center mt-1"
-                    >
-                        <LogButton label="SE CONNECTER" />
-                    </Link>
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="block mt-10 flex justify-center md:hidden">
+        <div className="flex mx-6 items-center gap-5">
+          <p className="text-midnightBlue text-center text-sm">
+            {"Vous êtes collecteur ?"}
+          </p>
+          <Link
+            href="/login"
+            onClick={handleClick}
+            className="flex justify-center mt-1"
+          >
+            <LogButton label="SE CONNECTER" />
+          </Link>
+        </div>
+      </div>
+    </>
+  );
 }
