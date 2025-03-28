@@ -33,9 +33,9 @@ const forgottenPasswordPage = () => {
         </div>
         <div>
           <div className="w-[300px] h-[300px] md:w-[450px] md:h-[300px] shadow-md shadow-lightOliveGreen rounded-lg flex flex-col justify-center items-center gap-4">
-            <h1 className="text-brightOrange uppercase">
+            <h2 className="text-brightOrange uppercase">
               {"Mot de passe oublié ?"}
-            </h1>
+            </h2>
             <p className="text-midnightBlue text-center mx-2">
               {
                 "Pas de panique ! Remplissez le formulaire ci-dessous et nous vous enverrons par mail les informations pour créer un nouveau mot de passe."

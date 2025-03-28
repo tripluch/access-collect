@@ -58,7 +58,7 @@ const ResetPasswordPage = () => {
 
         <div className="w-[300px] h-[300px] md:w-[450px] md:h-[350px] shadow-md shadow-lightOliveGreen rounded-lg flex flex-col justify-center items-center gap-4">
           <h1 className="text-brightOrange uppercase">
-            {"réinitialisez votre mot de passe"}
+            {"Réinitialisez votre mot de passe"}
           </h1>
           <form
             action={handleSubmitNewPassword}

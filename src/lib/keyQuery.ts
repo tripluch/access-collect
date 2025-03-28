@@ -34,8 +34,8 @@ export const deleteKey = async (userKey: string) => {
     .delete(key)
     .where(eq(key.id, userKey))
     .returning({ deletedId: key.id });
-  if (!deletedKey) {
-    return { error: "Key not deleted" };
+  if (!deletedKey || deletedKey[0].deletedId !== userKey) {
+    return { error: "Key not found" };
   }
   return { result: "Key deleted" };
 };
