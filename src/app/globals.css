@@ -68,6 +68,7 @@ body {
 }
 
 @media (max-width: 600px) {
+
   .slick-next,
   .slick-prev {
     display: none !important;
@@ -76,4 +77,49 @@ body {
 
 .slick-dots li button:before {
   color: #7f9f80 !important;
+}
+
+.c-btn {
+  cursor: pointer;
+  position: relative;
+  border-radius: 10px;
+  display: inline-block;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+}
+
+.c-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.c-btn:before {
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateY(100%);
+  transition: transform .3s cubic-bezier(.76, 0, .24, 1);
+  width: 100%;
+  will-change: transform;
+}
+
+.c-btn:hover:before {
+  transform: translateY(0);
+}
+
+.c-btn--orange {
+  background: #FFC374;
+  border-color: #FFC374;
+}
+
+.c-btn--orange:before {
+  background: #FFA632;
+  border-color: #FFA632;
 }

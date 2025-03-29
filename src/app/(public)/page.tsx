@@ -38,9 +38,9 @@ export default function Home() {
               </p>
             </div>
             <div className="hidden md:block md:mt-16">
-              <a href="/contact">
-                <LogButton label={"Demander une démo"} />
-              </a>
+
+              <LogButton label={"Demander une démo"} route="/contact" padding={5} />
+
             </div>
             <div className="bg-transparentImperialYellow md:bg-transparent">
               <div className="bg-oliveGreen relative md:hidden">
@@ -58,7 +58,8 @@ export default function Home() {
                 }
               </p>
               <div className="block flex mt-10 pb-10 justify-center md:hidden">
-                <LogButton label={"Demander une démo"} />
+                <LogButton label={"Demander une démo"} route="/contact" padding={5} />
+
               </div>
             </div>
           </div>
@@ -536,9 +537,9 @@ export default function Home() {
               }
             </p>
             <div className="mt-0">
-              <a href="/contact">
-                <LogButton label={"NOUS CONTACTER"} />
-              </a>
+
+              <LogButton label={"NOUS CONTACTER"} route="/contact" padding={5} />
+
             </div>
           </div>
         </div>
