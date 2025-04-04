@@ -63,7 +63,7 @@ export default function Home() {
                 <LogButton
                   label={"Demander une démo"}
                   route="/contact"
-                  padding={5}
+                  padding={2}
                 />
               </div>
             </div>

@@ -49,7 +49,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <LogButton label="SE CONNECTER" route="/login" padding={1} />
+            <LogButton label={"SE CONNECTER"} route="/login" padding={1} />
           </li>
         </ul>
       </div>
@@ -81,7 +81,7 @@ const Navbar = () => {
           Contact
         </Link>
         <li>
-          <LogButton label="SE CONNECTER" route="/login" padding={2} />
+          <LogButton label={"SE CONNECTER"} route="/login" padding={2} />
         </li>
       </div>
       <div>{click && content}</div>

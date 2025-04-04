@@ -1,13 +1,6 @@
-"use client";
-
 import LogButton from "@/app/components/button/logButton";
-import Link from "next/link";
-import { useState } from "react";
 
 export default function LoginCollectButton() {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-
   return (
     <>
       <div className="block mt-10 flex justify-center md:hidden">
@@ -15,13 +8,9 @@ export default function LoginCollectButton() {
           <p className="text-midnightBlue text-center text-sm">
             {"Vous êtes collecteur ?"}
           </p>
-          <Link
-            href="/login"
-            onClick={handleClick}
-            className="flex justify-center mt-1"
-          >
-            <LogButton label="SE CONNECTER" />
-          </Link>
+          <div className="flex justify-center mt-1">
+            <LogButton label={"SE CONNECTER"} route="/login" padding={2} />
+          </div>
         </div>
       </div>
     </>

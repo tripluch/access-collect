@@ -3,6 +3,7 @@
 import React from "react";
 import Slider from "react-slick";
 import dataSliderTrust from "./dataSliderTrust";
+import Image from "next/image";
 
 function SliderTrustHome() {
   const settings = {
@@ -60,10 +61,17 @@ function SliderTrustHome() {
         <Slider {...settings}>
           {dataSliderTrust.map((data) => (
             <div key={data.id} className="slide px-10">
-              <a href={data.url} target="_blank" rel="noopener noreferrer">
-                <img
+              <a href={data.url} target="_blank">
+                {/* <img
                   src={data.image}
                   alt={data.alt}
+                  className="w-[250px] h-[150px] md:w-[450px] md:h-[250px] object-contain rounded-lg mx-auto"
+                /> */}
+                <Image
+                  src={data.image}
+                  alt={data.alt}
+                  width={250}
+                  height={150}
                   className="w-[250px] h-[150px] md:w-[450px] md:h-[250px] object-contain rounded-lg mx-auto"
                 />
               </a>
