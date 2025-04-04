@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import LogButton from "../components/button/logButton";
 import LoginCollectButton from "./_components/LoginCollectButton";
-import Arrow from "../components/arrow";
+import Arrow from "../components/Arrow";
 import Spark from "../components/spark";
 import SliderTrustHome from "./_components/slider/sliderTrust/Slider";
 
@@ -38,9 +38,11 @@ export default function Home() {
               </p>
             </div>
             <div className="hidden md:block md:mt-16">
-
-              <LogButton label={"Demander une démo"} route="/contact" padding={5} />
-
+              <LogButton
+                label={"Demander une démo"}
+                route="/contact"
+                padding={5}
+              />
             </div>
             <div className="bg-transparentImperialYellow md:bg-transparent">
               <div className="bg-oliveGreen relative md:hidden">
@@ -58,8 +60,11 @@ export default function Home() {
                 }
               </p>
               <div className="block flex mt-10 pb-10 justify-center md:hidden">
-                <LogButton label={"Demander une démo"} route="/contact" padding={5} />
-
+                <LogButton
+                  label={"Demander une démo"}
+                  route="/contact"
+                  padding={5}
+                />
               </div>
             </div>
           </div>
@@ -537,9 +542,11 @@ export default function Home() {
               }
             </p>
             <div className="mt-0">
-
-              <LogButton label={"NOUS CONTACTER"} route="/contact" padding={5} />
-
+              <LogButton
+                label={"NOUS CONTACTER"}
+                route="/contact"
+                padding={5}
+              />
             </div>
           </div>
         </div>

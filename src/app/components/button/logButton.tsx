@@ -1,5 +1,12 @@
-const logButton = ({ label, route, padding }: { label: string, route: string, padding: number }) => {
-
+const logButton = ({
+  label,
+  route,
+  padding,
+}: {
+  label: string;
+  route: string;
+  padding: number;
+}) => {
   const paddingClasses: Record<number, string> = {
     1: "px-1 py-1",
     2: "px-2 py-2",
@@ -13,9 +20,10 @@ const logButton = ({ label, route, padding }: { label: string, route: string, pa
       <a
         href={route}
         className={`c-btn c-btn--orange w-84 font-title text-normal ${paddingClasses[padding] || "px-4 py-4"} md:text-3xl`}
-        aria-label={`Cliquer sur le bouton ${label}`} >
+        aria-label={`Cliquer sur le bouton ${label}`}
+      >
         <span>{label}</span>
-      </a >
+      </a>
     </>
   );
 };
