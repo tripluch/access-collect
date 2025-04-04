@@ -1,9 +1,9 @@
 "use client";
 import CancelButton from "@/app/components/button/cancelButton";
 import OrangeButton from "@/app/components/button/orangeButton";
-import { InputForm } from "@/app/components/InputForm";
-import { InputFormRequired } from "@/app/components/InputFormRequired";
-import { InputPassword } from "@/app/components/InputPassword";
+import { InputForm } from "@/app/components/inputs/InputForm";
+import { InputFormRequired } from "@/app/components/inputs/InputFormRequired";
+import { InputPassword } from "@/app/components/inputs/InputPassword";
 import { Organisation } from "@/lib/schema/organisation";
 import { addUser } from "@/lib/userQuery";
 import { useState } from "react";
